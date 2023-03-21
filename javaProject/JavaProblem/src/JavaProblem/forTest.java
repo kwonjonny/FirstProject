@@ -145,8 +145,17 @@ public class forTest {
 		
 	// 13: 구구단 3단을 출력하는 for문을 작성하세요.	
 		for(int i=1; i<=9; i++) {
-			System.out.print(3*i+" ");
+			System.out.print(3*i+" ");		
 		}
 		
+	// 14: 1부터 100까지의 숫자 중 3의 배수의 합을 구하는 for문을 작성하세요.	
+		int d=0;
+		for(int i=1; i<100; i++) {
+			if(i%3==0) {
+				sum = sum +i;
+			}
+		} System.out.print(sum+" ");
+		
+		System.out.println();	
 	}
 }
