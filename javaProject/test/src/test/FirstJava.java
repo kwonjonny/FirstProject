@@ -84,6 +84,8 @@ public class FirstJava {
 	static void hello2(String name) {
 		System.out.println(name);
 		System.out.println("안녕하세요2.");
+		
+		
 	}
 
 
