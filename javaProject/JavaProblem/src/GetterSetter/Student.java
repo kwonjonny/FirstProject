@@ -23,6 +23,7 @@ public class Student {
 	private int age;
 	private int studentId;
 	private String department;
+	// 변수 정의 에서는 다른 클래스에서의 호출을 막기위해 접근제어자 private를 쓴다
 	
 	// 생성자 정의
 	public Student(String name, int age, int studentId, String department) {
@@ -31,8 +32,12 @@ public class Student {
 		this.studentId = studentId;
 		this.department = department;
 	}
+	// 생성자 정의 에서는 매개변수 name, age, studentId, department를 생성하고
+	// 매개변수를 인스턴스변수로 바꿔줄수있는 this.name = name; 을 써서 인스턴스 변수로 변환해준다
 	
 	// Getter Setter 정의
+	// Getter는 Student 매개변수에서 인스턴스로 변환된 변수 접근
+	// Setter는 Student 매개변수에서 인스턴스로 변환된 변수에 값을 설정하기위해 접근 
 	
 	//get
 	public String getName() {
@@ -64,7 +69,6 @@ public class Student {
 	}
 	
 	
-	
 	//get
 	public String getDepartment() {
 		return department;
@@ -74,6 +78,7 @@ public class Student {
 		this.department = department;
 	}
 	
+	// 출력메소드
 	public void print() {
 		System.out.println(name);
 		System.out.println(age);
@@ -84,8 +89,19 @@ public class Student {
 }
 
 class school {
+	// 호출
 	public static void main(String [] args) {
-		Student student = new Student ("권성준", 26, 20170483, "경제학과");
+		Student student = new Student("권성준", 26, 20170483, "경제학과");
 		student.print();
 	}
 }
+	// 소문자 student는 대문자 Student 위쪽 클래스의 인스턴스를 사용하기 위한 변수 이름
+	// 이 변수를 통해 인스턴스의 호출 가능
+
+	// new Student("권성준", 26, 20170483, "경제학과");는
+	// Student 클래스의 생성자를 호출하여 Person클래스의 인스턴스를 생성
+	// 인스턴스 변수 name, age, studentID, department의 값을 초기화하고 있다
+	// 즉 생성자의 매개변수로 전달된 값들이 setName, setAge, setStudentId, setDepartment
+	// 메서드를 호출하여 각각의 인스턴스 변수에 저장된다
+	// 이후 student.print();을 호출하면 인스턴스 변수들의 값이 출력된다
+	       
