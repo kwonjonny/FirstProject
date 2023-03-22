@@ -1,6 +1,6 @@
 package Member;
 
-public class Member {
+public class MemberChap02 {
     // 변수 정의
     String name;
     int age;
@@ -8,7 +8,7 @@ public class Member {
     boolean hasBook;
     
     // 생성자 정의
-    public Member(String name, int age, double height, boolean hasBook) {
+    public MemberChap02(String name, int age, double height, boolean hasBook) {
         this.name = name;
         this.age = age;
         this.height = height;
@@ -28,7 +28,7 @@ public class Member {
     // main 메소드 정의
     public static void main(String[] args) {
         // Member 객체 생성 및 변수 초기화
-        Member member = new Member("홍길동", 20, 175.0, true);
+        MemberChap02 member = new MemberChap02("홍길동", 20, 175.0, true);
         
         // 출력 메소드 호출
         member.printInfo();
