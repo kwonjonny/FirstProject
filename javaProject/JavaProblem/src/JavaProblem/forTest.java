@@ -4,7 +4,7 @@ public class forTest {
 
 	public static void main(String[] args) {
 		
-	// chatGPT가 내준 for문 문제 100제 도전
+		// chatGPT가 내준 명령어 for문 문제 100제 도전
 		
 		// 1: 1부터 10까지의 숫자를 출력하는 for문을 작성하세요.
 
