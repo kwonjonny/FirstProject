@@ -161,7 +161,7 @@ public class forTest {
 			System.out.print(3*i+" ");		
 		}
 		
-<<<<<<< HEAD
+
 		System.out.println();
 		
 	// 14: 1부터 100까지의 숫자 중 3의 배수의 합을 구하는 for문을 작성하세요.
@@ -224,17 +224,9 @@ public class forTest {
 		}
 	// 21: 1부터 10까지의 숫자를 입력받아 해당 숫자의 팩토리얼을 출력하는 for문을 작성하세요.
 		
-=======
-	// 14: 1부터 100까지의 숫자 중 3의 배수의 합을 구하는 for문을 작성하세요.	
-		int d=0;
-		for(int i=1; i<100; i++) {
-			if(i%3==0) {
-				sum = sum +i;
-			}
-		} System.out.print(sum+" ");
-		
-		System.out.println();	
->>>>>>> 40002d271a52fb2a2d8d5ee5d780d0282784c20a
+
+	
+
 	}
 
 	
