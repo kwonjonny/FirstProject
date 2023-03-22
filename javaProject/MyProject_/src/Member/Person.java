@@ -70,7 +70,7 @@ public class Person {
 		// print의 메소드안에는 get의 인스턴수 변수를 호출중이고 
 		// 출력시 가독성을 높이기 위해 "Name: " , "Phone number: " , "Resident number: " 을 사용
 
-	class Name { // 클래스의 앞에 public이 안 붙는 이유는 public은 한 파일 내에서만 작성하는것이 정석
+class Name { 	 // 클래스의 앞에 public이 안 붙는 이유는 public은 한 파일 내에서만 작성하는것이 정석
 				 // 그럼 Name클래스 안에는 main 메소드를 쓰고 
 				 // Person 클래스 안에는 main 메소드가 없는 이유는 
 				 // 클래스에서 실행을 하기 위해선 main메소드가 필요하며 
@@ -84,9 +84,9 @@ public class Person {
     // 이 변수를 통해 인스턴스에 접근하고 메소드 호출 가능
            
     // new Person("권성준", "010-1234-5678", "980626-1234567")은 
-    // Person 클래스의 생성자를 호출하여 Person 클래스의 인스턴스를 생성하면서, 
+    // Person 클래스의 생성자를 호출하여 Person 클래스의 인스턴스를 생성하면서
     // 인스턴스 변수 name, phoneNumber, residentNumber의 값을 초기화하고 있다
-    // 즉, 생성자의 매개변수로 전달된 값들이 setName, setPhoneNumber, setResidentNumber 
+    // 즉 생성자의 매개변수로 전달된 값들이 setName, setPhoneNumber, setResidentNumber 
     // 메서드를 호출하여 각각의 인스턴스 변수에 저장된다
     // 이후 person.print()를 호출하면 인스턴스 변수들의 값이 출력된다
 	
