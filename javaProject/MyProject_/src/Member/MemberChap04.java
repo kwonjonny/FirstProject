@@ -124,18 +124,18 @@ public class MemberChap04 {
         }
 	}
 	
-	// 실행을 하는 메인메소드 생성 같은 클래스 내에서도 호출할수있지만 
-	// 웹 프로그램에서는 같은 클래스 내에서 호출하는 경우는 드물다
-	// 다른 클래스를 생성해서 호출해본다.
-class call {
+				// 실행을 하는 메인메소드 생성 같은 클래스 내에서도 호출할수있지만 
+				// 웹 프로그램에서는 같은 클래스 내에서 호출하는 경우는 드물다
+				// 다른 클래스를 생성해서 호출해본다.
+class call {	// 한 클래스 내에 public class는 하나만 달아준다
 	public static void main(String [] args) {
-		MemberChap04 call1 = new MemberChap04("홍길동", "010-1234-5678", "컴퓨터공학", 3, "hong123@gmail.com", 
+		MemberChap04 call1 = new MemberChap04("권성준", "010-1234-5678", "경제학과", 3, "kwon123@gmail.com", 
 				"19980626", "서울시 강남구");
 			call1.print();	
 			
 			System.out.println(); //줄바꿈 해준다
 			
-		MemberChap04 call2 = new MemberChap04("홍길동", "010-1234-5678", "컴퓨터공학", 3, "hong123@gmail.com");
+		MemberChap04 call2 = new MemberChap04("김무무", "010-1234-5678", "사회학과", 3, "kim123@gmail.com");
 			call2.print();		
 		}
 	}	
