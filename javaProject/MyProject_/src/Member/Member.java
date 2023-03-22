@@ -13,6 +13,8 @@ public class Member {
         this.age = age;
         this.height = height;
         this.hasBook = hasBook;
+        // 매개변수 public Member(String name, int age, double height, boolean hasBook) -> name, age, height, hasBook
+        //
     }
     
     // 출력 메소드 정의
@@ -30,5 +32,6 @@ public class Member {
         
         // 출력 메소드 호출
         member.printInfo();
+  
     }
 }
