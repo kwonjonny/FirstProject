@@ -1,6 +1,6 @@
 package Member;
 
-public class Calculator {
+public class CalculatorChap01 {
 
 	
 		// Calculator 클래스를 정의해 봅시다.
