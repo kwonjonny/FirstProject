@@ -49,7 +49,7 @@ public class Person02 {
     public int getAge() {
     	return age;
     }
-    public void setAge() {
+    public void setAge(int i) {
     	this.age = age;
     }
     
@@ -78,6 +78,7 @@ class Male extends Person02{
         System.out.println("안녕하세요. 저는 " + getName() + "입니다. " + getAge() + "살이고, "
                 + (militaryService ? "군필입니다." : "미필입니다."));
     }
+	// 투스트링
 
     
 	// 자식 클래스
@@ -121,7 +122,22 @@ class Female extends Person02 {
     }
 }
 
+class main {
+	public static void main(String [] args) {
+		Male male = new Male("홍길동", "123456-1234567", 25, true);
+        Female female = new Female("김영희", "123456-2345678", 23, false);
 
+        male.hello();	// "안녕하세요. 저는 홍길동입니다. 25살이고, 군필입니다." 출력
+        female.hello();	// "안녕하세요. 저는 김영희입니다. 23살이고, 미혼입니다." 출력
+
+        male.setMilitaryService(false);	// setter를 이용해 군필 여부 변경
+        female.setAge(24);	// setter를 이용해 나이 변경
+
+        male.hello();	// "안녕하세요. 저는 홍길동입니다. 25살이고, 미필입니다." 출력
+        female.hello();	// "안녕하세요. 저는 김영희입니다. 24살이고, 미혼입니다." 출력
+    
+	}
+}
 
 // 이 코드를 보면 굳이 부모클래스에서의 hello() 메소드를 만들지 않고 자식 클래스에서 따로 만들어 출력할수있다
 // 하지만 문제에선 오버라이딩을 쓰라고 했으므로 부모클래스에서 hello()메소드를 만들고 자식클래스에선 
@@ -137,9 +153,6 @@ class Female extends Person02 {
 // 이 메서드를 부모 클래스에서 정의하고
 // 각 페이지에서는 이 메서드를 오버라이딩하여 필요한 기능을 구현할 수 있다
 // 코드의 중복을 방지하고 유지보수성을 높일 수 있다
-
-
-
 
 
 
