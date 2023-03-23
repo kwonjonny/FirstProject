@@ -1,5 +1,6 @@
 package Member;
 
+//객체지향_인스턴스와 클래스
 
 //Member 클래스에는 아래 요구사항에 맞는 변수와 메소드를 정의하고, main()메소드 에 해당 메소드를 호출해서 결과를 확인해보세요.
 //단 인스턴스의 생성은 생성자를 이용해서 초기화하는 코드를 작성해 봅시다.
@@ -99,7 +100,7 @@ public class MemberChap04 {
 	public String getAddress() { // 인스턴스 변수 address 에 접근
 		return address;
 	}
-	public void setAddress() { 	// 인스턴스 변수 address
+	public void setAddress() { 	// 인스턴스 변수 address의 설정
 		this.address=address;
 	}
 	

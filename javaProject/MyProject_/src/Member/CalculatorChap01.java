@@ -1,7 +1,7 @@
 package Member;
 
 public class CalculatorChap01 {
-
+		// 객체지향 언어인 JAVA 
 	
 		// Calculator 클래스를 정의해 봅시다.
 		
