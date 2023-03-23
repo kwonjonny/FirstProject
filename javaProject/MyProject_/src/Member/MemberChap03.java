@@ -26,7 +26,8 @@ public class MemberChap03 {
 	
 	
 	
-	// 생성자 정의 매개변수 String name, int birthYear을
+	// 생성자 정의 
+	// 매개변수 String name, int birthYear을
 	// 인스턴스 변수로의 변환 this를 사용
 	public MemberChap03(String name, int birhtYear) {
 		this.name = name;
@@ -35,7 +36,7 @@ public class MemberChap03 {
 	
 	
 	
-	// Getter Setter 사용
+	// Getter Setter 사용 캡슐화
 	// get
 	public String getName() {
 		return name;
@@ -44,9 +45,6 @@ public class MemberChap03 {
 	public void setName() {
 		this.name=name;
 	}
-	// name의 get과 set을 활용한 인스턴수 변수는 이 코드에서
-	// 호출되지 않지만 추후에 추가로 정보를 수정할때에 호출할수있으므로
-	// get과 set을 미리 생성
 	
 	
 	
