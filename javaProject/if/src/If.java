@@ -8,9 +8,6 @@ public class If {
      System.out.println(num);
      } }
        
-	
-	
-	
 class if2 {
 	public static void main(String[] args) {
 	//문제2.
@@ -100,10 +97,13 @@ class if6{
 	public static void main(String[] args) {
 	//문제 6.
 	//while 문을 이용해서 1부터 99까지의 합을 구하는 프로그램을 작성.
-		
-		
-		
-		
+		int num = 1;
+		int sum = 0;
+		while(num <= 99) {
+			sum = sum +num;
+			num++;
+		}
+		System.out.println(sum);
 	}
 }
 		
@@ -115,12 +115,25 @@ class if7 {
 
 class if8 {
 	public static void main(String[] args) {
+		int num = 1;
+		int sum = 0;
 		
+		while(num <= 1000) {
+			if(num%2==0 && num%7==0) {
+				System.out.println(num); // 2와7의배수 14
+				sum = sum + num; // 0 = 0 + 14
+								 // 14 = 14 + 28
+								 // 28 = 28 + 42
+			}
+			num++;
+		}
+		System.out.println(sum);
 	}
 }
 
 class if9 {
 public static void main(String[] args) {
+	//for 문을 이용하여 1부터 10까지를 곱해서 그 결과를 출력하는 프로그램을 작성
 	int result = 1;
 	for(int i=1; i<10; i++) {
 		result = result +i;
@@ -130,18 +143,117 @@ public static void main(String[] args) {
 }
 
 class if10 {
-	
 public static void main(String[] args) {
+	for (int i = 1; i <= 9; i++) {
+	    System.out.println( i  + (5 * i));
+	}
+}
+}
+
+class if11 {
+	public static void main(String[] args) {
+		//ContinueBasic.java의 내부에 존재하는 while 문을 for 문으로 변경하여 작성
+		int count = 0;
+		for(int num=1; num<=100; num++) {
+			if(num !=0 || num % 7 != 0) {
+				continue;
+			}
+			count++;
+			System.out.println(num);
+		}
+		System.out.println(count);
+	}
+}
+
+class if12{
+	public static void main(String [] args) {
 		
 	}
 }
 
+class if13{
+	public static void main(String [] args) {
+		for(int i=2; i<=8; i=i*2) { // 2, 4, 8 단을 위한 반복문
+			for(int j=1; j<=i; j++) { // 각 단의 곱을 위한 반복문
+			if(j > i) break; // 조건에 맞지 않으면 반복문을 빠져나감
+			if(i==2 && j==3) break; // 2단의 경우 2x3까지만 출력하고 빠져나감
+			System.out.println(i + " x " + j + " = " + (i*j)); // 구구단 출력
+			}
+			}
+	}
+}
 
+class if14{
+	public static void main(String [] args) {
+		
+	}
+}
 
+class if15 {
+	public static void main(String [] args) {
+		int n=3;
+		if(n==1) {
+			System.out.println("1명");
+		} else if(n==2) {
+			System.out.println("2명");
+		} else if(n==3) {
+			System.out.println("3명");
+		} else {
+			System.out.println("현재 많은 사람들이 있습니다.");
+		}
+	}
+}
 
+class swtich15 {
+	public static void main(String [] args) {
+		int n=3;
+		switch(n) {
+		case 1: 
+			System.out.println("1명");
+		
+		case 2: 
+			System.out.println("2명");
+		
+		case 3: 
+			System.out.println("3명");
+		
+		default : 
+			System.out.println("현재 많은 사람들이 있습니다.");
+		
+		}
+	}
+}
 
+class while16{
+	public static void main(String [] args) {
+		int sum = 0;
+		int num = 1;
+		while (num <= 99) {
+			sum = sum + num;
+			num++;
+		}
+		System.out.println(sum);
+	}
+}
 
+class for16{
+	public static void main(String [] args) {
+		int sum = 0;
+		for (int i = 1; i <= 99; i++) {
+		    sum = sum + i;
+		}
+		System.out.println(sum);
+	}
+}
 
-
-
-
+class doWhile16{
+	public static void main(String [] args) {
+		int sum = 0;
+		int num = 1;
+		do {
+		    sum += num;
+		    num++;
+		} while (num <= 99);
+		System.out.println(sum);
+	}
+}
