@@ -7,7 +7,7 @@ package Member;
 public class Person {
 	
 		// 변수 정의
-	 	private String name;
+	    private String name;
 	    private String phoneNumber;
 	    private String residentNumber;
 	    // 접근제어자 private
@@ -26,13 +26,7 @@ public class Person {
         // 인스턴수 변수 this.name = "name"에 대입하기 위해 this의 키워드 사용
 	    // 즉 매개변수 String "name" 을 인스턴수 변수 this."name" 으로 변환시켜 get&set에서 쓰려고 하는 것
 
-	    public String getName() {
-	        return name;
-	    }
-
-	    public void setName(String name) {
-	        this.name = name;
-	    }
+	   
 	    // 인스턴스 변수로의 접근을 위해 get set 이라는 메소드를 쓴다 
 	    // 예를 들어, Person 클래스의 인스턴스 변수인 name에 접근하고 싶다면, getName() 메서드를 사용하여 해당 변수의 값을 반환하고
 	    // setName() 메서드를 사용하여 변수에 값을 설정할 수 있다
@@ -40,23 +34,8 @@ public class Person {
 	    // getName 메소드를 호출하여 인스턴수변수 name접근
 	    // setName 메소드를 호출하여 변수에 값을 설정
 	    
-	    public String getPhoneNumber() {
-	        return phoneNumber;
-	    }
-
-	    public void setPhoneNumber(String phoneNumber) {
-	        this.phoneNumber = phoneNumber;
-	    }
-	    // getPhoneNumber 메소드를 호출하여 인스턴수변수 phoneNumber접근
-	    // setPhoneNumber 메소드를 호출하여 변수에 값을 설정
+	   
 	    
-	    public String getResidentNumber() {
-	        return residentNumber;
-	    }
-
-	    public void setResidentNumber(String residentNumber) {
-	        this.residentNumber = residentNumber;
-	    }
 	    // getResidentNumber 메소드를 호출하여 인스턴스 변수 residentNumber접근
 	    // setResidentNumber 메소드를 호출하여 변수에 값을 설정
 	    
@@ -78,8 +57,10 @@ class Name { 	 // 클래스의 앞에 public이 안 붙는 이유는 public은 �
     public static void main(String[] args) {
         Person person = new Person("권성준", "010-1234-5678", "980626-1234567");
         person.print();
+       
     }
 }
+
 	// 소문자 person은 대문자 Person (위쪽)클래스의 인스턴스를 사용하기 위한 변수 이름
     // 이 변수를 통해 인스턴스에 접근하고 메소드 호출 가능
            

@@ -17,11 +17,11 @@ package Member;
 // Person 클래스를 상속받은 Male클래스와 Female클래스를 이용해서 인스턴스를 생성해 봅시다.
 // 생성된 인스턴스들을 이용해서 메소드를 호출해봅시다.
 
-
 public class Person02 {
     private String name;
     private String idNum;
     private int age;
+	
 
     // 생성자 정의
     public Person02(String name, String idNum, int age) {
@@ -29,7 +29,8 @@ public class Person02 {
         this.idNum = idNum;
         this.age = age;
     }
-
+    
+    //Getter 와 Setter생성
     public String getName() {
     	return name;
     }
@@ -49,7 +50,7 @@ public class Person02 {
     public int getAge() {
     	return age;
     }
-    public void setAge(int i) {
+    public void setAge() {
     	this.age = age;
     }
     
@@ -78,7 +79,7 @@ class Male extends Person02{
         System.out.println("안녕하세요. 저는 " + getName() + "입니다. " + getAge() + "살이고, "
                 + (militaryService ? "군필입니다." : "미필입니다."));
     }
-	// 투스트링
+	
 
     
 	// 자식 클래스
@@ -131,7 +132,7 @@ class main {
         female.hello();	// "안녕하세요. 저는 김영희입니다. 23살이고, 미혼입니다." 출력
 
         male.setMilitaryService(false);	// setter를 이용해 군필 여부 변경
-        female.setAge(24);	// setter를 이용해 나이 변경
+        female.setAge();	// setter를 이용해 나이 변경
 
         male.hello();	// "안녕하세요. 저는 홍길동입니다. 25살이고, 미필입니다." 출력
         female.hello();	// "안녕하세요. 저는 김영희입니다. 24살이고, 미혼입니다." 출력
@@ -154,6 +155,10 @@ class main {
 // 각 페이지에서는 이 메서드를 오버라이딩하여 필요한 기능을 구현할 수 있다
 // 코드의 중복을 방지하고 유지보수성을 높일 수 있다
 
+
+
+// 다음에 공부해볼것은 ? 
+// Object최상위클래스 equals(), hashCode(), toString(), getClass()
 
 
 
