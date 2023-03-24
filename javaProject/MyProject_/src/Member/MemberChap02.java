@@ -11,10 +11,7 @@ package Member;
 
 public class MemberChap02 { // MemberChap02 에서는 직접 실행하지 않으므로 main메소드를 쓰지 않음
 
-    // 변수 정의
-	// 이 변수의 정의에 private 접근 제어자를 넣지 않는 이유는 
-	// 생성자 정의 후 getter에서 인스턴스변수 접근과
-	// setter에서 인스턴스변수의 값을 설정하지 않기 때문
+    // 인스턴스변수 정의
     String name;
     int age;
     double height;
@@ -26,8 +23,7 @@ public class MemberChap02 { // MemberChap02 에서는 직접 실행하지 않으
         this.age = age;
         this.height = height;
         this.hasBook = hasBook;
-        // 매개변수 public Member(String name, int age, double height, boolean hasBook)
-        // this. -> 이용해 인스턴수 변수 -> name, age, height, hasBook -> this.name의 인스턴수 변수로 변환 
+        // 매개변수의 초기화 값을 인스턴스변수에 전달 
        
     }
     
@@ -42,7 +38,7 @@ public class MemberChap02 { // MemberChap02 에서는 직접 실행하지 않으
     // main 메소드 정의
     public static void main(String[] args) {
         // Member 객체 생성 및 변수 초기화
-        MemberChap02 member = new MemberChap02("홍길동", 20, 175.0, true);
+        MemberChap02 member = new MemberChap02("성준", 26, 176.0, false);
         
         // 출력 메소드 호출
         member.printInfo();
