@@ -11,6 +11,7 @@ public class Polymorphism_Abstraction_Inheritance_Encapsulation {
     private String color;
     private int size;
     
+    
     // 생성자 정의
     public Polymorphism_Abstraction_Inheritance_Encapsulation(String type, String color, int size) {
         this.type = type;
@@ -53,6 +54,7 @@ public class Polymorphism_Abstraction_Inheritance_Encapsulation {
 
 
 
+
 // shirt클래스 부모클래스의 상속
 class Shirt extends Polymorphism_Abstraction_Inheritance_Encapsulation {
     public Shirt( String color, int size) {
@@ -60,6 +62,7 @@ class Shirt extends Polymorphism_Abstraction_Inheritance_Encapsulation {
         // super로 인해 type의 변경
     }
 }
+
 
 
 
@@ -88,6 +91,9 @@ class Pants extends Polymorphism_Abstraction_Inheritance_Encapsulation {
         System.out.println("Style: " + style);
     }
 }
+
+
+
 
 class Main {
     public static void main(String[] args) {
