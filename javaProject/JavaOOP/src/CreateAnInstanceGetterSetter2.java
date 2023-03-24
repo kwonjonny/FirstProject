@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 // 문제: BankAccount 클래스를 만들어서 은행 계좌 정보를 저장하고, 입금과 출금 메소드를 구현하세요. 그리고 
 // Main 클래스에서는 사용자로부터 은행 계좌 정보를 입력받아 BankAccount 객체를 생성하고, 
-// 입금과 출금을 수행한 후 최종 잔액을 출력하세요.
+// 입금과 출금을 수행한 후 최종 잔액을 출력하세요!
 
 
 public class CreateAnInstanceGetterSetter2 {

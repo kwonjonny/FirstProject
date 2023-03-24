@@ -1,10 +1,7 @@
 
-
 //Person 클래스를 안에는 name age email이 있고 Main 클래스에서 
 //Person 객체를 생성하고 각 속성에 값을 설정하고 출력하세요 객체의속성을 
-//그대로 출력하고 속성을수정하고  수정된 객체를 출력하세요 
-
-
+//그대로 출력하고 속성을수정하고  수정된 객체를 출력하세욥
 
 public class CreateAnInstanceGetterSetter3 {
 	
@@ -21,6 +18,7 @@ public class CreateAnInstanceGetterSetter3 {
 		this.age=age;
 		this.email=email;
 	}
+	
 	
 	// Getter와 Setter 생성 캡슐화 정보은닉 private의 접근제어자를 다른 클래스에서의 호출 가능하게 해준다 
 	public String getName() {
@@ -46,6 +44,7 @@ public class CreateAnInstanceGetterSetter3 {
 	
 }
 
+
 class Cain {
 	public static void main(String [] args) {
 		
@@ -59,7 +58,7 @@ class Cain {
         // set의 설정을 수정하고 
         // main메소드 안에서의 값 변경
         person.setName("김선제");
-		person.setAge(24);
+		person.setAge(27);
 		person.setEmail("thistrik@naver.com");
 		
 		// 값 변경된 코드 출력 

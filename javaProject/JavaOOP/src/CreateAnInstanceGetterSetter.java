@@ -3,7 +3,7 @@
 //요구사항:Student 클래스에는 이름, 학년, 국어/영어/수학 점수를 저장하는 인스턴스 변수를 선언하세요.
 //Student 클래스에는 Getter와 Setter 메소드를 구현하세요.
 //Main 클래스에서는 사용자로부터 이름, 학년, 국어/영어/수학 점수를 입력받아 Student 객체를 생성하세요.
-//생성된 Student 객체를 이용해 계산한 평균과 총점을 출력하세요.
+//생성된 Student 객체를 이용해 계산한 평균과 총점을 출력하세요!
 
 
 public class CreateAnInstanceGetterSetter {

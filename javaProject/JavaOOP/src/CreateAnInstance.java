@@ -1,7 +1,8 @@
 
 
 //객체 생성과 관련된 문제를 하나 만들어봅시다.
-//문제: 학생 객체를 생성하는  CreateAnInstance클래스 를 작성하세요. 학생 객체는 이름(name)과 나이(age)를 갖습니다.
+//문제: 학생 객체를 생성하는  CreateAnInstance클래스 를 작성하세요. 
+//학생 객체는 이름(name)과 나이(age)를 갖습니다!
 
 public class CreateAnInstance {
 	
