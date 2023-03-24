@@ -5,16 +5,20 @@
 //    - 캡슐화 
 
 public class Polymorphism_Abstraction_Inheritance_Encapsulation {
+	
+	// 인스턴트 변수
     private String type;
     private String color;
     private int size;
-
+    
+    // 생성자 정의
     public Polymorphism_Abstraction_Inheritance_Encapsulation(String type, String color, int size) {
         this.type = type;
         this.color = color;
         this.size = size;
     }
-
+    
+    // Getter Setter
     public String getType() {
         return type;
     }
@@ -38,7 +42,8 @@ public class Polymorphism_Abstraction_Inheritance_Encapsulation {
     public void setSize(int size) {
         this.size = size;
     }
-
+    
+    // 출력문
     public void displayInfo() {
         System.out.println("Type: " + type);
         System.out.println("Color: " + color);
@@ -46,12 +51,19 @@ public class Polymorphism_Abstraction_Inheritance_Encapsulation {
     }
 }
 
+
+
+// shirt클래스 부모클래스의 상속
 class Shirt extends Polymorphism_Abstraction_Inheritance_Encapsulation {
-    public Shirt(String color, int size) {
+    public Shirt( String color, int size) {
         super("Shirt", color, size);
+        // super로 인해 type의 변경
     }
 }
 
+
+
+// pants클래스 부모클래스의 상속
 class Pants extends Polymorphism_Abstraction_Inheritance_Encapsulation {
     private String style;
 
@@ -60,6 +72,7 @@ class Pants extends Polymorphism_Abstraction_Inheritance_Encapsulation {
         this.style = style;
     }
 
+    // Getter Setter
     public String getStyle() {
         return style;
     }
@@ -67,7 +80,8 @@ class Pants extends Polymorphism_Abstraction_Inheritance_Encapsulation {
     public void setStyle(String style) {
         this.style = style;
     }
-
+    
+    // 오버라이딩 부모클래스의 출력문 super함으로써 출력문에 style을 추가 
     @Override
     public void displayInfo() {
         super.displayInfo();
@@ -84,10 +98,10 @@ class Main {
         System.out.println("----------");
         myPants.displayInfo();
 
-        // 업데이트 스타일 출력
-        // 업데이트된 style 출력
+        
         myPants.setStyle("Skinny");
         System.out.println("Pants Style: " + myPants.getStyle());
+        
     }
 }
 
