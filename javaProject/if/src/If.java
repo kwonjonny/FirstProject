@@ -85,6 +85,8 @@ class if5 {
 			case 1:
 				System.out.println("100이상 200미만");
 				break;
+			case 2: 
+				System.out.println("200이상 300미만");
 			default:
 				System.out.println("300이상");
 				break;
