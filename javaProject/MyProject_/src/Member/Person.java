@@ -51,7 +51,9 @@ public class Person {
 
 class Name { 	
     public static void main(String[] args) {
-        Person person = new Person("권성준", "010-1234-5678", "980626-1234567");
+        Person person = new Person("권성준", "010-1234-5678", "980626-1234567"); 
+        //객체생성 person은 "권성준", "010-1234-5678", "980626-1234567" 의 정보를 가지고있다
+        
         // 정보 출력
         System.out.println("회원 이름: " + person.getName());
         System.out.println("전화번호: " + person.getPhoneNumber());
