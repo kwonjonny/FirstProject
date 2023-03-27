@@ -76,9 +76,10 @@ public class CreateAnInstanceGetterSetter {
 		System.out.println("한국어"+student.getKorean());
 		System.out.println("영어"+student.getEnglish());
 		System.out.println("수학"+student.getMath());
+		
 		//생성된 Student 객체를 이용해 계산한 평균과 총점을 출력하세요.
 		int totalScore = student.getKorean() + student.getEnglish() + student.getMath();
-	
+		
 	}
 
 }
