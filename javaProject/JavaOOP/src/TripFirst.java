@@ -103,7 +103,7 @@ class TripSecond extends TripFirst {
 //"여행 정보: 목적지 - 제주도, 기간 - 2023-04-10 ~ 2023-04-15, 예산 - 500000원, 그랜드하야트호텔"
 
 //Trip2 클래스를 구현하고, 메인 메소드에서 Trip2 객체를 생성하고 toString() 
-//메소드를 호출하여 결과를 출력해보세요.
+//메소드를 호출하여 결과를 출력해보세요
 class TripFinal{
 	public static void main(String [] args) {
 		TripFirst trip1 = new TripFirst("제주도", LocalDate.of(2023,04,10),LocalDate.of(2023,04,15),500000);
