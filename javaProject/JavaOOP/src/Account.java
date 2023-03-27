@@ -141,10 +141,11 @@ class SavingAccount extends Account {
         this.interestRate = interestRate;
     }
     
+    // Getter Setter 정의 캡슐화,보수용이,정보은닉
     public double getInterestRate() {
     	return interestRate;
     }
-    public void setInterestRate(double interestRate) {
+    public void setInterestRate() {
     	this.interestRate = interestRate;
     }
 
@@ -184,7 +185,7 @@ class Tain{
 		SavingAccount savingAccount = new SavingAccount("1234-2345-235", "권성준", 20000, 10);
 		System.out.println(savingAccount.toString()); // 잔액 20000원 이자율 10%
 		
-		account.addInterest();
+		savingAccount.addInterest();
 		System.out.println("이자가 추가된 현재 잔액:" + savingAccount.getBalance()); // 21000원
 	}
 }
