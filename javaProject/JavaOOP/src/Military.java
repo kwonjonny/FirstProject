@@ -131,6 +131,7 @@ class Tank extends Military{
 	}
 }
 
+
 class Fire {
 	public static void main(String [] args) {
 		
@@ -145,7 +146,6 @@ class Fire {
 		// 탱크 객체의 생성
 		Tank Corporal = new Tank("권성준", "26", "60KM", "ApShell");
 		System.out.println(Corporal);
-		
 		
 	}
 }
