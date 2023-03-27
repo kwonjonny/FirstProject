@@ -4,7 +4,7 @@
 //    - 다형성
 //    - 캡슐화 
 
-public class Polymorphism_Abstraction_Inheritance_Encapsulation {
+public class Polymorphism {
 	
 	// 인스턴트 변수
     private String type;
@@ -13,7 +13,7 @@ public class Polymorphism_Abstraction_Inheritance_Encapsulation {
     
     
     // 생성자 정의
-    public Polymorphism_Abstraction_Inheritance_Encapsulation(String type, String color, int size) {
+    public Polymorphism(String type, String color, int size) {
         this.type = type;
         this.color = color;
         this.size = size;
@@ -56,7 +56,7 @@ public class Polymorphism_Abstraction_Inheritance_Encapsulation {
 
 
 // shirt클래스 부모클래스의 상속
-class Shirt extends Polymorphism_Abstraction_Inheritance_Encapsulation {
+class Shirt extends Polymorphism {
     public Shirt( String color, int size) {
         super("Shirt", color, size);
         // super로 인해 type의 변경
@@ -67,7 +67,7 @@ class Shirt extends Polymorphism_Abstraction_Inheritance_Encapsulation {
 
 
 // pants클래스 부모클래스의 상속
-class Pants extends Polymorphism_Abstraction_Inheritance_Encapsulation {
+class Pants extends Polymorphism {
     private String style;
 
     public Pants(String style, String color, int size) {
@@ -95,10 +95,10 @@ class Pants extends Polymorphism_Abstraction_Inheritance_Encapsulation {
 
 
 
-class Main {
+class tain {
     public static void main(String[] args) {
-        Polymorphism_Abstraction_Inheritance_Encapsulation myShirt = new Shirt("White", 10);
-        Polymorphism_Abstraction_Inheritance_Encapsulation myPants = new Pants("Slim fit", "Black", 30);
+        Polymorphism myShirt = new Shirt("White", 10);
+        Pants myPants = new Pants("Slim fit", "Black", 30);
 
         myShirt.displayInfo();
         System.out.println("----------");
