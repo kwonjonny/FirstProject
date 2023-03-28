@@ -77,7 +77,7 @@ public class forTest {
 		
 		System.out.println();
 			
-	// 4: 배열 arr의 모든 요소를 더한 값을 출력하는 for문을 작성하세요.
+	// 4: 배열 arr의 모든 요소를 더한 값을 출력하는 for문을 작성하세요
 		int[] arr = {1,2,3,4,5};
 		int sum = 0;
 		for(int i=0; i<arr.length; i++) {
