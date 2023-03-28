@@ -12,8 +12,8 @@ package Member;
 
 public class MemberChap04 {
 
-	// 변수정의
-	//아래의 데이터를 저장 이름, 전화번호, 전공, 학년, email, 생일, 주소
+	// 인스턴스 변수 정의 
+	// 아래의 데이터를 저장 이름, 전화번호, 전공, 학년, email, 생일, 주소
 	private String name;	
 	private String phoneNumber;
 	private String major;
@@ -49,58 +49,60 @@ public class MemberChap04 {
 	
 	
 	// Getter 와 Setter를 생성해준다
-	public String getName() { // 인스턴수 변수 name에 접근
+	// Getter 와 Setter는 정보은닉,캡슐화,차후에 보수 용이
+	// 또한 인스턴스변수를 private으로 설정함으로써 get set을 이용해서만 접근할수있다.
+	public String getName() { 
 		return name;
 	}
-	public void setName() { // 인스턴수 변수 name의 설정 
+	public void setName() { 
 		this.name=name;
 	}
 	
 	
-	public String getPhoneNumber() { // 인스턴수 변수 phoneNumber에 접근
+	public String getPhoneNumber() { 
 		return phoneNumber;
 	}
-	public void setPhoneNumber() {   // 인스턴수 변수 phoneNumber의 설정
+	public void setPhoneNumber() {   
 		this.phoneNumber = phoneNumber;
 	}
 	
 	
-	public String getMajor() { // 인스턴수 변수 major에 접근
+	public String getMajor() { 
 		return major;
 	}
-	public void setMajor() {   // 인스턴수 변수 major의 설정
+	public void setMajor() {   
 		this.major = major;
 	}
 	
 	
-	public int getGrade() { // 인스턴수 변수 grade에 접근
+	public int getGrade() { 
 		return grade;
 	}
-	public void setGrade() { // 인스턴스 변수 grade의 설정
+	public void setGrade() { 
 		this.grade = grade;
 	}
 	
 	
-	public String getEmail() { // 인스턴수 변수 email에 접근
+	public String getEmail() { 
 		return email;
 	}
-	public void setEmail() { // 인스턴스 변수 email의 설정
+	public void setEmail() { 
 		this.email = email;
 	}
 	
 	
-	public String getBirthday() { // 인스턴스 변수 birthday에 접근
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday() { // 인스턴스 변수 birthday의 설정
+	public void setBirthday() {
 		this.birthday = birthday;
 	}
 	
 	
-	public String getAddress() { // 인스턴스 변수 address 에 접근
+	public String getAddress() { 
 		return address;
 	}
-	public void setAddress() { 	// 인스턴스 변수 address의 설정
+	public void setAddress() { 	
 		this.address=address;
 	}
 	
