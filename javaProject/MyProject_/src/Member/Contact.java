@@ -1,4 +1,5 @@
 package Member;
+
 import java.util.Scanner;
 
 public class Contact {
@@ -66,19 +67,19 @@ public class Contact {
 	}
 	
 	// 인스턴스 정보를 출력하는 메소드
-	public void printer() {
-		System.out.println("Name :" + name);
-		System.out.println("Call :" + call);
-		System.out.println("Email :" + email);
-		System.out.println("Address :" + address);
-		System.out.println("Birthday :" + birthday);
-		System.out.println("Group :" + group);
+	public String getContactInfo() {
+	    return "Name : " + name + "\n" +
+	           "Call : " + call + "\n" +
+	           "Email : " + email + "\n" +
+	           "Address : " + address + "\n" +
+	           "Birthday : " + birthday + "\n" +
+	           "Group : " + group + "\n";
 	}
 	
 }
 
 // 메인 메소드 정의
-class Tain{
+class TTain{
 	public static void main(String [] args) {
 		
 		// private로 선언된 인스턴스 변수는 본래 다른 클래스에서는 호출하지 못하나
@@ -108,7 +109,7 @@ class Tain{
         Contact contact = new Contact(name, call, email, address, birthday, group);
        
         // 객체 출력
-        contact.printer();
+        contact.getContactInfo();
         
         // 인스턴스의 변수에 값을 바꾸는 메소드를 이용해 데이터 수정
         System.out.println("전화번호 수정 :");
@@ -117,7 +118,7 @@ class Tain{
         contact.setCall(newCall);	// Getter Setter중 set으로 설정 수정 
         
         // 수정된 인스턴스의 정보 출력 메소드 재 호출
-        System.out.println(contact.getCall());	// 수정된 정보를 get
+        System.out.println(contact.getContactInfo());	// 수정된 정보를 get
         
 	}
 }
