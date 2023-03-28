@@ -30,8 +30,8 @@ public class Contact {
 		this.name = name;
 	}
 	
-	public String getcall() {
-		return name;
+	public String getCall() {
+		return call;
 	}
 	public void setCall(String call) {
 		this.call = call;
@@ -80,6 +80,7 @@ public class Contact {
 // 메인 메소드 정의
 class Tain{
 	public static void main(String [] args) {
+		
 		// 콘솔에서 사용자의 입력값으로 인스턴스 생성
         Scanner scanner = new Scanner(System.in);
 
@@ -114,7 +115,7 @@ class Tain{
         contact.setCall(newCall);	// Getter Setter중 set으로 설정 수정 
         
         // 수정된 인스턴스의 정보 출력 메소드 재 호출
-        System.out.println(contact.getcall());
+        System.out.println(contact.getCall());	// 수정된 정보를 get
         
 	}
 }
