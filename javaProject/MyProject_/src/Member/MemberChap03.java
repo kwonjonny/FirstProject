@@ -21,8 +21,8 @@ import java.time.LocalDate;
 
 public class MemberChap03 {
 	
-	// 변수 정의 
-	// 접근제어자 생성 다른클래스로의 호출 막아줌
+	// 인스턴스 변수 정의 
+	// 접근제어자 private 생성 다른클래스로의 직접 호출 막아줌
 	private String name;
 	private int birthYear;
 	
@@ -38,7 +38,7 @@ public class MemberChap03 {
 	
 	
 	
-	// Getter Setter 사용 캡슐화
+	// Getter Setter 사용 캡슐화,정보은닉,보수용이
 	// get
 	public String getName() {
 		return name;
