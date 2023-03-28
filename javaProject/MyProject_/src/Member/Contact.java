@@ -105,7 +105,7 @@ class Tain{
         String group = scanner.nextLine();
         
         // 객체 생성
-        Contact contact = new Contact("name","call","email","address","birthday","group");
+        Contact contact = new Contact(name, call, email, address, birthday, group);
        
         // 객체 출력
         contact.printer();
