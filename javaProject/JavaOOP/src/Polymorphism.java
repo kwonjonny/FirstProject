@@ -1,4 +1,5 @@
 
+
 //    객체지향 고급 개념
 //    - 상속
 //    - 다형성
@@ -95,7 +96,7 @@ class Pants extends Polymorphism {
 
 
 
-class tain {
+class Gain {
     public static void main(String[] args) {
         Polymorphism myShirt = new Shirt("White", 10);
         Pants myPants = new Pants("Slim fit", "Black", 30);
