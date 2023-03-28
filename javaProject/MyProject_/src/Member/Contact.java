@@ -81,6 +81,8 @@ public class Contact {
 class Tain{
 	public static void main(String [] args) {
 		
+		// private로 선언된 인스턴스 변수는 본래 다른 클래스에서는 호출하지 못하나
+		// get set을 통해 인스턴스 변수의 호출이 가능하다
 		// 콘솔에서 사용자의 입력값으로 인스턴스 생성
         Scanner scanner = new Scanner(System.in);
 
