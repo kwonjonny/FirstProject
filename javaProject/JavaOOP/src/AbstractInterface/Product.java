@@ -240,16 +240,20 @@ class Maiin {
 		int ClothingDiscountedPrice = clothing1.getDiscountedPrice();
 		
 		// book1,Clothing1 할인된 객체의 출력
-		System.out.println(bookDiscountedPrice);
-		System.out.println(ClothingDiscountedPrice);
+		System.out.println("할인이 적용된 책의 값:" +bookDiscountedPrice+"원");
+		System.out.println("할인이 적용된 옷 의 값:" +ClothingDiscountedPrice+"원");
 		
 		// RegularDelivery의 배송비 객체 생성
-		RegularDelivery regularDelivery1 = new RegularDelivery(2000);
 		// ExpressDelivery의 배송비 객체 생성
-		ExpressDelivery expressDelivery1 = new ExpressDelivery(3000, 5000);
+		RegularDelivery regularDelivery1 = new RegularDelivery(5000);
+		ExpressDelivery expressDelivery1 = new ExpressDelivery(10000, 5000);
+		
+		// 배송비의 출력 
+		System.out.println("일반 배송 비:"+regularDelivery1);
+		System.out.println("특급 배송 비:"+expressDelivery1);
 		
 		// RegularDelivery의 배송비 계산
 		int RegularDeliveryFee = regularDelivery1.calculateDeliveryFee();
-		int ExpressDeliveryFee = expressDelivery1.calculateDeliveryFee()
+		int ExpressDeliveryFee = expressDelivery1.calculateDeliveryFee();
 	}
 }
