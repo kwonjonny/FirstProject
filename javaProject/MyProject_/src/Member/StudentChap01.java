@@ -71,12 +71,21 @@ public class StudentChap01 {
 	}
 }
 
+
 //3. main()메소드에 아래 내용을 정의해봅시다.
 //Student 타입의 배열을 선언하고, 요소 10개를 저장할 수 있는 배열 인스턴스를 생성해 봅시다.
 //Student 타입의 인스턴스를 생성하고 배열에 저장하는 코드를 정의해봅시다.
 //배열에 저장된 Student 타입의 인스턴스의 메소드를 이용해서 모든 데이터를 출력해봅시다
 class DTain {
 	public static void main(String [] args) {
+		
+		// 총점 선언 객체 선언
+		StudentChap01 student1 = new StudentChap01("권성준",80,60,70);
+		student1.getTotalScore();
+		System.out.println(student1.getTotalScore()); //80+60+70
+		
+		student1.getAverageScore();
+		System.out.println(student1.getAverageScore());
 		
 		// ArrayList<integer> 사용
 		// 국어, 영어, 수학 점수를 저장하는 어레이리스트 정의
