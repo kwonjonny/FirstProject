@@ -107,13 +107,13 @@ class Main2 {
         students.add(new StudentChap01("홍길동", koreanScores.get(0), 85, 90));
         students.add(new StudentChap01("이순신", koreanScores.get(1), 90, 85));
         students.add(new StudentChap01("강감찬", koreanScores.get(2), 95, 80));
-        students.add(new StudentChap01("유관순", koreanScores.get(3), 80, 75));
+        students.add(new StudentChap01("푸틴", koreanScores.get(3), 80, 75));
         students.add(new StudentChap01("세종대왕", koreanScores.get(4), 85, 90));
-        students.add(new StudentChap01("장영실", koreanScores.get(5), 90, 85));
-        students.add(new StudentChap01("이황", koreanScores.get(6), 80, 95));
-        students.add(new StudentChap01("신사임당", koreanScores.get(7), 85, 90));
-        students.add(new StudentChap01("황진이", koreanScores.get(8), 90, 85));
-        students.add(new StudentChap01("이몽룡", koreanScores.get(9), 85, 90));
+        students.add(new StudentChap01("권선제", koreanScores.get(5), 90, 85));
+        students.add(new StudentChap01("퇴계", koreanScores.get(6), 80, 95));
+        students.add(new StudentChap01("신사", koreanScores.get(7), 85, 90));
+        students.add(new StudentChap01("처칠", koreanScores.get(8), 90, 85));
+        students.add(new StudentChap01("히틀러", koreanScores.get(9), 85, 90));
         
         
         // 모든 학생 정보 출력
