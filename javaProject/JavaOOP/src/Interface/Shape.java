@@ -185,7 +185,7 @@ class Triangle implements Shape {
 
 
 //위의 클래스들을 구현하고, 각 도형의 면적과 둘레를 출력하는 메소드를 작성해보세요.
-class PFOD {
+class Main {
 	public static void main(String [] args) {
 		Circle circle = new Circle(5);
 		Rectangle rectangle = new Rectangle(2,6);
