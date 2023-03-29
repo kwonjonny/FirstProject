@@ -48,6 +48,7 @@ class Rectangle2 implements Shape2 {
 	}
 }
 
+
 // Triangle2 클래스 정의 Shape2 메소드 구현
 class Triangle2 implements Shape2 {
 	private double base;
