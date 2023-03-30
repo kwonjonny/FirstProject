@@ -7,7 +7,7 @@ package Member;
 // int 타입의 나이를 저장할 수 있는 변수 age를 정의해봅시다.
 // double 타입의 키를 저장할 수 있는 변수 height를 정의해봅시다.
 // boolean 타입의 JAVA책의 보유 여부를 저장할 수 있는 변수 hasBook를 정의해봅시다.
-// 이름과 나이, 키, 책의 보유 여부를 출력해봅시다.
+// 이름과 나이, 키, 책의 보유 여부를 출력해봅시다
 
 public class MemberChap02 { // MemberChap02 에서는 직접 실행하지 않으므로 main메소드를 쓰지 않음
 
