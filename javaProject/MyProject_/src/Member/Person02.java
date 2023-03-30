@@ -110,13 +110,13 @@ class Main3 {
 	Person02 person02 = new Person02("권성준", "980626-1231234");
 	System.out.println(person02);
 	
-	Person02 male2 = new Male("권성준", "980523-1231432", "미필입니다.");
+	Male male2 = new Male("권성준", "980523-1231432", "미필입니다.");
 	System.out.println(male2);
 	
-	Person02 female2 = new Female("김선제", "962342-9325324", "미혼입니다.");
+	Female female2 = new Female("김선제", "962342-9325324", "미혼입니다.");
 	System.out.println(female2);
 			
-}
+	}
 }
 
 
