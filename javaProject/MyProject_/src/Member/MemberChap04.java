@@ -112,7 +112,7 @@ public class MemberChap04 {
 	// 출력메소드 안에서는 인스턴수 변수를 호출해준다
 	// 또한 모든 정보를 생성하지 않는 생성자에서는 birthday와 address가 없었으므로
 	// if(birthday != null) 만약 birthday = null이 아닐시 생년월일 출력
-	// if(address != null) 만약 address = null이 아닐시 주소 출력
+	// if(address != null) 만약 address = null이 아닐시 주소 출력.
 	public void print() {
 		System.out.println("이름: " + name);
         System.out.println("전화번호: " + phoneNumber);
