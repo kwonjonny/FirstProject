@@ -14,129 +14,109 @@ package Member;
 // Person 클래스에 생성자를 정의해서 인스턴스 변수들을 초기화 해봅시다.
 
 // 3. main()메소드를 정의해봅시다.
-// Person 클래스를 상속받은 Male클래스와 Female클래스를 이용해서 인스턴스를 생성해 봅시다.
-// 생성된 인스턴스들을 이용해서 메소드를 호출해봅시다.
+// Person 클래스를 상속받은 Male클래스와 Female클래스를 이용해서 인스턴스를 생성해 봅시다
+// 생성된 인스턴스들을 이용해서 메소드를 호출해봅시다
 
 public class Person02 {
-    private String name;
-    private String idNum;
-    private int age;
+	// 인스턴스 변수 정의
+	private String name;
+	private String number;
 	
-
-    // 생성자 정의
-    public Person02(String name, String idNum, int age) {
-        this.name = name;
-        this.idNum = idNum;
-        this.age = age;
-    }
-    
-    //Getter 와 Setter생성
-    public String getName() {
-    	return name;
-    }
-    public void setName() {
-    	this.name = name;
-    }
-
-    
-    public String getIdNume() {
-    	return idNum;
-    }
-    public void setIdNum() {
-    	this.idNum = idNum;
-    }
-    
-    
-    public int getAge() {
-    	return age;
-    }
-    public void setAge() {
-    	this.age = age;
-    }
-    
-    
-    public void hello() {
-        System.out.println("안녕하세요. 저는 " + name + "입니다. " + age + "살 입니다.");
-    }
-}
-
-
-class Male extends Person02{
-	
-	private boolean militaryService;
-
-	// 각 클래스는 상속 받은 멤버 외에 추가적인 변수와 메소드를 추가해서 새로운 클래스를 정의해봅시다.
-	// Male과 Female을 구분하는 변수 정의
 	// 생성자 정의
-	// 부모클래스의 생성자 매개변수를 호출함으로써 name idName age의 매개변수 사용 가능
-	public Male(String name, String idNum, int age, boolean militaryService) {
-        super(name, idNum, age);	// 부모 클래스의 생성자 매개변수 호출
-        this.militaryService = militaryService;
-    }
+	public Person02(String name, String number) {
+		this.name = name;
+		this.number = number;
+	}
 
-	@Override	// 부모 클래스의 hello() 메서드를 재정의함을 나타냄
-    public void hello() {
-        System.out.println("안녕하세요. 저는 " + getName() + "입니다. " + getAge() + "살이고, "
-                + (militaryService ? "군필입니다." : "미필입니다."));
-    }
+	// Getter Setter
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
 	
-
-    
-	// 자식 클래스
-	// Getter Setter 
-    public boolean getMilitaryService() {
-        return militaryService;
-    }
-
-    public void setMilitaryService(boolean militaryService) {
-        this.militaryService = militaryService;
-    }
-}
-
-
-
-class Female extends Person02 {
-    private boolean married;
-
-    // 생성자 정의
-    // 부모클래스의 생성자 매개변수를 호출함으로써 name idName age의 매개변수 사용 가능
-    public Female(String name, String idNum, int age, boolean married) {
-        super(name, idNum, age);	// 부모 클래스의 생성자 매개변수 호출
-        this.married = married;
-    }
-
-    @Override	// 부모 클래스의 hello() 메서드를 재정의함을 나타냄
-    public void hello() {
-        System.out.println("안녕하세요. 저는 " + getName() + "입니다. " + getAge() + "살이고, "
-                + (married ? "기혼입니다." : "미혼입니다."));
-    }
-	
-    
-	// 자식 클래스
-	// Getter Setter 
-    public boolean getMarried() {
-        return married;
-    }
-
-    public void setMarried(boolean married) {
-        this.married = married;
-    }
-}
-
-class main {
-	public static void main(String [] args) {
-		Male male = new Male("홍길동", "123456-1234567", 25, true);
-        Female female = new Female("김영희", "123456-2345678", 23, false);
-
-        male.hello();	// "안녕하세요. 저는 홍길동입니다. 25살이고, 군필입니다." 출력
-        female.hello();	// "안녕하세요. 저는 김영희입니다. 23살이고, 미혼입니다." 출력
-
-        male.setMilitaryService(false);	// setter를 이용해 군필 여부 변경
-        female.setAge();	// setter를 이용해 나이 변경
-
-        male.hello();	// "안녕하세요. 저는 홍길동입니다. 25살이고, 미필입니다." 출력
-        female.hello();	// "안녕하세요. 저는 김영희입니다. 24살이고, 미혼입니다." 출력
-    
+	public String toStirng() {
+		return "안녕하세요"+name +"입니다 주민번호는" +number+"입니다.";
 	}
 }
+
+class Male extends Person02 {
+	
+	// 인스턴스 변수 정의
+	private String military;
+	
+	// 생성자 정의
+	public Male(String name, String number, String military) {
+		super(name,number);
+		this.military = military;
+	}
+	
+	// Getter Setter
+	public String getMilitary() {
+		return military;
+	}
+
+	public void setMilitary(String military) {
+		this.military = military;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toStirng() + military;
+	}
+	
+}
+
+class Female extends Person02{
+	
+	// 인스턴스 변수 정의 
+	private String married;
+	
+	// 생성자 정의
+	public Female(String name, String number, String married) {
+		super(name,number);
+		this.married = married;
+	}
+
+	// Getter Setter
+	public String getMarried() {
+		return married;
+	}
+
+	public void setMarried(String married) {
+		this.married = married;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toStirng() + married;
+	}
+}
+
+class Main3 {
+	public static void main(String [] args) {
+		
+	Person02 person02 = new Person02("권성준", "980626-1231234");
+	System.out.println(person02);
+	
+	Male male2 = new Male("권성준","980523-1231432","미필입니다.");
+	System.out.println(male2);
+	
+	Female female2 = new Female("김선제", "962342-9325324","미혼입니다.");
+	System.out.println(female2);
+			
+}
+}
+
+
 
