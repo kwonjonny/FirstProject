@@ -1,5 +1,7 @@
 package Member;
 
+import java.util.ArrayList;
+
 // 객체지향_상속 
 
 // Person 이라는 클래스를 정의해봅시다.
@@ -106,16 +108,37 @@ class Female extends Person02{
 
 class Main3 {
 	public static void main(String [] args) {
+
+//  일반 출력 예시
+//	Person02 person02 = new Person02("권성준", "980626-1231234");
+//	System.out.println(person02);
+//	
+//	Male male2 = new Male("권성준", "980523-1231432", "미필입니다.");
+//	System.out.println(male2);
+//	
+//	Female female2 = new Female("김선제", "962342-9325324", "미혼입니다.");
+//	System.out.println(female2);
+	
+		// 배열 출력 예시 
+//		Person02[] people = new Person02[3];
+//		people[1] = new Person02("권성준", "980626-1231234");
+//		people[1] = new Male("권성준", "980523-1231432", "미필입니다.");
+//      people[2] = new Female("김선제", "962342-9325324", "미혼입니다.");
+//        
+//        for(Person02 person : people) {
+//        	System.out.println(person);
+//        }
 		
-	Person02 person02 = new Person02("권성준", "980626-1231234");
-	System.out.println(person02);
-	
-	Male male2 = new Male("권성준", "980523-1231432", "미필입니다.");
-	System.out.println(male2);
-	
-	Female female2 = new Female("김선제", "962342-9325324", "미혼입니다.");
-	System.out.println(female2);
-			
+		// 어레이 리스트 출력 예시 
+		ArrayList<Person02> people = new ArrayList<>();
+		  people.add(new Person02("권성준", "980626-1231234"));
+	      people.add(new Male("권성준", "980523-1231432", "미필입니다."));
+	      people.add(new Female("김선제", "962342-9325324", "미혼입니다."));
+
+	      	for(Person02 person: people) {
+	      		System.out.println(person);
+	      	}
+        
 	}
 }
 
