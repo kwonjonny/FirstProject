@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
-//API 
+//APi
 //class Person {
 //	 String name;
 //	 String personNumber;
