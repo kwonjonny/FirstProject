@@ -99,7 +99,7 @@ class main8 {
 		System.out.println(player);
 	}
 	
-	 // HashSet으로 중복 체크 후 출력 
+	 // HashSet으로 중복 체크 후 출력! 
 	 Set<SoccerPlayerList> playerSet = new HashSet<>();
 
      playerSet.add(new SoccerPlayerList("메시", 10, "바르셀로나", 35));
