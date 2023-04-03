@@ -1,56 +1,34 @@
 package AbstractInterface;
 
+//주어진 Product 추상 클래스와 Delivery 인터페이스를 이용하여 온라인 상점의 배송 시스템을 구현하세요. 
+//이 상점은 Book과 Clothing 클래스를 상속합니다.
 
-// 문제
-// 추상클래스와 인터페이스 
-// 추상 클래스 Product클래스 안에는 name,price,discount의 인스턴스 변수가 있습니다
-// 생성자와 , get set 정의 
-// getDiscountedPrice(); 메소드 정의 int
-// (price * (1 - discount)) 로 할인율을 정합니다 
 
-// Book클래스 Product를 상속 
-// 인스턴스 저자(author) 출판사(publisher)
-// 메소드 없음
+//Product 클래스는 상품의 이름, 가격, 할인율 등의 정보를 포함하고 있으며, 
+//Book과 Clothing 클래스는 각각 Product 클래스를 상속받아 구현합니다. 
 
-// Clothing Product를 상속
-// 인스턴스 소재(material) 색상(color) 사이즈(size)
-// 메소드 없음
+//Delivery 인터페이스는 배송 비용을 계산하는 메서드를 선언하고 있습니다. 
+//또한, Delivery 인터페이스를 구현하여 배송 비용을 계산하는 메서드를 정의합니다.
+//
+//RegularExpress 클래스는 Delivery 인터페이스를 구현하고, 
+//일반 배송과 특급 배송의 비용을 계산하는 메서드를 구현합니다. 일반배송비 거리*200 특극배송비 거리*400
+//
+//main 메서드에서는 Book과 Clothing 객체를 생성하고, 할인된 가격과 배송비를 출력합니다.
 
-// Delivery(인터페이스)
-// 메소드 : 배송비 계산 (calculateDeliveryFee) int 형 
 
-// RegularDelivery (Delivery를 구현)
-// 인스턴스 배송비(deliveryFee)
-// 메소드 : 배송비 계산(calculateDeliveryFee= delvieryFee를 받음)
 
-//ExpressDelivery (Delivery를 구현)
-//인스턴스 배송비(deliveryFee), 추가 배송비(extraFee)
-//메소드: 배송비 계산(calculateDeliveryFee)
 
-// 메인 메소드
-// 객체의 생성
-// Book3,Clothing3 객체 생성
-// RegularDelivery,ExpressDelivery 객체 생성
-// Book3 객체의 할인된 계산 가격
-// Clothing 객체의 할이된 계산 가격
-// RegularDelivery 객체의 배송비 계산
-// ExpressDelivery 객체의 배송비 계산
-
-public abstract class Product {
-	
-	// 인스턴스 변수 정의 
+public abstract class Product implements Delivery{
 	private String name;
-	private int price;
+	private double price;
 	private double discount;
 	
-	// 생성자 정의
-	public Product(String name, int price, double discount) {
+	public Product(String name, double price , double discount) {
 		this.name = name;
 		this.price = price;
 		this.discount = discount;
 	}
-
-	// Getter Setter 정의 캡슐화,정보은닉,보수용이
+	
 	public String getName() {
 		return name;
 	}
@@ -59,11 +37,11 @@ public abstract class Product {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -74,186 +52,133 @@ public abstract class Product {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
+
 	
-	// 추상 메소드 정의
-	public int getDiscountedPrice() {
-	 return (int)(price * (1 - discount));
+	public String toString() {
+		return "안녕하세요 이름은 " + name + " 가격은 " + price + " 할인된 가격은! " + discount + " 입니다 ";
 	}
 	
+	public double getDiscountedPrice() {
+		 return price * (1 - discount);
+	}
+	
+	public double getDeliveryFee(int distance) {
+	    return 0; // 배송비는 상속받은 클래스에서 구현하도록 합니다.
+	}
+
+	public double getExpressFee(int distance) {
+	    return 0; // 특송비는 상속받은 클래스에서 구현하도록 합니다.
+	}
 }
 
-
-//Book클래스 Product를 상속 
-//인스턴스 저자(author) 출판사(publisher)
-//메소드 없음
-class Book3 extends Product {
-	
-	// 인스턴스 변수 정의
+class Book extends Product{
 	private String author;
 	private String publisher;
 	
-	// 생성자 정의
-	public Book3(String name, int price, double discount, String author, String publisher) {
-		super(name, price, discount);
+	public Book(String name, double price , double discount, String author, String publisher) {
+		super(name,price,discount);
 		this.author = author;
 		this.publisher = publisher;
 	}
 	
-	// Getter Setter정의 캡슐화,정보은닉,보수용이
-	public String getAuthor() {
-		return author;
+	@Override
+	public String toString() {
+		return super.toString() + " 저자는 " + author + " 입니다. " + " 출판사는 " + publisher + " 입니다. ";
+	}
+	
+	@Override
+	public double getDiscountedPrice() {
+	    return super.getDiscountedPrice();
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	@Override
+	public double getDeliveryFee(int distance) {
+		RegularExpress regularDelivery = new RegularExpress();
+	    return regularDelivery.getDeliveryFee(distance);
 	}
 
-	public String getPublisher() {
-		return publisher;
+	@Override
+	public double getExpressFee(int distance) {
+		RegularExpress expressDelivery = new RegularExpress();
+	    return expressDelivery.getDeliveryFee(distance);
 	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
+	
 }
 
-
-//Clothing Product를 상속
-//인스턴스 소재(material) 색상(color) 사이즈(size)
-//메소드 없음
-class Clothing3 extends Product {
-	
-	// 인스턴스 변수 정의
+class Clothing extends Product {
 	private String material;
 	private String color;
 	private String size;
 	
-	// 생성자 정의
-	public Clothing3(String name, int price, double discount, String material, String color, String size) {
-		super(name, price, discount);
+	public Clothing(String name, double price , double discount, String material, String color, String size) {
+		super(name,price,discount);
 		this.material = material;
-		this.color = color;
 		this.size = size;
+		this.color = color;
 	}
 	
-	// Getter Setter정의 캡슐화,정보은닉,보수용이
-	public String getMaterial() {
-		return material;
+	@Override
+	public String toString() {
+		return super.toString() + " 소재는 " + material + " 입니다. " + " 색깔은 " + color + " 입니다. " + " 사이즈는 " + size + " 입니다 " ;
+	}
+	
+	@Override
+	public double getDiscountedPrice() {
+	    return super.getDiscountedPrice();
 	}
 
-	public void setMaterial(String material) {
-		this.material = material;
+	@Override
+	public double getDeliveryFee(int distance) {
+		RegularExpress regularDelivery = new RegularExpress();
+	    return regularDelivery.getDeliveryFee(distance);
 	}
 
-	public String getColor() {
-		return color;
+	@Override
+	public double getExpressFee(int distance) {
+		RegularExpress expressDelivery = new RegularExpress();
+	    return expressDelivery.getDeliveryFee(distance);
 	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public String getSize() {
-		return size;
-	}
-
-	public void setSize(String size) {
-		this.size = size;
-	}
-
+	
+	
 }
 
-
-//Delivery(인터페이스)
-//메소드 : 배송비 계산 (calculateDeliveryFee) int 형 
 interface Delivery {
-	int calculateDeliveryFee();
+	  double getDeliveryFee(int distance);
+	  
+	  double getExpressFee(int distance);
+}
+
+class RegularExpress implements Delivery {
+    public double getDeliveryFee(int distance) {
+        return distance * 200;
+    }
+    public double  getExpressFee(int distance) {
+    	 return distance * 400;
+    }
+    
+}
+
+ 
+
+class main14 {
+	public static void main(String[]args) {
+		
+		Book book = new Book("권성준",20000,0.1,"권성준","권성준");
+		double discountedPrice = book.getDiscountedPrice();
+		double deliveryFee = book.getDeliveryFee(10); // 10Km
+		double expressFee = book.getExpressFee(10);   // 10Km
+		System.out.println(book.toString()+" 할인율은 "+discountedPrice+" 일반 배송비는 "+deliveryFee+" 특급 배송비는 "+expressFee);
+		
+		Clothing clothing = new Clothing("권성준" , 300000, 0.2, "울","사이즈100","블랙");
+		double discountedPrice2 = clothing.getDiscountedPrice();
+		double deliveryFee2 = clothing.getDeliveryFee(10);  // 10Km
+		double expressFee2 = clothing.getExpressFee(20);	// 20Km
+		System.out.println(clothing.toString()+" 할인율은 "+discountedPrice2+" 일반 배송비는 "+deliveryFee2+" 특급 배송비는 "+expressFee2);
+		
+		
+	}
 }
 
 
-//RegularDelivery (Delivery를 구현)
-//인스턴스 배송비(deliveryFee)
-//메소드 : 배송비 계산 calculateDeliveryFee return delvieryFee
-class RegularDelivery implements Delivery {
-	
-	// 인스턴스 변수 정의
-	private int deliveryFee;
-	
-	// 생성자 정의
-	public RegularDelivery(int deliveryFee) {
-		this.deliveryFee = deliveryFee;
-	}
-	
-	// 인터페이스 메소드 오버라이딩
-	@Override 
-	public int calculateDeliveryFee() {
-		return deliveryFee;
-	}
-}
 
 
-//ExpressDelivery (Delivery를 구현)
-//인스턴스 배송비(deliveryFee), 추가 배송비(extraFee)
-//메소드: 배송비 계산 calculateDeliveryFee = deliveryFee + extraFee
-class ExpressDelivery implements Delivery {
-	
-	// 인스턴스 변수 정의 
-	private int deliveryFee;
-	private int extraFee;
-	
-	// 생성자 정의
-	public ExpressDelivery(int deliveryFee, int extraFee) {
-		this.deliveryFee = deliveryFee;
-		this.extraFee = extraFee;
-	}
-	
-	// 인터페이스 메소드 오버라이딩
-	@Override 
-	public int calculateDeliveryFee() {
-		return deliveryFee + extraFee;
-	}
-}
-
-		//객체의 생성
-		// Book3,Clothing3 객체 생성
-		// RegularDelivery,ExpressDelivery 객체 생성
-		
-		// Book3 객체의 할인된 계산 가격
-		// Clothing 객체의 할인된 계산 가격
-		
-		// RegularDelivery 객체의 배송비 계산
-		// ExpressDelivery 객체의 배송비 계산
-class Maiin {
-	public static void main(String[] args) {
-		
-		// Book3,Clothing3 객체 생성
-		Book3 book1 = new Book3("Java Programming", 30000, 0.1, "James Gosling", "Oracle");
-		Clothing3 clothing1 = new Clothing3("T-Shirt", 10000, 0.2, "Cotton", "Blue", "L");
-		
-		// book1, clothing1 객체 출력
-		System.out.println(book1);
-		System.out.println(clothing1);
-		
-		// Book3 객체의 할인된 계산 가격, Clothing 객체의 할인된 계산 가격 객체 생성
-		int bookDiscountedPrice = book1.getDiscountedPrice();
-		int ClothingDiscountedPrice = clothing1.getDiscountedPrice();
-		
-		// book1,Clothing1 할인된 객체의 출력
-		System.out.println("할인이 적용된 책의 값:" +bookDiscountedPrice+"원");
-		System.out.println("할인이 적용된 옷 의 값:" +ClothingDiscountedPrice+"원");
-		
-		// RegularDelivery의 배송비 객체 생성
-		// ExpressDelivery의 배송비 객체 생성
-		RegularDelivery regularDelivery1 = new RegularDelivery(5000);
-		ExpressDelivery expressDelivery1 = new ExpressDelivery(10000, 5000);
-		
-		// 배송비의 출력 
-		System.out.println("일반 배송 비:"+regularDelivery1);
-		System.out.println("특급 배송 비:"+expressDelivery1);
-		
-		// RegularDelivery의 배송비 계산
-		int RegularDeliveryFee = regularDelivery1.calculateDeliveryFee();
-		int ExpressDeliveryFee = expressDelivery1.calculateDeliveryFee();
-	}
-}
