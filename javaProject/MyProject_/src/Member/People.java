@@ -128,7 +128,6 @@ class TextInput {
 }
 
 
-
 // LocalDate를 이용하여 몇 일을 살았는지 출력하는 class
 class HowLongLived {
 	public static void main(String [] args) {
