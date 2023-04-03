@@ -77,7 +77,7 @@ public class SmartPhone implements CurdOperation,ShowData {
 	}
 	
     // CurdOperation 에 있는 ShowData메소드 오버라이딩 
-    // foreach문을 활용해 contac = null이 아닐시 모든 정보 출력 
+    // foreach문을 활용해 contact = null이 아닐시 모든 정보 출력 
     @Override
     public void ShowData() {
         for (Contact contact : contacts) {
