@@ -1,5 +1,7 @@
 package Member;
 
+import java.util.ArrayList;
+
 //객체지향_추상클래스와 인터페이스 
 //아래 코드는 계산기 클래스를 정의할 때 가이드 역할을 하도록 정의해놓은 인터페이스입니다. 
 //interface Calulator {
@@ -72,16 +74,21 @@ class BasicCalculator implements Calculator {
 class Main4 {
 	public static void mani(String [] args) {
 		
-		Calculator add = new BasicCalculator();
-		long result1 = add.add(10, 20); // 30
-		long result2 = add.substract(20, 20); // 0
-		long result3 = add.multiply(20, 20); // 400
-		double result4 = add.divide(10, 10); // 1.0
-		
-		System.out.println(result1);
-		System.out.println(result2);
-		System.out.println(result3);
-		System.out.println(result4);
+		Calculator calc = new BasicCalculator();
+        ArrayList<Long> results = new ArrayList<>();
+        
+        long result1 = calc.add(10, 20);     	  // 30
+        long result2 = calc.substract(20, 20);    // 0
+        long result3 = calc.multiply(20, 20);     // 400
+        double result4 = calc.divide(10, 10);     // 1.0
 
+        results.add(result1);
+        results.add(result2);
+        results.add(result3);
+        results.add((long)result4);
+
+        for (long result : results) {
+            System.out.println(result);
+        }
 	}
 }
