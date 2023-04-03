@@ -50,6 +50,28 @@ public class Person02 {
 	public String toStirng() {
 		return "안녕하세요"+name +"입니다 주민번호는" +number+"입니다.";
 	}
+	
+	// 주민번호를 통해서 나이를 계산해서 반환하는 메소드
+	public int getAge() {
+		int age = 0;
+		
+		// Ex : 980626-1212324 -> 98과 뒷자리 앞1자리를 뽑음
+		String year = number.substring(0,2);
+		char gender = number.charAt(7);
+		
+		System.out.println(year + ":" + gender);
+		
+		
+		if(gender<'3') {
+			// 1990 + year
+			age = 2023 - (1900 + Integer.parseInt(year)) + 1;
+		} else {
+			// 2000 + year
+			age = 2023 - (1900 - Integer.parseInt(year)) + 1;
+		}
+		
+		return age;
+	}
 }
 
 class Male extends Person02 {
@@ -109,36 +131,45 @@ class Female extends Person02{
 class Main3 {
 	public static void main(String [] args) {
 
-//  일반 출력 예시
-//	Person02 person02 = new Person02("권성준", "980626-1231234");
-//	System.out.println(person02);
+//		// 일반 출력 예시
+//		Person02 person02 = new Person02("권성준", "980626-1231234");
+//		System.out.println(person02);
 //	
-//	Male male2 = new Male("권성준", "980523-1231432", "미필입니다.");
-//	System.out.println(male2);
-//	
-//	Female female2 = new Female("김선제", "962342-9325324", "미혼입니다.");
-//	System.out.println(female2);
+//		Male male2 = new Male("권성준", "980523-1231432", "미필입니다.");
+//		System.out.println(male2);
+//
+//		Female female2 = new Female("김선제", "962342-9325324", "미혼입니다.");
+//		System.out.println(female2);
 	
-		// 배열 출력 예시 
+//		// 배열 출력 예시 
 //		Person02[] people = new Person02[3];
 //		people[1] = new Person02("권성준", "980626-1231234");
 //		people[1] = new Male("권성준", "980523-1231432", "미필입니다.");
-//      people[2] = new Female("김선제", "962342-9325324", "미혼입니다.");
+//		people[2] = new Female("김선제", "962342-9325324", "미혼입니다.");
 //        
-//        for(Person02 person : people) {
+//         for(Person02 person : people) {
 //        	System.out.println(person);
 //        }
 		
 		// 어레이 리스트 출력 예시 
 		ArrayList<Person02> people = new ArrayList<>();
-		  people.add(new Person02("권성준", "980626-1231234"));
-	      people.add(new Male("권성준", "980523-1231432", "미필입니다."));
-	      people.add(new Female("김선제", "962342-9325324", "미혼입니다."));
+		people.add(new Person02("권성준", "980626-1231234"));
+	    people.add(new Male("권성준", "980523-1231432", "미필입니다."));
+	    people.add(new Female("김선제", "962342-9325324", "미혼입니다."));
 
 	      	for(Person02 person: people) {
-	      		System.out.println(person);
+	      	 System.out.println(person);
 	      	}
+	     
+	    // 나이를 계산하는 정보 출력 
+	    Person02 people1 = new Person02("권성준","980626-1231234");
+	    System.out.println( people1.getAge());
         
+	    Male people2 = new Male("권성준","980523-1231432", "미필입니다.");
+	    System.out.println(people2.getAge());
+	    
+	    Female people3 = new Female("김선제","962342-2325324", "미혼입니다.");
+	    System.out.println(people3.getAge());
 	}
 }
 
