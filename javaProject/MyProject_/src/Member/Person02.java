@@ -161,7 +161,7 @@ class Main3 {
 	      	 System.out.println(person);
 	      	}
 	     
-	    // 나이를 계산하는 정보 출력 
+	    // 나이를 계산하는 정보 출력 !
 	    Person02 people1 = new Person02("권성준","980626-1231234");
 	    System.out.println( people1.getAge());
         
