@@ -10,17 +10,38 @@ import java.util.Scanner;
 //이때 nextInt() 메소드를 사용하게 되는데 이때 발생하는 예외처리를 하도록 합시다
 
 public class BadIdInputException extends Exception{
-
+	
+	
 	public BadIdInputException(String message) {
-		super(message);
+		super(message);		
 	}
+	
+	
+	
+	
 }
 
 class main1 {
 	public static void main(String [] args) {
-		
 		// Scanner를 정의해서 사용자가 태어난 년도를 입력하게 한다.
-		Scanner scan = new Scanner(System.in);
+				Scanner scan = new Scanner(System.in);
+		
+				System.out.println("사용자 아이디 입력 영문만 입력 가능함");
+		String BadIdInputException = scan.nextLine();
+		
+		try {
+			for(int i=0; i< BadIdInputException.length(); i++) {
+				char c = BadIdInputException.charAt(i);
+				if(!(c>='a' && c<='z' || c>='A' && c<='Z' || c>='0' && c<='9')) {
+		               BadIdInputException e = new BadIdInputException("사용할 수 없는 아이디 방식입니다.");
+		               throw e;
+		            }
+			}
+			
+		}catch(BadIdInputException e) {
+	         System.out.println(e.getMessage());
+	      }
+		
 		
 		// try-catch를 이용해서 잘못된 입력이면 다시 입력하게 한다.
 		try {
@@ -30,6 +51,9 @@ class main1 {
 		} catch(Exception e) {
 			System.out.println("잘못된 입력입니다 다시 입력하세요..");
 		} scan.close();	// scanner를 닫아줌으로써 메모리 낭비를 방지한다.
+		
+		
+		
 		
 	} 
 }
