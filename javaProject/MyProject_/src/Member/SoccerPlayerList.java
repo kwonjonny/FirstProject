@@ -96,7 +96,7 @@ class main8 {
 	soccerPlayer.add(new SoccerPlayerList("손흥민",07,"레알마드리드",30));
 	
 	for(SoccerPlayerList player : soccerPlayer) {
-		System.out.println(player);
+		System.out.println(player.toString());
 	}
 	
 	 // HashSet으로 중복 체크 후 출력! 
@@ -110,7 +110,7 @@ class main8 {
      
      // Set에 저장된 축구선수 인스턴스 출력
      for (SoccerPlayerList player : playerSet) {
-         System.out.println(player);
+         System.out.println(player.toString());
      }
      
      // TreeSet으로 중복 체크 후 출력
@@ -124,7 +124,7 @@ class main8 {
 
      // TreeSet에 저장된 축구선수 인스턴스 출력
      for (SoccerPlayerList player : playerTreeSet) {
-         System.out.println(player);
+         System.out.println(player.toString());
      }
      
 	}
