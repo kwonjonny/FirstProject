@@ -433,7 +433,6 @@ class Main2 implements CurdOperation {
 			System.out.println("해당하는 이름의 고객이 없습니다.");
 		}
 	}
-	
 }
 
 
