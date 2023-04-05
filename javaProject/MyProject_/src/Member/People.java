@@ -140,5 +140,7 @@ class HowLongLived {
 		
 		System.out.println("난 오늘까지"+period.getYears()+"년"+period.getMonths()+"개월"+period.getDays()+"살았어!");
 		
+		
 	}
 }
+
