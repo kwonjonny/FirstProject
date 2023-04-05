@@ -72,8 +72,6 @@ public class User implements CurdOperation {
         System.out.println("나이: " + getAge());
         System.out.println("이메일: " + getEmail());  
     }
-    
-
 }
 
 class Admin extends User {
@@ -112,7 +110,6 @@ class Admin extends User {
     	System.out.println("직급: " + position);
     	System.out.println("직책 파워: " + power);
     }
-	
 }
 
 class Customer extends User {
@@ -148,9 +145,7 @@ class Customer extends User {
     	super.printinfo();
     	System.out.println("멤버십 랭크: " + membershipRank);
     	System.out.println("멤버 포인트:" + point);
-    }
-	
-	
+    }	
 }
 
 interface CurdOperation {
@@ -196,7 +191,6 @@ class ExceptionHelper {
         System.out.println("잘못된 입력입니다 관리자에게 문의하세요. " + e.getMessage());
     }
 }
-
 
 class Main2 implements CurdOperation {
 
