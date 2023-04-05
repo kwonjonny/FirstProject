@@ -210,7 +210,7 @@ class Main2 implements CurdOperation {
 	private static ArrayList<Customer> customerList = new ArrayList<>();
 	private static Scanner scanner = new Scanner(System.in);
 	
-	 public static void main(String[] args) {
+	public static void main(String[] args) {
 		 
 		 boolean Istrue = true;
 		 while(Istrue) {
@@ -261,13 +261,13 @@ class Main2 implements CurdOperation {
 	        	 return;
 	         default:
 	             System.out.println("잘못된 입력이에요.");
-	         	} 
-	         
-			  } catch(Exception e) {
-	        	   ExceptionHelper.handleException(e);	   
-	       }               
-		 }
+	           } 
+	           
+			}  catch(Exception e) {
+	           	 ExceptionHelper.handleException(e);	   
+	      }               
 	   }
+	}
 	// 정보 추가 
 	private static void createAdmin() {
 		System.out.println("이름을 입력해주세요: ");
@@ -307,8 +307,8 @@ class Main2 implements CurdOperation {
 					isDeleted = true;
 					System.out.println("관리자 정보가 삭제되엇습니다.");
 					break;
+					}
 				}
-			}
 			if(!isDeleted) {
 				System.out.println("해당 이름이 없습니다.");
 			}
@@ -328,8 +328,8 @@ class Main2 implements CurdOperation {
 				isUpdate = true;
 				System.out.println("관리자 정보가 수정되었습니다.");
 				break;
-			}
-		}	
+				}
+			}	
 		if(!isUpdate) {
 			System.out.println("해당 관리자의 이름이 없습니다.");
 		}
@@ -351,8 +351,8 @@ class Main2 implements CurdOperation {
 		         System.out.println("관리자 정보가 출력되었습니다.");
 		         isFound = true;
 		         break;
+				}
 			}
-		}
 		if(!isFound) {
 			System.out.println("해당하는 이름의 관리자가 없습니다.");
 		}
