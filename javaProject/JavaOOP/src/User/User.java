@@ -1,12 +1,7 @@
 package User;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-
-
 //문제:
 //사용자 정보를 관리하는 클래스들을 구현해보세요.
 //
