@@ -277,9 +277,9 @@ class Main2 implements CurdOperation {
 	    String age = scanner.nextLine();
 	    System.out.print("이메일: ");
 	    String email = scanner.nextLine();
-	    System.out.print("직급/멤버십 랭크: ");
+	    System.out.print("직급: ");
 	    String position = scanner.nextLine();
-	    System.out.print("직책 파워/멤버 포인트: ");
+	    System.out.print("직책 파워: ");
 	    String power = scanner.nextLine();
 	    
 	    // 관리자 정보 객체 생성
@@ -346,8 +346,8 @@ class Main2 implements CurdOperation {
 				 System.out.println("이름: " + admins.getName());
 		         System.out.println("나이: " + admins.getAge());
 		         System.out.println("이메일: " + admins.getEmail());
-		         System.out.println("직급/멤버십 랭크: " + admins.getPosition());
-		         System.out.println("직책 파워/멤버 포인트: " + admins.getPower());
+		         System.out.println("직급: " + admins.getPosition());
+		         System.out.println("직책 파워: " + admins.getPower());
 		         System.out.println("관리자 정보가 출력되었습니다.");
 		         isFound = true;
 		         break;
@@ -366,9 +366,9 @@ class Main2 implements CurdOperation {
 	    String age = scanner.nextLine();
 	    System.out.print("이메일: ");
 	    String email = scanner.nextLine();
-	    System.out.print("직급/멤버십 랭크: ");
+	    System.out.print("멤버십 랭크: ");
 	    String membershipRank = scanner.nextLine();
-	    System.out.print("직책 파워/멤버 포인트: ");
+	    System.out.print("포인트: ");
 	    String point = scanner.nextLine();
 	    
 	    // 고객 정보 객체 생성
@@ -433,8 +433,8 @@ class Main2 implements CurdOperation {
 				System.out.println("이름: " + customers.getName());
 		         System.out.println("나이: " + customers.getAge());
 		         System.out.println("이메일: " + customers.getEmail());
-		         System.out.println("직급/멤버십 랭크: " + customers.getMembershipRank());
-		         System.out.println("직책 파워/멤버 포인트: " + customers.getPoint());
+		         System.out.println("멤버십 랭크: " + customers.getMembershipRank());
+		         System.out.println("포인트: " + customers.getPoint());
 		         System.out.println("고객 정보가 출력되었습니다.");
 		         isFound = true;
 		         break;
