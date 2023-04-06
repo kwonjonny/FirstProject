@@ -104,6 +104,7 @@ class PaymentInfo {
 		this.paymentMethod = paymentMethod;
 		this.payAmount = payAmount;
 		this.paymentStatus = paymentStatus;
+		this.memberInfo = memberInfo;
 	}
 
 	// MemberInfo Getter Setter
@@ -143,19 +144,49 @@ class PaymentInfo {
 
 // 결제 인터페이스 
 interface Payment {
+	void showPayment(String name, String id, String password);
 
-	private static void showPayment() {
-	}
-
-	private static void refund(String name, String id, String password) {
-	}
-
+	void refund(String name, String id, String password);
 }
 
-//class payment2 implements Payment {
-//	private List<PaymentInfo> payments = new ArrayList<>();
-//	
-//}
+class PaymentManager implements Payment {
+
+	private ArrayList<MemberInfo> memberInfoList;
+	private ArrayList<PaymentInfo> paymentInfoList;
+
+	public PaymentManager(ArrayList<MemberInfo> memberInfoList, ArrayList<PaymentInfo> paymentInfoList) {
+		this.memberInfoList = memberInfoList;
+		this.paymentInfoList = paymentInfoList;
+	}
+
+	@Override
+	public void showPayment(String name, String id, String password) {
+		for (PaymentInfo paymentInfo : paymentInfoList) {
+			if (paymentInfo.getMeberInfo().getName().equals(name) && paymentInfo.getMeberInfo().getId().equals(id)
+					&& paymentInfo.getMeberInfo().getPassword().equals(password)) {
+				System.out.println("Payment Method: " + paymentInfo.getPaymentMethod());
+				System.out.println("Payment Amount: " + paymentInfo.getPayAmount());
+				System.out.println("Payment Status: " + paymentInfo.getPaymentStatus());
+				System.out.println("Member Name: " + paymentInfo.getMeberInfo().getName());
+				System.out.println("Member Email: " + paymentInfo.getMeberInfo().getEmail());
+				System.out.println("Member Phone Number: " + paymentInfo.getMeberInfo().getPhoneNumber());
+				break;
+			}
+		}
+	}
+
+	@Override
+	public void refund(String name, String id, String password) {
+		for (PaymentInfo paymentInfo : paymentInfoList) {
+			if (paymentInfo.getMeberInfo().getName().equals(name) && paymentInfo.getMeberInfo().getId().equals(id)
+					&& paymentInfo.getMeberInfo().getPassword().equals(password)) {
+				paymentInfo.getMeberInfo().setIsRefundRequested(true);
+				System.out.println(" 결제 id에 대한 활불 요청 " + paymentInfo.getMeberInfo().getId() + " by " + name);
+				break;
+			}
+		}
+	}
+}
 
 interface MemberCurd {
 
@@ -187,6 +218,7 @@ class Main3 {
 
 	private static ArrayList<MemberInfo> memberInfoList = new ArrayList<>();
 	private static ArrayList<PaymentInfo> paymentInfoList = new ArrayList<>();
+	private static PaymentManager paymentManager = new PaymentManager(memberInfoList, paymentInfoList);
 
 	private static Scanner scan = new Scanner(System.in);
 
@@ -222,7 +254,6 @@ class Main3 {
 					showDataMember();
 					break;
 				case 5:
-
 					showPayment();
 					break;
 				case 6:
@@ -242,12 +273,7 @@ class Main3 {
 
 	// 회원 정보 생성
 	private static void createMember() {
-		
-		MemberInfo memberInfo1 = new MemberInfo("name", "id", "password", "email", "phoneNumber", 132,
-				true);
-		memberInfoList.add(memberInfo1);
-		
-		
+		scan.nextLine();
 		System.out.println("회원 이름 입력: ");
 		String name = scan.nextLine();
 		System.out.println("회원 아이디 입력: ");
@@ -264,7 +290,7 @@ class Main3 {
 		boolean isRefundReuqested = scan.nextBoolean();
 		MemberInfo memberInfo = new MemberInfo(name, id, password, email, phoneNumber, paymentAmount,
 				isRefundReuqested);
-		
+
 		memberInfoList.add(memberInfo);
 		System.out.println("회원 정보 생성 완료.");
 	}
@@ -370,34 +396,59 @@ class Main3 {
 
 	}
 
-	// 결제 정보 조회 로직
-	private static void showPayment(String name, String id, String password) {
-		// 결제 정보를 조회하는 로직 구현
-		for (PaymentInfo paymentInfo : paymentInfoList) {
-			if (paymentInfo.getMeberInfo().getName().equals(name) && paymentInfo.getMeberInfo().getId().equals(id)
-					&& paymentInfo.getMeberInfo().getPassword().equals(password)) {
-				System.out.println("Payment Method: " + paymentInfo.getPaymentMethod());
-				System.out.println("Payment Amount: " + paymentInfo.getPayAmount());
-				System.out.println("Payment Status: " + paymentInfo.getPaymentStatus());
-				System.out.println("Member Name: " + paymentInfo.getMeberInfo().getName());
-				System.out.println("Member Email: " + paymentInfo.getMeberInfo().getEmail());
-				System.out.println("Member Phone Number: " + paymentInfo.getMeberInfo().getPhoneNumber());
-				break;
-			}
-		}
+	private static void showPayment() {
+		System.out.println("결제 정보 조회입니다. 회원이름,아이디,비밀번호 입력");
+		System.out.println("이름: ");
+		String name = scan.nextLine();
+		System.out.println("아이디: ");
+		String id = scan.nextLine();
+		System.out.println("비밀번호: ");
+		String password = scan.nextLine();
+
+		paymentManager.showPayment(name, id, password);
 	}
 
-	// 환불 처리 로직
-	private static void refund(String name, String id, String password) {
+	private static void refund() {
+		System.out.println("환불 요청입니다. 회원이름,아이디,비밀번호 입력");
+		System.out.println("이름: ");
+		String name = scan.nextLine();
+		System.out.println("아이디: ");
+		String id = scan.nextLine();
+		System.out.println("비밀번호: ");
+		String password = scan.nextLine();
 
-		// 환불 정보를 처리하는 로직 구현
-		for (PaymentInfo paymentInfo : paymentInfoList) {
-			if (paymentInfo.getMeberInfo().getName().equals(name) && paymentInfo.getMeberInfo().getId().equals(id)
-					&& paymentInfo.getMeberInfo().getPassword().equals(password)) {
-				paymentInfo.getMeberInfo().setIsRefundRequested(true);
-				System.out.println(" 결제 id에 대한 활불 요청 " + paymentInfo.getMeberInfo().getId() + " by " + name);
-				break;
-			}
-		}
+		paymentManager.refund(name, id, password);
 	}
 }
+//																
+//	// 결제 정보 조회 로직
+//	private static void showPayment(String name, String id, String password) {
+//		// 결제 정보를 조회하는 로직 구현
+//		for (PaymentInfo paymentInfo : paymentInfoList) {
+//			if (paymentInfo.getMeberInfo().getName().equals(name) && paymentInfo.getMeberInfo().getId().equals(id)
+//					&& paymentInfo.getMeberInfo().getPassword().equals(password)) {
+//				System.out.println("Payment Method: " + paymentInfo.getPaymentMethod());
+//				System.out.println("Payment Amount: " + paymentInfo.getPayAmount());
+//				System.out.println("Payment Status: " + paymentInfo.getPaymentStatus());
+//				System.out.println("Member Name: " + paymentInfo.getMeberInfo().getName());
+//				System.out.println("Member Email: " + paymentInfo.getMeberInfo().getEmail());
+//				System.out.println("Member Phone Number: " + paymentInfo.getMeberInfo().getPhoneNumber());
+//				break;
+//			}
+//		}
+//	}
+//
+//	// 환불 처리 로직
+//	private static void refund(String name, String id, String password) {
+//
+//		// 환불 정보를 처리하는 로직 구현
+//		for (PaymentInfo paymentInfo : paymentInfoList) {
+//			if (paymentInfo.getMeberInfo().getName().equals(name) && paymentInfo.getMeberInfo().getId().equals(id)
+//					&& paymentInfo.getMeberInfo().getPassword().equals(password)) {
+//				paymentInfo.getMeberInfo().setIsRefundRequested(true);
+//				System.out.println(" 결제 id에 대한 활불 요청 " + paymentInfo.getMeberInfo().getId() + " by " + name);
+//				break;
+//			}
+//		}
+//	}
+//}
