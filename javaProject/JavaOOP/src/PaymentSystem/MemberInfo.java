@@ -92,7 +92,7 @@ public class MemberInfo {
 
 // 결제 정보 클래스 
 class PaymentInfo {
-	
+
 	// 인스턴스 변수 정의
 	private String paymentMethod; // 결제 방법
 	private int payAmount; // 결제 금액
@@ -105,7 +105,6 @@ class PaymentInfo {
 		this.payAmount = payAmount;
 		this.paymentStatus = paymentStatus;
 	}
-
 
 	// MemberInfo Getter Setter
 	public MemberInfo getMeberInfo() {
@@ -143,7 +142,7 @@ class PaymentInfo {
 }
 
 // 결제 인터페이스 
-interface Payment  {
+interface Payment {
 
 	private static void showPayment() {
 	}
@@ -153,6 +152,10 @@ interface Payment  {
 
 }
 
+//class payment2 implements Payment {
+//	private List<PaymentInfo> payments = new ArrayList<>();
+//	
+//}
 interface MemberCurd {
 
 	// 회원 정보 생성
@@ -170,6 +173,7 @@ interface MemberCurd {
 	// 회원 정보 출력
 	private static void showDataMember() {
 	}
+
 }
 
 class ExceptionHelper3 {
@@ -178,11 +182,10 @@ class ExceptionHelper3 {
 	}
 }
 
-class Main3  {
+class Main3 {
 
 	private static ArrayList<MemberInfo> memberInfoList = new ArrayList<>();
 	private static ArrayList<PaymentInfo> paymentInfoList = new ArrayList<>();
-	
 
 	private static Scanner scan = new Scanner(System.in);
 
@@ -218,22 +221,10 @@ class Main3  {
 					showDataMember();
 					break;
 				case 5:
-					System.out.println("이름을 입력하세요: ");
-				    String name = scan.nextLine();
-				    System.out.println("아이디를 입력하세요: ");
-				    String id = scan.nextLine();
-				    System.out.println("비밀번호를 입력하세요: ");
-				    String password = scan.nextLine();
-				    showPayment(name, id, password);
+					showPayment();
 					break;
 				case 6:
-					System.out.println("이름을 입력하세요: ");
-				    String name1 = scan.nextLine();
-				    System.out.println("아이디를 입력하세요: ");
-				    String id1 = scan.nextLine();
-				    System.out.println("비밀번호를 입력하세요: ");
-				    String password1 = scan.nextLine();
-				    refund(name1, id1, password1);
+					refund();
 					break;
 				case 7:
 					running = false;
@@ -246,7 +237,7 @@ class Main3  {
 			}
 		}
 	}
-	
+
 	// 회원 정보 생성
 	private static void createMember() {
 		System.out.println("회원 이름 입력: ");
@@ -266,8 +257,10 @@ class Main3  {
 
 		MemberInfo memberInfo = new MemberInfo(name, id, password, email, phoneNumber, paymentAmount,
 				isRefundReuqested);
+		memberInfoList.add(memberInfo);
 		System.out.println("회원 정보 생성 완료.");
 	}
+
 	// 회원 정보 삭제
 	private static void deleteMeber() {
 		System.out.println("회원 탈퇴 입니다. 회원이름,아이디,비밀번호 입력");
@@ -287,6 +280,7 @@ class Main3  {
 			}
 		}
 	}
+
 	// 회원 정보 수정
 	private static void modifyMember() {
 		System.out.println("회원 정보 수정입니다. 회원이름,아이디,비밀번호 입력");
@@ -319,7 +313,7 @@ class Main3  {
 
 				modifyM = new MemberInfo(newName, newId, newPassword, newEmail, newPhoneNumber, newPaymentAmount,
 						newIsRefundRequested);
-				
+
 				memberinfo.setName(modifyM.getName());
 				memberinfo.setId(modifyM.getId());
 				memberinfo.setPassword(modifyM.getPassword());
@@ -331,8 +325,21 @@ class Main3  {
 				break;
 			}
 		}
+		// 수정된 회원 정보 출력
+		System.out.println("수정된 회원 정보입니다.");
+		System.out.println("이름: " + modifyM.getName());
+		System.out.println("아이디: " + modifyM.getId());
+		System.out.println("비밀번호: " + modifyM.getPassword());
+		System.out.println("이메일: " + modifyM.getEmail());
+		System.out.println("전화번호: " + modifyM.getPhoneNumber());
+		System.out.println("회원결제액: " + modifyM.getPaymentAmount());
+		System.out.println("회원 환불 여부: " + modifyM.getIsRefundRequested());
+
+		// 회원 정보 출력
+		showDataMember();
 	}
-	// 회원 정보 출력 
+
+	// 회원 정보 출력
 	private static void showDataMember() {
 		System.out.println("회원 정보 출력입니다. 회원이름,아이디,비밀번호 입력");
 		System.out.println("이름: ");
@@ -341,8 +348,9 @@ class Main3  {
 		String id = scan.nextLine();
 		System.out.println("비밀번호: ");
 		String password = scan.nextLine();
-		for(MemberInfo memberinfo : memberInfoList) {
-			if(memberinfo.getName().equals(name) && memberinfo.getId().equals(id) && memberinfo.getPassword().equals(password)) {
+		for (MemberInfo memberinfo : memberInfoList) {
+			if (memberinfo.getName().equals(name) && memberinfo.getId().equals(id)
+					&& memberinfo.getPassword().equals(password)) {
 				System.out.println(memberinfo.getName());
 				System.out.println(memberinfo.getId());
 				System.out.println(memberinfo.getPassword());
@@ -351,7 +359,7 @@ class Main3  {
 				System.out.println(memberinfo.getIsRefundRequested());
 			}
 		}
-		
+
 	}
 
 	// 결제 정보 조회 로직
@@ -370,10 +378,10 @@ class Main3  {
 			}
 		}
 	}
-	
+
 	// 환불 처리 로직
 	private static void refund(String name, String id, String password) {
-		
+
 		// 환불 정보를 처리하는 로직 구현
 		for (PaymentInfo paymentInfo : paymentInfoList) {
 			if (paymentInfo.getMeberInfo().getName().equals(name) && paymentInfo.getMeberInfo().getId().equals(id)
