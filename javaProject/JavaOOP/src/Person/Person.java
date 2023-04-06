@@ -435,4 +435,3 @@ class Main implements CurdOperation {
 			}
 		}
 	}
-
