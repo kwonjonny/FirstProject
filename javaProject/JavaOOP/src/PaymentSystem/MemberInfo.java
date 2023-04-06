@@ -156,6 +156,7 @@ interface Payment {
 //	private List<PaymentInfo> payments = new ArrayList<>();
 //	
 //}
+
 interface MemberCurd {
 
 	// 회원 정보 생성
@@ -221,6 +222,7 @@ class Main3 {
 					showDataMember();
 					break;
 				case 5:
+
 					showPayment();
 					break;
 				case 6:
@@ -240,6 +242,12 @@ class Main3 {
 
 	// 회원 정보 생성
 	private static void createMember() {
+		
+		MemberInfo memberInfo1 = new MemberInfo("name", "id", "password", "email", "phoneNumber", 132,
+				true);
+		memberInfoList.add(memberInfo1);
+		
+		
 		System.out.println("회원 이름 입력: ");
 		String name = scan.nextLine();
 		System.out.println("회원 아이디 입력: ");
@@ -254,9 +262,9 @@ class Main3 {
 		int paymentAmount = scan.nextInt();
 		System.out.println("환불 여부 체크 F & N");
 		boolean isRefundReuqested = scan.nextBoolean();
-
 		MemberInfo memberInfo = new MemberInfo(name, id, password, email, phoneNumber, paymentAmount,
 				isRefundReuqested);
+		
 		memberInfoList.add(memberInfo);
 		System.out.println("회원 정보 생성 완료.");
 	}
