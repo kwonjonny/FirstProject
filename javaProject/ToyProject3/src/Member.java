@@ -463,6 +463,22 @@ class PaymentController implements PaymentCurd {
 		}
 		return instance;
 	}
+	
+	// 상품 가격 임의 설정 
+	private int getProductPrice(String productName) {
+		switch (productName) {
+		case "product1":
+			return 2000;
+		case "product2":
+			return 3000;
+		case "product3":
+			return 2000;
+		case "product4":
+			return 4000;
+		default:
+			return 0;
+		}
+	}
 
 	@Override
 	public void orderProduct() {
@@ -578,20 +594,7 @@ class PaymentController implements PaymentCurd {
 		}
 	}
 
-	private int getProductPrice(String productName) {
-		switch (productName) {
-		case "product1":
-			return 2000;
-		case "product2":
-			return 3000;
-		case "product3":
-			return 2000;
-		case "product4":
-			return 4000;
-		default:
-			return 0;
-		}
-	}
+	
 
 	@Override
 	public void changeProduct() {
@@ -738,10 +741,12 @@ class PaymentController implements PaymentCurd {
 
 	@Override
 	public void refundProductNoMember() {
+		
 	}
 
 	@Override
 	public void changeProductNoMember() {
+		
 	}
 
 }
@@ -945,8 +950,11 @@ class Main {
 			System.out.println("6.  회원 삭제");
 			System.out.println("7.  회원 상품 주문");
 			System.out.println("8.  회원 상품 환불");
-			System.out.println("9.  비회원 상품 주문");
-
+			System.out.println("9.  회원 상품 교환");
+			System.out.println("10.  비회원 상품 주문");
+			System.out.println("11.  비회원 상품 환불");
+			System.out.println("12.  비회원 상품 교환");
+			
 			int choice = scan.nextInt();
 			scan.nextLine();
 
@@ -976,7 +984,16 @@ class Main {
 				paymentController.refundProduct();
 				break;
 			case 9:
+				paymentController.changeProduct();
+				break;
+			case 10:
 				paymentController.orderProductNoMember();
+				break;
+			case 11:
+				paymentController.refundProductNoMember();
+				break;
+			case 12:
+				paymentController.changeProductNoMember();
 				break;
 			default:
 				System.out.println("잘못된 선택입니다 다시 선택해주세요.");
