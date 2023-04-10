@@ -213,7 +213,7 @@ class Main2 implements CurdOperation {
 	public static void main(String[] args) {
 
 		boolean Istrue = true;
-		while (Istrue) {
+		while (true) {
 			try {
 				System.out.println("=====관리자,고객 프로그램=====");
 				System.out.println("1. 관리자 정보 생성");

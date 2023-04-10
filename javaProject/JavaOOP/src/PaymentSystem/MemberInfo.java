@@ -186,6 +186,18 @@ class PaymentManager implements Payment {
 			}
 		}
 	}
+
+	public void processRefundRequests() {
+		for (MemberInfo memberInfo : memberInfoList) {
+			if (memberInfo.getIsRefundRequested()) {
+				// 환불 요청이 있는 경우
+				int refundAmount = memberInfo.getPaymentAmount();
+				memberInfo.setPaymentAmount(0);
+				memberInfo.setIsRefundRequested(false);
+				System.out.println(memberInfo.getName() + "님의 " + refundAmount + "원 환불이 처리되었습니다.");
+			}
+		}
+	}
 }
 
 interface MemberCurd {
