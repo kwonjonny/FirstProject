@@ -1,9 +1,79 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Iterator
+import java.util.List;
 // 자바 2주차 자습 -> ToyProject 
 // -> 싱글톤 패턴 연습 
 // 내가 설계한 회원정보와 결제,환불,교환,비회원 주문 시스템 
+
+@Override
+public void orderProduct() {
+	Scanner scan = new Scanner(System.in);
+	System.out.println("==== 상품 주문 ====");
+	System.out.println("아이디를 입력하세요: ");
+	String OrderId = scan.nextLine();
+	System.out.println("비밀번호를 입력하세요: ");
+	String OrderPassword = scan.nextLine();
+
+	boolean notOk = true;
+	for (Member orderMember : memberController.getMembers()) {
+		String orderId = orderMember.getId();
+		String passwordOrder = orderMember.getPassword();
+		boolean isOk = orderId.equals(OrderId) && passwordOrder.equals(OrderPassword);
+		if (isOk) {
+			System.out.println("상품 주문입니다.");
+			System.out.println("상품을 선택하세요:");
+			System.out.println("1. product1");
+			System.out.println("2. product2");
+			System.out.println("3. product3");
+			System.out.println("4. product4");
+			String productChoose = scan.nextLine();
+			String productName = "";
+			int productPrice = 0;
+			switch (productChoose) {
+			case "1":
+				productName = "product1";
+				productPrice = 2000;
+				break;
+			case "2":
+				productName = "product2";
+				productPrice = 3000;
+				break;
+			case "3":
+				productName = "product3";
+				productPrice = 2000;
+				break;
+			case "4":
+				productName = "product4";
+				productPrice = 4000;
+				break;
+			default:
+				break;
+			}
+			if (productName.isEmpty()) {
+				System.out.println("상품 주문 실패: 잘못된 상품 정보입니다.");
+			} else {
+				if (orderMember.getBalance() >= productPrice) {
+					int newBalance = orderMember.getBalance() - productPrice;
+					List<String> newInventory = new ArrayList<>(orderMember.getInventory());
+					newInventory.add(productName);
+					orderMember.setBalance(newBalance);
+					orderMember.setInventory(newInventory);
+					System.out.println("상품 주문이 완료되었습니다.");
+					System.out.println("선택한 상품: " + productName);
+					System.out.println("잔액: " + orderMember.getBalance());
+					System.out.println("보유 상품: " + orderMember.getInventory());
+				} else {
+					System.out.println("상품 주문 실패: 잔액이 부족합니다.");
+				}
+			}
+			break;
+		}
+	}
+	if (!notOk) {
+		System.out.println("상품 주문 실패: 잘못된 회원 정보입니다.");
+	}
+}
 
 public class Member {
 
