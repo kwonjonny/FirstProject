@@ -36,10 +36,10 @@ select * from emp where sal>= 2000 and sal <= 3000 order by ename , DEPTNO asc;
 
 -- 9. 1981년도에 입사한 사원의 이름과 입사일을 출력하시오.
 --(like 연산자와 와일드카드 사용)
-select * from emp where HIREDATE between '81/01/01' and '81/12/31';
+SELECT ename, hiredate FROM emp WHERE hiredate LIKE '%81';
 
 -- 10. 관리자가 없는 사원의 이름과 담당 업무를 출력하시오.
-select * from emp where job not in('manager');
+SELECT ename, job FROM emp WHERE mgr IS NULL;
 
 -- 11. 커미션을 받을 수 있는 자격이 되는 사원의 이름, 
 --급여, 커미션을 출력하되 급여 및 커미션을 기준으로 내림차순 정렬하여 표시하시오.
@@ -63,25 +63,3 @@ WHERE (job = 'CLERK' OR job = 'SALESMAN') AND sal NOT IN (1600, 950, 1300);
 SELECT ename, sal, comm
 FROM emp
 WHERE comm >= 500;
-
---1 마당서점의고객이요구하는다음질문에대해SQL 문을작성하시오.
---(1) 도서번호가1인도서의이름
-SELECT bookname FROM Book WHERE bookid = 1;
---(2) 가격이20,000원이상인도서의이름
- SELECT bookname FROM Book WHERE price >= 20000;
-
---2 마당서점의운영자와경영자가요구하는다음질문에대해SQL 문을작성하시오.
---(3) 모든고객의이름, 주소
-SELECT name, address FROM Customer;
-
---(4) 2014년7월4일~7월7일사이에주문받은도서의주문번호
-SELECT orderid FROM Orders WHERE orderdate BETWEEN TO_DATE('2014-07-04', 'YYYY-MM-DD') AND TO_DATE('2014-07-07', 'YYYY-MM-DD');
-
---(5) 2014년7월4일~7월7일사이에주문받은도서를제외한도서의주문번호
- SELECT orderid FROM Orders WHERE orderdate NOT BETWEEN TO_DATE('2014-07-04', 'YYYY-MM-DD') AND TO_DATE('2014-07-07', 'YYYY-MM-DD');
- 
---(6) 성이‘김’씨인고객의이름과주소
-SELECT name, address FROM Customer WHERE name LIKE '김%';
-
---(7) 성이‘김’씨이고이름이‘아’로끝나는고객의이름과주소
-SELECT name, address FROM Customer WHERE name LIKE '김%아';
