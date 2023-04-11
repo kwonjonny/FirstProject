@@ -12,21 +12,13 @@ public class Member {
 	private String id; // 회원 아이디
 	private String password; // 회원 비밀번호
 	private String nickName; // 회원 닉네임
-
-	private String noMemberId; // 비회원 아이디
-	private String noMemberPassword; // 비회원 비밀번호
-	private String noMemberName; // 비회원 이름
-	private String noMemberAccount; // 비회원 계좌번호
 	private String memberAccount; // 회원 계좌번호
-	private String noMemberAddress; // 비회원 주소
-
 	private List<String> inventory;
 	private int balance;
 
 	// 생성자 정의
 	public Member(String name, String phoneNumber, String email, String address, String id, String password,
-			String nickName, String noMemberId, String noMemberPassword, String noMemberName, String noMemberAccount,
-			String memberAccount, String noMemberAddress, List<String> inventory, int balance) {
+			String nickName, String memberAccount, List<String> inventory, int balance) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
@@ -34,11 +26,6 @@ public class Member {
 		this.id = id;
 		this.password = password;
 		this.nickName = nickName;
-		this.noMemberId = noMemberId;
-		this.noMemberPassword = noMemberPassword;
-		this.noMemberName = noMemberName;
-		this.noMemberAccount = noMemberAccount;
-		this.noMemberAddress = noMemberAddress;
 		this.inventory = inventory;
 		this.balance = balance;
 	}
@@ -51,6 +38,14 @@ public class Member {
 	// Getter Setter
 	public String getName() {
 		return name;
+	}
+
+	public String getMemberAccount() {
+		return memberAccount;
+	}
+
+	public void setMemberAccount(String memberAccount) {
+		this.memberAccount = memberAccount;
 	}
 
 	public String getPhoneNumber() {
@@ -75,30 +70,6 @@ public class Member {
 
 	public String getNickName() {
 		return nickName;
-	}
-
-	public String getNoMemberId() {
-		return noMemberId;
-	}
-
-	public String getNoMemberPassword() {
-		return noMemberPassword;
-	}
-
-	public String getNoMemberName() {
-		return noMemberName;
-	}
-
-	public String getNoMemberAccount() {
-		return noMemberAccount;
-	}
-
-	public String getMemberAccount() {
-		return memberAccount;
-	}
-
-	public String getNoMemberAddress() {
-		return noMemberAddress;
 	}
 
 	public List<String> getInventory() {
@@ -137,30 +108,6 @@ public class Member {
 		this.nickName = nickName;
 	}
 
-	public void setNoMemberId(String noMemberId) {
-		this.noMemberId = noMemberId;
-	}
-
-	public void setNoMemberPassword(String noMemberPassword) {
-		this.noMemberPassword = noMemberPassword;
-	}
-
-	public void setNoName(String noMemberName) {
-		this.noMemberName = noMemberName;
-	}
-
-	public void setNoMemberAccount(String noMemberAccount) {
-		this.noMemberAccount = noMemberAccount;
-	}
-
-	public void setMemberAccount(String memberAccount) {
-		this.memberAccount = memberAccount;
-	}
-
-	public void setNoMemberAddress(String noMemberAddress) {
-		this.noMemberAddress = noMemberAddress;
-	}
-
 	public void setInventory(List<String> inventory) {
 		this.inventory = inventory;
 	}
@@ -168,6 +115,88 @@ public class Member {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+}
+
+class NoMember {
+
+	private String noMemberId; // 비회원 아이디
+	private String noMemberPassword; // 비회원 비밀번호
+	private String noMemberName; // 비회원 이름
+	private String noMemberAccount; // 비회원 계좌번호
+
+	private String noMemberAddress; // 비회원 주소
+
+	private List<String> noMemberInventory;
+	private int noMemberBalance;
+
+	public NoMember(String noMemberId, String noMemberPassword, String noMemberName, String noMemberAccount,
+			String noMemberAddress, List<String> noMemberInventory, int noMemberBalance) {
+		super();
+		this.noMemberId = noMemberId;
+		this.noMemberPassword = noMemberPassword;
+		this.noMemberName = noMemberName;
+		this.noMemberAccount = noMemberAccount;
+		this.noMemberAddress = noMemberAddress;
+		this.noMemberInventory = noMemberInventory;
+		this.noMemberBalance = noMemberBalance;
+	}
+
+	public String getNoMemberId() {
+		return noMemberId;
+	}
+
+	public void setNoMemberId(String noMemberId) {
+		this.noMemberId = noMemberId;
+	}
+
+	public String getNoMemberPassword() {
+		return noMemberPassword;
+	}
+
+	public void setNoMemberPassword(String noMemberPassword) {
+		this.noMemberPassword = noMemberPassword;
+	}
+
+	public String getNoMemberName() {
+		return noMemberName;
+	}
+
+	public void setNoMemberName(String noMemberName) {
+		this.noMemberName = noMemberName;
+	}
+
+	public String getNoMemberAccount() {
+		return noMemberAccount;
+	}
+
+	public void setNoMemberAccount(String noMemberAccount) {
+		this.noMemberAccount = noMemberAccount;
+	}
+
+	public String getNoMemberAddress() {
+		return noMemberAddress;
+	}
+
+	public void setNoMemberAddress(String noMemberAddress) {
+		this.noMemberAddress = noMemberAddress;
+	}
+
+	public List<String> getNoMemberInventory() {
+		return noMemberInventory;
+	}
+
+	public void setNoMemberInventory(List<String> noMemberInventory) {
+		this.noMemberInventory = noMemberInventory;
+	}
+
+	public int getNoMemberBalance() {
+		return noMemberBalance;
+	}
+
+	public void setNoMemberBalance(int noMemberBalance) {
+		this.noMemberBalance = noMemberBalance;
+	}
+
 }
 
 class Product {
@@ -221,7 +250,32 @@ class Product {
 }
 
 class Admin {
+	// 인스턴스 변수 정의
+	private String adminId;
+	private String adminPassword;
 
+	// 생성자 정의
+	public Admin(String adminId, String adminPassword) {
+		this.adminId = adminId;
+		this.adminPassword = adminPassword;
+	}
+
+	// Getter Setter
+	public String getAdminId() {
+		return adminId;
+	}
+
+	public String getAdminPassword() {
+		return adminPassword;
+	}
+
+	public void setAdminId(String adminId) {
+		this.adminId = adminId;
+	}
+
+	public void setAdminPassword(String adminPassword) {
+		this.adminPassword = adminPassword;
+	}
 }
 
 class Payment {
@@ -229,6 +283,10 @@ class Payment {
 }
 
 class Delivery {
+
+}
+
+class Order {
 
 }
 
@@ -312,7 +370,7 @@ class MemberController implements MemberCrud {
 		System.out.println("회원 정보가 생성되었습니다.");
 
 		Member newMember = new Member(name, phoneNumber, email, address, id, password, nickName, memberAccount,
-				memberAccount, memberAccount, memberAccount, memberAccount, memberAccount, inventory, balance);
+				inventory, balance);
 		member.add(newMember);
 	}
 
@@ -418,6 +476,27 @@ class MemberController implements MemberCrud {
 
 }
 
+class NoMemberController {
+
+	private static NoMemberController instance;
+	private ArrayList<NoMember> noMember;
+
+	private NoMemberController() {
+		noMember = new ArrayList<>();
+	}
+
+	public ArrayList<NoMember> getNoMembers() {
+		return noMember;
+	}
+
+	public static NoMemberController getInstance() {
+		if (instance == null) {
+			instance = new NoMemberController();
+		}
+		return instance;
+	}
+}
+
 class ProductController {
 
 	private static ProductController instance;
@@ -440,17 +519,19 @@ class ProductController {
 
 }
 
-class PaymentController implements PaymentCurd {
+class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 
 	private static PaymentController instance;
 	private ArrayList<Payment> payments;
 	private MemberController memberController;
+	private NoMemberController noMemberController;
 	private ProductController productController;
 
 	private PaymentController() {
 		payments = new ArrayList<>();
 		memberController = MemberController.getInstance();
 		productController = ProductController.getInstance();
+		noMemberController = NoMemberController.getInstance();
 	}
 
 	public ArrayList<Payment> getPayments() {
@@ -463,8 +544,8 @@ class PaymentController implements PaymentCurd {
 		}
 		return instance;
 	}
-	
-	// 상품 가격 임의 설정 
+
+	// 상품 가격 임의 설정
 	private int getProductPrice(String productName) {
 		switch (productName) {
 		case "product1":
@@ -594,8 +675,6 @@ class PaymentController implements PaymentCurd {
 		}
 	}
 
-	
-
 	@Override
 	public void changeProduct() {
 		Scanner scan = new Scanner(System.in);
@@ -686,12 +765,21 @@ class PaymentController implements PaymentCurd {
 		String noMemberId = scan.nextLine();
 		System.out.println("비밀번호를 입력하세요: ");
 		String noMemberPassword = scan.nextLine();
-		System.out.println("계좌 잔액을 입력하세요: ");
-		int noMemberBalance = scan.nextInt();
+		System.out.println("계좌번호를 입력하세요: ");
+		String noMemberAccount = scan.nextLine();
+		System.out.println("주소를 입력하세요: ");
+		String noMemberAddress = scan.nextLine();
+		System.out.println("보유 상품을 입력하세요: ");
+		String noMemberInventoryInput = scan.nextLine();
+		List<String> noMemberInventory = Arrays.asList(noMemberInventoryInput.split(",")); // added inventory property
+		System.out.println("잔액을 입력하세요: ");
+		int balance = scan.nextInt(); // added balance property
 		scan.nextLine(); // consume the newline character
 
-		Member noMember = new Member(noMemberId, noMemberPassword, noMemberBalance);
-		
+		NoMember noMember = new NoMember(noMemberId, noMemberPassword, noMemberAccount, noMemberAddress,
+				noMemberInventoryInput, noMemberInventory, balance);
+		noMemberController.getNoMembers().add(noMember);
+
 		System.out.println("상품을 선택하세요:");
 		System.out.println("1. product1");
 		System.out.println("2. product2");
@@ -723,78 +811,229 @@ class PaymentController implements PaymentCurd {
 		if (productName.isEmpty()) {
 			System.out.println("상품 주문 실패: 잘못된 상품 정보입니다.");
 		} else {
-			if (noMember.getBalance() >= productPrice) {
-				int newBalance = noMember.getBalance() - productPrice;
-				List<String> newInventory = new ArrayList<>(noMember.getInventory());
+			if (noMember.getNoMemberBalance() >= productPrice) {
+				int newBalance = noMember.getNoMemberBalance() - productPrice;
+				List<String> newInventory = new ArrayList<>(noMember.getNoMemberInventory());
 				newInventory.add(productName);
-				noMember.setBalance(newBalance);
-				noMember.setInventory(newInventory);
+				noMember.setNoMemberBalance(newBalance);
+				noMember.setNoMemberInventory(newInventory);
 				System.out.println("상품 주문이 완료되었습니다.");
 				System.out.println("선택한 상품: " + productName);
-				System.out.println("잔액: " + noMember.getBalance());
-				System.out.println("보유 상품: " + noMember.getInventory());
+				System.out.println("잔액: " + noMember.getNoMemberBalance());
+				System.out.println("보유 상품: " + noMember.getNoMemberInventory());
 			} else {
 				System.out.println("상품 주문 실패: 잔액이 부족합니다.");
 			}
 		}
 	}
 
-	@Override
 	public void refundProductNoMember() {
-		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 비회원 환불 ===");
+		System.out.println("비회원 아이디를 입력하세요: ");
+		String noMemberRefundId = scan.nextLine();
+		System.out.println("비회원 비밀번호를 입력하세요: ");
+		String noMemberRefundPassword = scan.nextLine();
+
+		boolean notOk = true;
+		for (NoMember noMember : noMemberController.getNoMembers()) {
+			String noRefundId = noMember.getNoMemberId();
+			String noRefundPassword = noMember.getNoMemberPassword();
+
+			if (noRefundId.equals(noMemberRefundId) && noRefundPassword.equals(noMemberRefundPassword)) {
+				notOk = false;
+				System.out.println("환불할 상품을 선택하세요:");
+				List<String> noMemberInventory = noMember.getNoMemberInventory();
+				for (int i = 0; i < noMemberInventory.size(); i++) {
+					System.out.println((i + 1) + ". " + noMemberInventory.get(i));
+				}
+
+				int productChoice = scan.nextInt();
+				scan.nextLine(); // consume the newline character
+
+				if (productChoice < 1 || productChoice > noMemberInventory.size()) {
+					System.out.println("잘못된 상품 선택입니다.");
+					return;
+				}
+
+				String productName = noMemberInventory.get(productChoice - 1);
+				int productPrice = getProductPrice(productName); // helper method to get the price of the product
+
+				List<String> newNoInventory = new ArrayList<>(noMemberInventory);
+				newNoInventory.remove(productName);
+
+				int newBalance = noMember.getNoMemberBalance() + productPrice;
+				noMember.setNoMemberInventory(newNoInventory);
+				noMember.setNoMemberBalance(newBalance);
+
+				System.out.println("상품 환불이 완료되었습니다.");
+				System.out.println("환불한 상품: " + productName);
+				System.out.println("잔액: " + noMember.getNoMemberBalance());
+				System.out.println("보유 상품: " + noMember.getNoMemberInventory());
+				break;
+			}
+		}
+		if (notOk) {
+			System.out.println("상품 환불 실패: 잘못된 회원 정보입니다.");
+		}
 	}
 
 	@Override
 	public void changeProductNoMember() {
-		
-	}
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 비회원 상품 교환 ===");
+		System.out.println("아이디를 입력하세요: ");
+		String changeNoMemberId = scan.nextLine();
+		System.out.println("비밀번호를 입력하세요: ");
+		String changeNoMemberPassword = scan.nextLine();
 
+		boolean notOk = true;
+		for (NoMember noMember : noMemberController.getNoMembers()) {
+			String changeNoid = noMember.getNoMemberId();
+			String changeNoPassword = noMember.getNoMemberPassword();
+			boolean isOk = changeNoid.equals(changeNoid) && changeNoPassword.equals(changeNoPassword);
+			if (isOk) {
+				System.out.println("교환할 상품을 선택하세요: ");
+				List<String> noMemberInveontory = noMember.getNoMemberInventory();
+				for (int i = 0; i < noMemberInveontory.size(); i++) {
+					System.out.println((i + 1) + ". " + noMemberInveontory.get(i));
+
+					int oldProductChoice = scan.nextInt();
+					scan.nextLine();
+					if (oldProductChoice < 1 || oldProductChoice > noMemberInveontory.size()) {
+						System.out.println("상품 교환 실패: 잘못된 상품 선택입니다.");
+					} else {
+						String oldProductName = noMemberInveontory.get(oldProductChoice - 1);
+
+						System.out.println("새로운 상품을 선택하세요:");
+						System.out.println("1. product1");
+						System.out.println("2. product2");
+						System.out.println("3. product3");
+						System.out.println("4. product4");
+						int newProductChoice = scan.nextInt();
+						scan.nextLine();
+						String newProductName = "";
+						switch (newProductChoice) {
+						case 1:
+							newProductName = "product1";
+							break;
+						case 2:
+							newProductName = "product2";
+							break;
+						case 3:
+							newProductName = "product3";
+							break;
+						case 4:
+							newProductName = "product4";
+							break;
+						default:
+							break;
+						}
+						if (newProductName.isEmpty()) {
+							System.out.println("상품 교환 : 잘못된 상품 선택입니다.");
+						} else {
+							int oldProductPrice = getProductPrice(oldProductName);
+							int newProductPrice = getProductPrice(newProductName);
+							int balanceDiff = newProductPrice - oldProductPrice;
+							if (noMember.getNoMemberBalance() >= balanceDiff) {
+								List<String> newInventory = new ArrayList<>(noMember.getNoMemberInventory());
+								noMember.setNoMemberInventory(noMemberInveontory);
+								noMember.setNoMemberBalance(balanceDiff);
+								System.out.println("상품 교환이 완료되었습니다.");
+								System.out.println("이전 상품: " + oldProductName);
+								System.out.println("새로운 상품: " + newProductName);
+								System.out.println("잔액: " + noMember.getNoMemberBalance());
+								System.out.println("보유 상품: " + noMember.getNoMemberInventory());
+							} else {
+								System.out.println("상품 교환 실패: 잔액이 부족합니다.");
+							}
+						}
+					}
+					break;
+				}
+			}
+			if (!notOk) {
+				System.out.println("상품 환불 실패: 잘못된 회원 정보입니다.");
+			}
+		}
+	}
 }
 
-class AdminController implements AdminManager {
+class OrderController implements OrderShowData {
 
-	private static AdminController instance;
-	private ArrayList<Admin> admins;
+	private static OrderController instance;
+	private ArrayList<Order> orders;
 	private MemberController memberController;
-	private DeliveryController deliveryController;
-	private PaymentController paymentController;
+	private NoMemberController noMemberController;
+	private ProductController productController;
 
-	private AdminController() {
-		admins = new ArrayList<>();
+	private OrderController() {
+		orders = new ArrayList<>();
 		memberController = MemberController.getInstance();
-		deliveryController = DeliveryController.getInstance();
-		paymentController = PaymentController.getInstance();
+		noMemberController = NoMemberController.getInstance();
+		productController = ProductController.getInstance();
 	}
 
-	public ArrayList<Admin> getAdmins() {
-		return admins;
+	public ArrayList<Order> getOrders() {
+		return orders;
 	}
 
-	public static AdminController getInstance() {
+	public static OrderController getInstance() {
 		if (instance == null) {
-			instance = new AdminController();
+			instance = new OrderController();
 		}
 		return instance;
 	}
 
+	// 회원 주문 상태 조회 로직
 	@Override
-	public void adminLogin() {
+	public void memberOrderShowData() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 회원 주문 상태 조회 ===");
+		System.out.println("아이디 입력: ");
+		String id = scan.nextLine();
+		System.out.println("비밀번호 입력: ");
+		String password = scan.nextLine();
+
+		boolean notOk = true;
+		for (Member order : memberController.getMembers()) {
+			String showDataId = order.getId();
+			String showDataPassword = order.getPassword();
+			boolean isOk = showDataId.equals(id) && showDataPassword.equals(password);
+			if (isOk) {
+				System.out.println("보유 상품: " + order.getInventory());
+				notOk = false;
+				break;
+			}
+			if (notOk) {
+				System.out.println("회원 상품 조회 실패: 잘못된 입력입니다.");
+			}
+		}
 	}
 
 	@Override
-	public void adminLogout() {
-	}
+	public void noMemberOrderShowData() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 비회원 주문 상태 조회 ===");
+		System.out.println("아이디 입력: ");
+		String NoMemberId = scan.nextLine();
+		System.out.println("비밀번호 입력: ");
+		String NoMemberPassword = scan.nextLine();
 
-	@Override
-	public void memberShowData() {
-	}
-
-	@Override
-	public void memberModify() {
-	}
-
-	@Override
-	public void memberDelete() {
+		boolean notOk = true;
+		for (NoMember noOrder : noMemberController.getNoMembers()) {
+			String showDataNoId = noOrder.getNoMemberId();
+			String showDataNoPassword = noOrder.getNoMemberPassword();
+			boolean isOk = showDataNoId.equals(NoMemberId) && showDataNoPassword.equals(NoMemberPassword);
+			if (isOk) {
+				System.out.println("보유 상품:" + noOrder.getNoMemberInventory());
+				notOk = false;
+				break;
+			}
+			if (notOk) {
+				System.out.println("회원 상품 조회 실패: 잘못된 입력입니다.");
+			}
+		}
 	}
 }
 
@@ -803,14 +1042,21 @@ class DeliveryController implements DeliveryFast {
 	private static DeliveryController instance;
 	private ArrayList<Delivery> deliveries;
 	private MemberController memberController;
-	private ProductController productController;
-	private PaymentController paymentController;
+	private NoMemberController noMemberController;
+	// 인스턴스 변수 선언 -> 하드코딩으로 배송 상태, 배송 날짜, 운송장 번호 추상 지정
+	private String status;
+	private String date;
+	private String trackingNumber;
+
+	// -> 하드코딩으로 비회원 배송 상태, 비회원 배송 날짜, 비회원 운송장 번호 추상 지정
+	private String noMemberStatused;
+	private String noMemberDated;
+	private String noMemberTrackingNumber;
 
 	private DeliveryController() {
 		deliveries = new ArrayList<>();
 		memberController = MemberController.getInstance();
-		productController = ProductController.getInstance();
-		paymentController = PaymentController.getInstance();
+		noMemberController = NoMemberController.getInstance();
 	}
 
 	public ArrayList<Delivery> getDeliverys() {
@@ -824,30 +1070,388 @@ class DeliveryController implements DeliveryFast {
 		return instance;
 	}
 
+	// 회원 배송 상태 로직
 	@Override
 	public void deliveryStatus() {
+		// 배송 상태 설정
+		status = "배송중";
+		Scanner scan = new Scanner(System.in);
+		System.out.println("==== 배송 상태 조회 ====");
+		System.out.println("회원 아이디를 입력하세요: ");
+		String id = scan.nextLine();
+		System.out.println("회원 비밀번호를 입력하세요: ");
+		String password = scan.nextLine();
+
+		boolean notOk = true;
+		for (Member memberStatus : memberController.getMembers()) {
+			String memberId = memberStatus.getId();
+			String memberPassword = memberStatus.getPassword();
+			List<String> trackingPrice = memberStatus.getInventory();
+
+			if (trackingPrice == null) {
+				System.out.println("회원 배송 날짜 조회 실패: 잘못된 입력입니다.");
+				return;
+			}
+
+			boolean isOk = memberId.equals(id) && memberPassword.equals(password)
+					&& trackingPrice.equals(trackingPrice);
+			if (isOk) {
+				System.out.println("배송 상태: " + status);
+				notOk = false;
+				break;
+			}
+			if (notOk) {
+				System.out.println("회원 배송 조회 실패: 잘못된 입력입니다.");
+			}
+		}
 	}
 
+	// 회원 배송 날짜 로직
 	@Override
 	public void deliveryDate() {
+		// 배송 날짜 설정
+		date = "2023-04-15";
+		Scanner scan = new Scanner(System.in);
+		System.out.println("==== 회원 배송 날짜 조회 ====");
+		System.out.println("아이디를 입력하세요: ");
+		String idDate = scan.nextLine();
+		System.out.println("비밀번호를 입력하세요: ");
+		String passwordDate = scan.nextLine();
+
+		boolean notOk = false;
+		for (Member memberDate : memberController.getMembers()) {
+			String memberDateId = memberDate.getId();
+			String memberDatePassword = memberDate.getPassword();
+			List<String> trackingPrice = memberDate.getInventory();
+
+			if (trackingPrice == null) {
+				System.out.println("회원 배송 날짜 조회 실패: 잘못된 입력입니다.");
+				return;
+			}
+
+			boolean isOk = memberDateId.equals(idDate) && memberDatePassword.equals(passwordDate)
+					&& trackingPrice.equals(trackingPrice);
+			if (isOk) {
+				System.out.println("배송 날짜: " + date);
+				notOk = true;
+			}
+			if (notOk) {
+				System.out.println("회원 배송 날짜 조회 실패: 잘못된 입력입니다.");
+			}
+		}
 	}
 
+	// 회원 운송장 번호 로직
 	@Override
 	public void deliveryTracking() {
+		// 운송장 번호 설정
+		trackingNumber = "12342-31234-23412";
+		Scanner scan = new Scanner(System.in);
+		System.out.println("==== 회원 운송장 번호 조회 ====");
+		System.out.println("아이디를 입력하세요: ");
+		String idTracking = scan.nextLine();
+		System.out.println("비밀번호를 입력하세요: ");
+		String passwordTracking = scan.nextLine();
+
+		boolean notOk = false;
+		for (Member memberTracking : memberController.getMembers()) {
+			String trackingId = memberTracking.getId();
+			String trackingPasswod = memberTracking.getPassword();
+			List<String> trackingPrice = memberTracking.getInventory();
+
+			if (trackingPrice == null) {
+				System.out.println("회원 배송 날짜 조회 실패: 잘못된 입력입니다.");
+				return;
+			}
+
+			boolean isOk = trackingId.equals(idTracking) && trackingPasswod.equals(passwordTracking)
+					&& trackingPrice.equals(trackingPrice);
+			if (isOk) {
+				System.out.println("회원 운송장 번호:" + trackingNumber);
+				notOk = true;
+				break;
+			}
+			if (!notOk) {
+				System.out.println("운송장 번호 조회 실패: 잘못된 입력입니다.");
+			}
+		}
 	}
 
+	// 비회원 배송 상태 로직
 	@Override
 	public void deliveryStatusNoMember() {
+		// 비회원 배송 상태
+		noMemberStatused = "배송중.";
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 비회원 배송 상태 조회 ===");
+		System.out.println("비회원 아이디를 입력하세요: ");
+		String noMemberId = scan.nextLine();
+		System.out.println("비회원 비밀번호를 입력하세요: ");
+		String noMemberPassword = scan.nextLine();
+
+		boolean notOk = false;
+		for (NoMember noMemberStatus : noMemberController.getNoMembers()) {
+			String idNoMember = noMemberStatus.getNoMemberId();
+			String passwordNoMember = noMemberStatus.getNoMemberPassword();
+			List<String> trackingPrice = noMemberStatus.getNoMemberInventory();
+
+			if (trackingPrice == null) {
+				System.out.println("회원 배송 날짜 조회 실패: 잘못된 입력입니다.");
+				return;
+			}
+
+			boolean isOk = idNoMember.equals(noMemberId) && passwordNoMember.equals(noMemberPassword)
+					&& trackingPrice.equals(trackingPrice);
+			if (isOk) {
+				System.out.println("회원 배송 상태:" + noMemberStatused);
+				notOk = true;
+				break;
+			}
+			if (notOk) {
+				System.out.println("비회원 배송 조회 실패: 잘못된 입력입니다.");
+			}
+		}
 	}
 
+	// 비회원 배송 날짜 로직
 	@Override
 	public void deliveryDateNoMember() {
+		// 배송 날짜 설정
+		noMemberDated = "2023-04-23";
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 비회원 배송 날짜 조회 ===");
+		System.out.println("비회원 아이디를 입력하세요: ");
+		String noMemberDateId = scan.nextLine();
+		System.out.println("비회원 비밀번호를 입력하세요: ");
+		String noMemberDatePassword = scan.nextLine();
+
+		boolean notOk = false;
+		for (NoMember noMemberDate : noMemberController.getNoMembers()) {
+			String idNoDate = noMemberDate.getNoMemberId();
+			String passwordNoDate = noMemberDate.getNoMemberPassword();
+			List<String> trackingPrice = noMemberDate.getNoMemberInventory();
+
+			if (trackingPrice == null) {
+				System.out.println("회원 배송 날짜 조회 실패: 잘못된 입력입니다.");
+				return;
+			}
+
+			boolean isOk = idNoDate.equals(noMemberDateId) && passwordNoDate.equals(noMemberDatePassword)
+					&& trackingPrice.equals(trackingPrice);
+			if (isOk) {
+				System.out.println("비회원 배송 날짜: " + noMemberDated);
+				notOk = true;
+				break;
+			}
+			if (notOk) {
+				System.out.println("비회원 배송 조회 실패: 잘못된 입력입니다.");
+			}
+		}
+	}
+
+	// 비회원 운송장 번호 로직
+	@Override
+	public void deliveryTrackingNoMember() {
+		// 운송장 번호 설정
+		noMemberTrackingNumber = "12345-12345-12345";
+		System.out.println("==== 회원 운송장 번호 조회 ====");
+		Scanner scan = new Scanner(System.in);
+		System.out.println("비회원 아이디를 입력하세요: ");
+		String noMemberTrackingId = scan.nextLine();
+		System.out.println("비회원 비밀번호를 입력하세요: ");
+		String noMemberTrackingPassword = scan.nextLine();
+
+		boolean notOk = false;
+		for (NoMember noMemberTracking : noMemberController.getNoMembers()) {
+			String idNoTracking = noMemberTracking.getNoMemberId();
+			String passwordNoTracking = noMemberTracking.getNoMemberPassword();
+			List<String> trackingPrice = noMemberTracking.getNoMemberInventory();
+
+			if (trackingPrice == null) {
+				System.out.println("회원 배송 날짜 조회 실패: 잘못된 입력입니다.");
+				return;
+			}
+
+			boolean isOk = idNoTracking.equals(noMemberTrackingId)
+					&& passwordNoTracking.equals(noMemberTrackingPassword) && trackingPrice.equals(trackingPrice);
+			if (isOk) {
+				System.out.println("비회원 운송장 번호 조회:" + noMemberTrackingNumber);
+				notOk = true;
+				break;
+			}
+			if (notOk) {
+				System.out.println("비회원 배송 조회 실패: 잘못된 입력입니다.");
+			}
+		}
+	}
+}
+
+class AdminController implements AdminManager {
+
+	private static AdminController instance;
+	private ArrayList<Admin> admins;
+	private MemberController memberController;
+	private NoMemberController noMemberController;
+	private PaymentController paymentController;
+	private OrderController orderController;
+	private DeliveryController deliveryController;
+
+	private AdminController() {
+		admins = new ArrayList<>();
+		memberController = MemberController.getInstance();
+		noMemberController = NoMemberController.getInstance();
+		deliveryController = DeliveryController.getInstance();
+		paymentController = PaymentController.getInstance();
+		orderController = OrderController.getInstance();
+	}
+
+	public ArrayList<Admin> getAdmins() {
+		return admins;
+	}
+
+	public static AdminController getInstance() {
+		if (instance == null) {
+			instance = new AdminController();
+		}
+		return instance;
+	}
+
+	// 값 임의 지정
+	private String adminId;
+	private String adminPassword;
+
+	@Override
+	public void adminLogin() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("관리자 아이디를 입력하세요: ");
+		String adminId = scan.nextLine();
+		System.out.println("관리자 비밀번호를 입력하세요: ");
+		String adminPassword = scan.nextLine();
+
+		if (adminId.equals("admin") && adminPassword.equals("admin")) {
+			System.out.println("로그인 완료");
+			System.out.println("회원 이름을 입력하세요: ");
+			String name = scan.nextLine();
+			for (Member member : memberController.getMembers()) {
+				if (member.getName().equals(name)) {
+					System.out.println("회원 아이디: " + member.getId());
+					System.out.println("회원 이름: " + member.getName());
+					System.out.println("회원 전화번호: " + member.getPhoneNumber());
+					System.out.println("회원 배송지 주소: " + member.getAddress());
+					System.out.println("회원 장바구니: " + member.getInventory());
+					System.out.println("==============");
+					return;
+				}
+			}
+			System.out.println("해당 이름의 회원을 찾을 수 없습니다.");
+		} else {
+			System.out.println("관리자 로그인 실패: 잘못된 입력입니다.");
+		}
 	}
 
 	@Override
-	public void deliveryTrackingNoMember() {
+	public void adminLogout() {
+		System.out.println("See you again ^^");
 	}
 
+	@Override
+	public void memberShowData() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 관리자 회원 정보 출력 ===");
+		System.out.println("관리자 아이디를 입력하세요: ");
+		String adminId = scan.nextLine();
+		System.out.println("관리자 비밀번호를 입력하세요: ");
+		String adminPassword = scan.nextLine();
+
+		if (adminId.equals("admin") && adminPassword.equals("admin")) {
+			System.out.println("로그인 완료");
+			System.out.println("회원 이름을 입력하세요: ");
+			String name = scan.nextLine();
+			for (Member member : memberController.getMembers()) {
+				if (member.getName().equals(name)) {
+					System.out.println("회원 아이디: " + member.getId());
+					System.out.println("회원 이름: " + member.getName());
+					System.out.println("회원 전화번호: " + member.getPhoneNumber());
+					System.out.println("회원 배송지 주소: " + member.getAddress());
+					System.out.println("회원 장바구니: " + member.getInventory());
+					System.out.println("==============");
+					return;
+				}
+			}
+			System.out.println("존재하지 않는 회원 이름입니다.");
+		} else {
+			System.out.println("관리자 로그인 실패: 잘못된 입력입니다.");
+		}
+	}
+
+	@Override
+	public void memberModify() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 관리자 회원 정보 수정 ===");
+		System.out.println("관리자 아이디를 입력하세요: ");
+		String adminId = scan.nextLine();
+		System.out.println("관리자 비밀번호를 입력하세요: ");
+		String adminPassword = scan.nextLine();
+
+		if (adminId.equals("admin") && adminPassword.equals("admin")) {
+			System.out.println("로그인 완료");
+			System.out.println("회원 이름을 입력하세요: ");
+			String name = scan.nextLine();
+			for (Member member : memberController.getMembers()) {
+				if (member.getName().equals(name)) {
+					System.out.println("새로운 이름 입력: ");
+					String newName = scan.nextLine();
+					member.setName(newName);
+					System.out.println("새로운 전화번호를 입력하세요: ");
+					String newPhoneNumber = scan.nextLine();
+					member.setPhoneNumber(newPhoneNumber);
+					System.out.println("새로운 이메일을 입력하세요: ");
+					String newEmail = scan.nextLine();
+					member.setEmail(newEmail);
+					System.out.println("새로운 주소를 입력하세요: ");
+					String newAddress = scan.nextLine();
+					member.setAddress(newAddress);
+					System.out.println("새로운 아이디를 입력하세요: ");
+					String newId = scan.nextLine();
+					member.setId(newId);
+					System.out.println("새로운 비밀번호를 입력하세요: ");
+					String newPassword = scan.nextLine();
+					member.setPassword(newPassword);
+					System.out.println("새로운 닉네임을 입력하세요: ");
+					String newNickName = scan.nextLine();
+					member.setNickName(newNickName);
+					System.out.println("새로운 계좌번호를 입력하세요: ");
+					String newAccount = scan.nextLine();
+					member.setMemberAccount(newAccount);
+					System.out.println("회원 수정이 완료되었습니다.");
+					break;
+				}
+			}
+		}
+	}
+
+	@Override
+	public void memberDelete() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("=== 관리자 회원 정보 삭제 ===");
+		System.out.println("관리자 아이디를 입력하세요: ");
+		String adminId = scan.nextLine();
+		System.out.println("관리자 비밀번호를 입력하세요: ");
+		String adminPassword = scan.nextLine();
+
+		if (adminId.equals("admin") && adminPassword.equals("admin")) {
+			System.out.println("로그인 완료");
+			System.out.println("회원 이름을 입력하세요: ");
+			String name = scan.nextLine();
+			for (Member member : memberController.getMembers()) {
+				if (member.getName().equals(name)) {
+					memberController.getMembers().remove(member);
+					System.out.println("회원이 삭제되었습니다.");
+				}
+			}
+
+		}
+	}
 }
 
 interface MemberCrud {
@@ -871,7 +1475,7 @@ interface MemberCrud {
 	public void showDataMember();
 }
 
-interface PaymentCurd {
+interface PaymentCrud {
 
 	// 회원 상품 주문
 	public void orderProduct();
@@ -882,6 +1486,10 @@ interface PaymentCurd {
 	// 회원 상품 교환
 	public void changeProduct();
 
+}
+
+interface PaymentNoMemberCrud {
+
 	// 비회원 상품 주문
 	public void orderProductNoMember();
 
@@ -890,7 +1498,15 @@ interface PaymentCurd {
 
 	// 비회원 상품 교환
 	public void changeProductNoMember();
+}
 
+interface OrderShowData {
+
+	// 회원 주문 상태 출력
+	public void memberOrderShowData();
+
+	// 비회원 주문 상태 출력
+	public void noMemberOrderShowData();
 }
 
 interface DeliveryFast {
@@ -936,25 +1552,44 @@ class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		MemberController memberController = MemberController.getInstance();
+		NoMemberController noMemberController = NoMemberController.getInstance();
+		ProductController productController = ProductController.getInstance();
 		PaymentController paymentController = PaymentController.getInstance();
 		DeliveryController deliveryController = DeliveryController.getInstance();
-		AdminController adminCountroller = AdminController.getInstance();
+		OrderController orderController = OrderController.getInstance();
+		AdminController adminController = AdminController.getInstance();
 
 		while (true) {
-			System.out.println("======= 메뉴 선택 =======");
-			System.out.println("1.  로그인");
-			System.out.println("2.  로그아웃");
-			System.out.println("3.  회원가입");
-			System.out.println("4.  회원정보 출력");
-			System.out.println("5.  회원정보 수정");
-			System.out.println("6.  회원 삭제");
-			System.out.println("7.  회원 상품 주문");
-			System.out.println("8.  회원 상품 환불");
-			System.out.println("9.  회원 상품 교환");
-			System.out.println("10.  비회원 상품 주문");
-			System.out.println("11.  비회원 상품 환불");
-			System.out.println("12.  비회원 상품 교환");
-			
+			System.out.println("===============================================");
+			System.out.println("|                 메뉴 선택                    |");
+			System.out.println("===============================================");
+			System.out.print("| 1. 로그인              ");
+			System.out.print("| 2. 로그아웃            ");
+			System.out.print("| 3. 회원가입            ");
+			System.out.print("| 4. 회원정보 출력        ");
+			System.out.print("| 5. 회원정보 수정        ");
+			System.out.print("| 6. 회원 삭제            ");
+			System.out.print("| 7. 회원 상품 주문       ");
+			System.out.print("| 8. 회원 상품 환불       ");
+			System.out.print("| 9. 회원 상품 교환       ");
+			System.out.print("| 10. 비회원 상품 주문     ");
+			System.out.print("| 11. 비회원 상품 환불     ");
+			System.out.print("| 12. 비회원 상품 교환     ");
+			System.out.print("| 13. 회원 상품 조회      ");
+			System.out.print("| 14. 비회원 상품 조회    ");
+			System.out.print("| 15. 회원 배송 상태 조회 ");
+			System.out.print("| 16. 회원 배송 날짜 조회  ");
+			System.out.print("| 17. 회원 운송장 번호 조회 ");
+			System.out.print("| 18. 비회원 배송 상태 조회");
+			System.out.print("| 19. 비회원 배송 날짜 조회 ");
+			System.out.print("| 20. 비회원 운송장 번호 조회");
+			System.out.print("| 21. 관리자 로그인         ");
+			System.out.print("| 22. 관리자 로그아웃       ");
+			System.out.print("| 23. 관리자 회원 조회      ");
+			System.out.print("| 24. 관리자 회원 정보 수정  ");
+			System.out.println("| 25. 관리자 회원 정보 삭제  |");
+			System.out.println("===============================================");
+
 			int choice = scan.nextInt();
 			scan.nextLine();
 
@@ -995,6 +1630,44 @@ class Main {
 			case 12:
 				paymentController.changeProductNoMember();
 				break;
+			case 13:
+				orderController.memberOrderShowData();
+				break;
+			case 14:
+				orderController.noMemberOrderShowData();
+				break;
+			case 15:
+				deliveryController.deliveryStatus();
+				break;
+			case 16:
+				deliveryController.deliveryDate();
+				break;
+			case 17:
+				deliveryController.deliveryTracking();
+				break;
+			case 18:
+				deliveryController.deliveryStatusNoMember();
+				break;
+			case 19:
+				deliveryController.deliveryDateNoMember();
+				break;
+			case 20:
+				deliveryController.deliveryTrackingNoMember();
+				break;
+			case 21:
+				adminController.adminLogin();
+				break;
+			case 22:
+				adminController.adminLogout();
+				break;
+			case 23:
+				adminController.memberShowData();
+				break;
+			case 24:
+				adminController.memberModify();
+				break;
+			case 25:
+				adminController.memberDelete();
 			default:
 				System.out.println("잘못된 선택입니다 다시 선택해주세요.");
 				break;
