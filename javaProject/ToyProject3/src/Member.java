@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+// 회원 클래스 
 public class Member {
 	// 인스턴스 변수 정의
 	private String name; // 회원 이름
@@ -95,7 +96,7 @@ public class Member {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -117,6 +118,7 @@ public class Member {
 	}
 }
 
+// 비회원 클래스 
 class NoMember {
 
 	private String noMemberId; // 비회원 아이디
@@ -199,6 +201,7 @@ class NoMember {
 
 }
 
+// Product 클래스 
 class Product {
 	// 인스턴스 변수 정의 상품이 있다고 가정
 	private String product1;
@@ -249,6 +252,7 @@ class Product {
 
 }
 
+// 관리자 클래스 
 class Admin {
 	// 인스턴스 변수 정의
 	private String adminId;
@@ -278,18 +282,22 @@ class Admin {
 	}
 }
 
+// Payment 클래스 
 class Payment {
 
 }
 
+// Delivery 클래스 
 class Delivery {
 
 }
 
+// Order 클래스 
 class Order {
 
 }
 
+// 회원 Controller 
 class MemberController implements MemberCrud {
 
 	private static MemberController instance;
@@ -310,6 +318,7 @@ class MemberController implements MemberCrud {
 		return instance;
 	}
 
+	// 회원 로그인 로직 
 	@Override
 	public void login() {
 		Scanner scan = new Scanner(System.in);
@@ -334,12 +343,14 @@ class MemberController implements MemberCrud {
 		}
 	}
 
+	// 회원 로그아웃 로직 
 	@Override
 	public void logout() {
 		System.out.println("==== 로그아웃 ====");
 		System.out.println("See you again ^.^");
 	}
 
+	// 회원 정보 생성 로직 
 	@Override
 	public void createMember() {
 		Scanner scan = new Scanner(System.in);
@@ -374,6 +385,7 @@ class MemberController implements MemberCrud {
 		member.add(newMember);
 	}
 
+	// 회원 정보 삭제 로직 
 	@Override
 	public void deleteMember() {
 		Scanner scan = new Scanner(System.in);
@@ -400,6 +412,7 @@ class MemberController implements MemberCrud {
 		}
 	}
 
+	// 회원 정보 수정 로직 
 	@Override
 	public void modifyMember() {
 		Scanner scan = new Scanner(System.in);
@@ -442,6 +455,7 @@ class MemberController implements MemberCrud {
 		}
 	}
 
+	// 회원 정보 출력 로직 
 	@Override
 	public void showDataMember() {
 		Scanner scan = new Scanner(System.in);
@@ -476,6 +490,7 @@ class MemberController implements MemberCrud {
 
 }
 
+// 비회원 Controller 
 class NoMemberController {
 
 	private static NoMemberController instance;
@@ -497,6 +512,7 @@ class NoMemberController {
 	}
 }
 
+// 상품 Controller 
 class ProductController {
 
 	private static ProductController instance;
@@ -519,6 +535,7 @@ class ProductController {
 
 }
 
+// Payment Controller 
 class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 
 	private static PaymentController instance;
@@ -561,6 +578,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
+	// 회원 주문 로직 
 	@Override
 	public void orderProduct() {
 		Scanner scan = new Scanner(System.in);
@@ -630,6 +648,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
+	// 회원 환불 로직 
 	@Override
 	public void refundProduct() {
 		Scanner scan = new Scanner(System.in);
@@ -675,6 +694,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
+	// 회원 교환 로직 
 	@Override
 	public void changeProduct() {
 		Scanner scan = new Scanner(System.in);
@@ -757,6 +777,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
+	// 비회원 주문 로직 
 	@Override
 	public void orderProductNoMember() {
 		Scanner scan = new Scanner(System.in);
@@ -827,6 +848,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
+	// 비회원 환불 로직 
 	public void refundProductNoMember() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("=== 비회원 환불 ===");
@@ -878,6 +900,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
+	// 비회원 교환 로직 
 	@Override
 	public void changeProductNoMember() {
 		Scanner scan = new Scanner(System.in);
@@ -959,6 +982,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 	}
 }
 
+// 주문 Controller  
 class OrderController implements OrderShowData {
 
 	private static OrderController instance;
@@ -1011,6 +1035,7 @@ class OrderController implements OrderShowData {
 		}
 	}
 
+	// 비회원 정보 출력 로직 
 	@Override
 	public void noMemberOrderShowData() {
 		Scanner scan = new Scanner(System.in);
@@ -1037,6 +1062,7 @@ class OrderController implements OrderShowData {
 	}
 }
 
+// 배송 Controller 
 class DeliveryController implements DeliveryFast {
 
 	private static DeliveryController instance;
@@ -1286,6 +1312,7 @@ class DeliveryController implements DeliveryFast {
 	}
 }
 
+// 관리자 Controller 
 class AdminController implements AdminManager {
 
 	private static AdminController instance;
@@ -1349,11 +1376,13 @@ class AdminController implements AdminManager {
 		}
 	}
 
+	// 관리자 로그아웃 로직 
 	@Override
 	public void adminLogout() {
 		System.out.println("See you again ^^");
 	}
 
+	// 관리자 -> 회원 정보 출력 로직 
 	@Override
 	public void memberShowData() {
 		Scanner scan = new Scanner(System.in);
@@ -1384,6 +1413,7 @@ class AdminController implements AdminManager {
 		}
 	}
 
+	// 관리자 -> 회원 정보 수정 로직 
 	@Override
 	public void memberModify() {
 		Scanner scan = new Scanner(System.in);
@@ -1430,6 +1460,7 @@ class AdminController implements AdminManager {
 		}
 	}
 
+	// 관리자 -> 회원 정보 삭제 로직 
 	@Override
 	public void memberDelete() {
 		Scanner scan = new Scanner(System.in);
@@ -1454,6 +1485,7 @@ class AdminController implements AdminManager {
 	}
 }
 
+// 회원 Crud interface 
 interface MemberCrud {
 
 	// 로그인
@@ -1475,6 +1507,7 @@ interface MemberCrud {
 	public void showDataMember();
 }
 
+// Payment interface 
 interface PaymentCrud {
 
 	// 회원 상품 주문
@@ -1488,6 +1521,7 @@ interface PaymentCrud {
 
 }
 
+// paymentNoMember interface 
 interface PaymentNoMemberCrud {
 
 	// 비회원 상품 주문
@@ -1500,6 +1534,7 @@ interface PaymentNoMemberCrud {
 	public void changeProductNoMember();
 }
 
+// Order interface 
 interface OrderShowData {
 
 	// 회원 주문 상태 출력
@@ -1509,6 +1544,7 @@ interface OrderShowData {
 	public void noMemberOrderShowData();
 }
 
+// Delivery interface 
 interface DeliveryFast {
 
 	// 회원 배송 상태 조회
@@ -1531,6 +1567,7 @@ interface DeliveryFast {
 
 }
 
+// Admin interface 
 interface AdminManager {
 	// 관리자 로그인
 	public void adminLogin();
@@ -1548,6 +1585,7 @@ interface AdminManager {
 	public void memberDelete();
 }
 
+// 메인 클래스 
 class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
