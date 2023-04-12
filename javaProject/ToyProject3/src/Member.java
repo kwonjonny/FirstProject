@@ -96,7 +96,7 @@ public class Member {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -318,7 +318,7 @@ class MemberController implements MemberCrud {
 		return instance;
 	}
 
-	// 회원 로그인 로직 
+	// 회원 로그인 로직
 	@Override
 	public void login() {
 		Scanner scan = new Scanner(System.in);
@@ -343,14 +343,14 @@ class MemberController implements MemberCrud {
 		}
 	}
 
-	// 회원 로그아웃 로직 
+	// 회원 로그아웃 로직
 	@Override
 	public void logout() {
 		System.out.println("==== 로그아웃 ====");
 		System.out.println("See you again ^.^");
 	}
 
-	// 회원 정보 생성 로직 
+	// 회원 정보 생성 로직
 	@Override
 	public void createMember() {
 		Scanner scan = new Scanner(System.in);
@@ -385,7 +385,7 @@ class MemberController implements MemberCrud {
 		member.add(newMember);
 	}
 
-	// 회원 정보 삭제 로직 
+	// 회원 정보 삭제 로직
 	@Override
 	public void deleteMember() {
 		Scanner scan = new Scanner(System.in);
@@ -412,7 +412,7 @@ class MemberController implements MemberCrud {
 		}
 	}
 
-	// 회원 정보 수정 로직 
+	// 회원 정보 수정 로직
 	@Override
 	public void modifyMember() {
 		Scanner scan = new Scanner(System.in);
@@ -455,7 +455,7 @@ class MemberController implements MemberCrud {
 		}
 	}
 
-	// 회원 정보 출력 로직 
+	// 회원 정보 출력 로직
 	@Override
 	public void showDataMember() {
 		Scanner scan = new Scanner(System.in);
@@ -578,7 +578,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
-	// 회원 주문 로직 
+	// 회원 주문 로직
 	@Override
 	public void orderProduct() {
 		Scanner scan = new Scanner(System.in);
@@ -648,7 +648,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
-	// 회원 환불 로직 
+	// 회원 환불 로직
 	@Override
 	public void refundProduct() {
 		Scanner scan = new Scanner(System.in);
@@ -694,7 +694,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
-	// 회원 교환 로직 
+	// 회원 교환 로직
 	@Override
 	public void changeProduct() {
 		Scanner scan = new Scanner(System.in);
@@ -777,7 +777,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
-	// 비회원 주문 로직 
+	// 비회원 주문 로직
 	@Override
 	public void orderProductNoMember() {
 		Scanner scan = new Scanner(System.in);
@@ -848,7 +848,8 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
-	// 비회원 환불 로직 
+	// 비회원 환불 로직
+	@Override
 	public void refundProductNoMember() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("=== 비회원 환불 ===");
@@ -900,7 +901,7 @@ class PaymentController implements PaymentCrud, PaymentNoMemberCrud {
 		}
 	}
 
-	// 비회원 교환 로직 
+	// 비회원 교환 로직
 	@Override
 	public void changeProductNoMember() {
 		Scanner scan = new Scanner(System.in);
@@ -1035,7 +1036,7 @@ class OrderController implements OrderShowData {
 		}
 	}
 
-	// 비회원 정보 출력 로직 
+	// 비회원 정보 출력 로직
 	@Override
 	public void noMemberOrderShowData() {
 		Scanner scan = new Scanner(System.in);
@@ -1376,13 +1377,13 @@ class AdminController implements AdminManager {
 		}
 	}
 
-	// 관리자 로그아웃 로직 
+	// 관리자 로그아웃 로직
 	@Override
 	public void adminLogout() {
 		System.out.println("See you again ^^");
 	}
 
-	// 관리자 -> 회원 정보 출력 로직 
+	// 관리자 -> 회원 정보 출력 로직
 	@Override
 	public void memberShowData() {
 		Scanner scan = new Scanner(System.in);
@@ -1413,7 +1414,7 @@ class AdminController implements AdminManager {
 		}
 	}
 
-	// 관리자 -> 회원 정보 수정 로직 
+	// 관리자 -> 회원 정보 수정 로직
 	@Override
 	public void memberModify() {
 		Scanner scan = new Scanner(System.in);
@@ -1460,7 +1461,7 @@ class AdminController implements AdminManager {
 		}
 	}
 
-	// 관리자 -> 회원 정보 삭제 로직 
+	// 관리자 -> 회원 정보 삭제 로직
 	@Override
 	public void memberDelete() {
 		Scanner scan = new Scanner(System.in);
@@ -1601,31 +1602,15 @@ class Main {
 			System.out.println("===============================================");
 			System.out.println("|                 메뉴 선택                    |");
 			System.out.println("===============================================");
-			System.out.print("| 1. 로그인              ");
-			System.out.print("| 2. 로그아웃            ");
-			System.out.println("| 3. 회원가입            ");
-			System.out.print("| 4. 회원정보 출력        ");
-			System.out.print("| 5. 회원정보 수정        ");
-			System.out.println("| 6. 회원 삭제            ");
-			System.out.print("| 7. 회원 상품 주문       ");
-			System.out.print("| 8. 회원 상품 환불       ");
-			System.out.println("| 9. 회원 상품 교환       ");
-			System.out.print("| 10. 비회원 상품 주문     ");
-			System.out.print("| 11. 비회원 상품 환불     ");
-			System.out.print("| 12. 비회원 상품 교환     ");
-			System.out.println("| 13. 회원 상품 조회      ");
-			System.out.print("| 14. 비회원 상품 조회    ");
-			System.out.print("| 15. 회원 배송 상태 조회 ");
-			System.out.print("| 16. 회원 배송 날짜 조회  ");
-			System.out.println("| 17. 회원 운송장 번호 조회 ");
-			System.out.print("| 18. 비회원 배송 상태 조회");
-			System.out.print("| 19. 비회원 배송 날짜 조회 ");
-			System.out.print("| 20. 비회원 운송장 번호 조회");
-			System.out.print("| 21. 관리자 로그인         ");
-			System.out.print("| 22. 관리자 로그아웃       ");
-			System.out.println("| 23. 관리자 회원 조회      ");
-			System.out.print("| 24. 관리자 회원 정보 수정  ");
-			System.out.println("| 25. 관리자 회원 정보 삭제  |");
+			System.out.println("1.로그인 					2.로그아웃 				3.회원가입 ");
+			System.out.println("4.회원정보 출력 			5.회원정보 수정 			6.회원 삭제");
+			System.out.println("7.회원 상품 주문 			8.회원 상품 환불 			9.회원 상품 교환");
+			System.out.println("10.비회원 상품 주문 		11.비회원 상품 환불 		12.비회원 상품 교환");
+			System.out.println("13.회원 상품 조회 			14.비회원 상품 조회 		15.회원 배송 상태 조회");
+			System.out.println("16.회원 배송 날짜 조회 		17.회원 운송장 번호 조회 	18.비회원 배송 상태 조회");
+			System.out.println("19.비회원 배송 날짜 조회 	20.비회원 운송장 번호 조회 	21.관리자 로그인");
+			System.out.println("22.관리자 로그아웃 			23.관리자 회원 조회		    24.관리자 회원 정보 수정");
+			System.out.println("25.관리자 회원 정보 삭제");
 			System.out.println("===============================================");
 
 			int choice = scan.nextInt();

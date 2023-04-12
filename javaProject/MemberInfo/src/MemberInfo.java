@@ -105,7 +105,6 @@ interface Payment {
 
 	void editPayment(String name, String id, String password);
 
-
 }
 
 class MemberRepository {
@@ -357,99 +356,99 @@ class MemberRepository {
 		}
 	}
 
-class Main {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		MemberRepository memberRepository = new MemberRepository();
-		PaymentRepository paymentRepository = new PaymentRepository();
+	class Main {
+		public static void main(String[] args) {
+			Scanner scanner = new Scanner(System.in);
+			MemberRepository memberRepository = new MemberRepository();
+			PaymentRepository paymentRepository = new PaymentRepository();
 
-		MemberController memberController = MemberController.getInstance(memberRepository);
-		PaymentController paymentController = PaymentController.getInstance(paymentRepository, memberRepository);
+			MemberController memberController = MemberController.getInstance(memberRepository);
+			PaymentController paymentController = PaymentController.getInstance(paymentRepository, memberRepository);
 
-		while (true) {
-			System.out.println("=====선택======:");
-			System.out.println("1. 회원 생성");
-			System.out.println("2. 회원 삭제");
-			System.out.println("3. 회원 정보 수정");
-			System.out.println("4. 회원 정보 출력");
-			System.out.println("5. 결제 관련 정보 출력");
-			System.out.println("6. Exit");
+			while (true) {
+				System.out.println("=====선택======:");
+				System.out.println("1. 회원 생성");
+				System.out.println("2. 회원 삭제");
+				System.out.println("3. 회원 정보 수정");
+				System.out.println("4. 회원 정보 출력");
+				System.out.println("5. 결제 관련 정보 출력");
+				System.out.println("6. Exit");
 
-			int choice = scanner.nextInt();
-			scanner.nextLine(); // 정수 입력 뒤에 줄 바꿈 문자 사용
+				int choice = scanner.nextInt();
+				scanner.nextLine(); // 정수 입력 뒤에 줄 바꿈 문자 사용
 
-			switch (choice) {
-			case 1:
-				System.out.print("멤버 이름 입력: ");
-				String name = scanner.nextLine();
-				System.out.print("멤버 ID: ");
-				String id = scanner.nextLine();
-				System.out.print("멤버 password: ");
-				String password = scanner.nextLine();
-				System.out.print("멤버 Email: ");
-				String email = scanner.nextLine();
-				System.out.print("멤버 전화번호: ");
-				String phoneNumber = scanner.nextLine();
-
-				memberController.createMember(name, id, password, email, phoneNumber);
-				break;
-			case 2:
-				System.out.print("이름 확인: ");
-				name = scanner.nextLine();
-				System.out.print("ID 확인: ");
-				id = scanner.nextLine();
-				System.out.print("Password 확인: ");
-				password = scanner.nextLine();
-
-				memberController.deleteMeber(name, id, password);
-				break;
-			case 3:
-				System.out.print("이름 확인: ");
-				name = scanner.nextLine();
-				System.out.print("ID 확인: ");
-				id = scanner.nextLine();
-				System.out.print("Password 확인: ");
-				password = scanner.nextLine();
-
-				memberController.modifyMember(name, id, password);
-				break;
-			case 4:
-				memberController.showDataMember(null, null, null); // 이름, ID 및 암호에 대한 null 값 전달
-				break;
-			case 5:
-				System.out.println("선택해주세요:");
-				System.out.println("1. 지급 정보 출력");
-				System.out.println("2. 지급 환불");
-
-				int paymentChoice = scanner.nextInt();
-				scanner.nextLine(); // Consume the newline character after reading the integer
-
-				switch (paymentChoice) {
+				switch (choice) {
 				case 1:
-					paymentController.showPayment(null, null, null);
-			        break;
-				case 2:
-					System.out.print("이름: ");
-					String name1 = scanner.nextLine();
-					System.out.print("ID: ");
-					String id1 = scanner.nextLine();
-					System.out.print("Password: ");
-					String password1 = scanner.nextLine();
+					System.out.print("멤버 이름 입력: ");
+					String name = scanner.nextLine();
+					System.out.print("멤버 ID: ");
+					String id = scanner.nextLine();
+					System.out.print("멤버 password: ");
+					String password = scanner.nextLine();
+					System.out.print("멤버 Email: ");
+					String email = scanner.nextLine();
+					System.out.print("멤버 전화번호: ");
+					String phoneNumber = scanner.nextLine();
 
-					paymentController.refund(name1, id1, password1);
+					memberController.createMember(name, id, password, email, phoneNumber);
+					break;
+				case 2:
+					System.out.print("이름 확인: ");
+					name = scanner.nextLine();
+					System.out.print("ID 확인: ");
+					id = scanner.nextLine();
+					System.out.print("Password 확인: ");
+					password = scanner.nextLine();
+
+					memberController.deleteMeber(name, id, password);
+					break;
+				case 3:
+					System.out.print("이름 확인: ");
+					name = scanner.nextLine();
+					System.out.print("ID 확인: ");
+					id = scanner.nextLine();
+					System.out.print("Password 확인: ");
+					password = scanner.nextLine();
+
+					memberController.modifyMember(name, id, password);
+					break;
+				case 4:
+					memberController.showDataMember(null, null, null); // 이름, ID 및 암호에 대한 null 값 전달
+					break;
+				case 5:
+					System.out.println("선택해주세요:");
+					System.out.println("1. 지급 정보 출력");
+					System.out.println("2. 지급 환불");
+
+					int paymentChoice = scanner.nextInt();
+					scanner.nextLine(); // Consume the newline character after reading the integer
+
+					switch (paymentChoice) {
+					case 1:
+						paymentController.showPayment(null, null, null);
+						break;
+					case 2:
+						System.out.print("이름: ");
+						String name1 = scanner.nextLine();
+						System.out.print("ID: ");
+						String id1 = scanner.nextLine();
+						System.out.print("Password: ");
+						String password1 = scanner.nextLine();
+
+						paymentController.refund(name1, id1, password1);
+						break;
+					default:
+						System.out.println("잘못된 선택입니다. 다시 시도하십시오.");
+						break;
+					}
+					break;
+				case 6:
+					System.exit(0);
 					break;
 				default:
 					System.out.println("잘못된 선택입니다. 다시 시도하십시오.");
 					break;
 				}
-				break;
-			case 6:
-				System.exit(0);
-				break;
-			default:
-				System.out.println("잘못된 선택입니다. 다시 시도하십시오.");
-				break;
-			}
 		}
 	}
 }
