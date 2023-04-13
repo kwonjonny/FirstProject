@@ -1,5 +1,5 @@
 
--- Individual Sql practice => select
+-- Individual Sql practice => select!
 --1 모든 사원의 사번, 이름, 급여 정보를 출력하는 쿼리
 select empno, ename, job, mgr, hiredate, sal, comm, deptno
 from emp;
