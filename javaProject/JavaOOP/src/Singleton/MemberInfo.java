@@ -1,3 +1,4 @@
+package Singleton;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -150,6 +151,7 @@ class MemberRepository {
 		}
 		// 데이터베이스와의 상호작용을 처리하는 메서드
 	}
+}
 
 	class PaymentRepository {
 		private ArrayList<PaymentInfo> paymentInfoList;
@@ -354,6 +356,7 @@ class MemberRepository {
 			}
 
 		}
+
 	}
 
 	class Main {
