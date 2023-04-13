@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Member {
+public class SingleTon {
 	private String name;
 	private String email;
 	private String id;
 	private String password;
 	private String phoneNumber;
 
-	public Member(String name, String email, String id, String password, String phoneNumber) {
+	public SingleTon(String name, String email, String id, String password, String phoneNumber) {
 		this.name = name;
 		this.email = email;
 		this.id = id;
@@ -62,41 +62,41 @@ public class Member {
 
 
 interface MemberCrud {
-	void createMember(Member member);
+	void createMember(SingleTon member);
 
 	void deleteMember(String id);
 
 	void updateMember(String id, String name, String email, String phoneNumber);
 
-	Member findMemberById(String id);
+	SingleTon findMemberById(String id);
 
-	List<Member> getAllMembers();
+	List<SingleTon> getAllMembers();
 }
 
 
-class MemberRepository implements MemberCrud {
-	private static MemberRepository instance = null;
-	private List<Member> memberList;
+class MemberRepository2 implements MemberCrud {
+	private static MemberRepository2 instance = null;
+	private List<SingleTon> memberList;
 
-	private MemberRepository() {
+	private MemberRepository2() {
 		memberList = new ArrayList<>();
 	}
 
-	public static synchronized MemberRepository getInstance() {
+	public static synchronized MemberRepository2 getInstance() {
 		if (instance == null) {
-			instance = new MemberRepository();
+			instance = new MemberRepository2();
 		}
 		return instance;
 	}
 
 	@Override
-	public void createMember(Member member) {
+	public void createMember(SingleTon member) {
 		memberList.add(member);
 	}
 
 	@Override
 	public void deleteMember(String id) {
-		Member member = findMemberById(id);
+		SingleTon member = findMemberById(id);
 		if (member != null) {
 			memberList.remove(member);
 		}
@@ -104,7 +104,7 @@ class MemberRepository implements MemberCrud {
 
 	@Override
 	public void updateMember(String id, String name, String email, String phoneNumber) {
-		Member member = findMemberById(id);
+		SingleTon member = findMemberById(id);
 		if (member != null) {
 			member.setName(name);
 			member.setEmail(email);
@@ -113,8 +113,8 @@ class MemberRepository implements MemberCrud {
 	}
 
 	@Override
-	public Member findMemberById(String id) {
-		for (Member member : memberList) {
+	public SingleTon findMemberById(String id) {
+		for (SingleTon member : memberList) {
 			if (member.getId().equals(id)) {
 				return member;
 			}
@@ -123,14 +123,14 @@ class MemberRepository implements MemberCrud {
 	}
 
 	@Override
-	public List<Member> getAllMembers() {
+	public List<SingleTon> getAllMembers() {
 		return memberList;
 	}
 }
 
-class Main {
+class Main2 {
 	private static final Scanner scanner = new Scanner(System.in);
-	private static final MemberRepository repository = MemberRepository.getInstance();
+	private static final MemberRepository2 repository = MemberRepository2.getInstance();
 
 	public static void main(String[] args) {
 		while (true) {
@@ -185,7 +185,7 @@ class Main {
 		System.out.print("Enter password: ");
 		String password = scanner.nextLine();
 
-		Member member = new Member(name, email, phoneNumber, id, password);
+		SingleTon member = new SingleTon(name, email, phoneNumber, id, password);
 		repository.createMember(member);
 		System.out.println("Member created successfully.");
 	}
@@ -219,7 +219,7 @@ class Main {
 		System.out.print("Enter ID: ");
 		String id = scanner.nextLine();
 
-		Member member = repository.findMemberById(id);
+		SingleTon member = repository.findMemberById(id);
 
 		if (member != null) {
 			System.out.println("Name: " + member.getName());
