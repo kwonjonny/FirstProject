@@ -1,3 +1,4 @@
+package HashMap;
 //Person 클래스와 Student 클래스를 정의하고,
 //Student 클래스가 Person 클래스를 상속받도록 하였습니다.
 //그리고 HashMap을 이용하여 학번을 Key로 하고 Student 객체를 Value로 하는 studentMap을 정의하고
