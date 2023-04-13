@@ -117,6 +117,7 @@ class CustomerContact extends Contact {
 		System.out.println(super.toString()+" 고객회사: "+ customerCompany +" 상품: "+product+" 직급: "+rank);
 	}
 }
+
 class Main {
 	public static void main(String [] args) {
 		

@@ -1,4 +1,9 @@
 package Member;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 // Person 클래스를 만들어 보고, 아래의 회원 정보를 저장하는 변수들을 선언해봅시다.
 // 변수이름을 작성하는 규칙에 맞게 직접 변수 이름을 정의해 보세요.
 // 회원이름을 저장하는 변수
@@ -65,6 +70,6 @@ class Name {
 }
 
 	
-	
+
 	
 	
