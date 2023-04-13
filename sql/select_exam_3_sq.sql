@@ -27,13 +27,15 @@ from emp;
 --사용하여 데이터 형을 일치 시키시오.
 SELECT TO_NUMBER(TO_CHAR(SYSDATE, 'DDD')) FROM dual;
 
-select sysdate, to_date('2023-01-01', 'YYYY.MM.DD') 
-       sysdate - to_date('2023-01-01, 'YYYY.MM.DD')
+select sysdate, to_date('2023-01-01', 'YYYY.MM.DD'),
+       sysdate - to_date('2023-01-01', 'YYYY.MM.DD')
 from dual;
 
 --21. 사원들의 상관 사번을 출력하되 상관이 없는
 -- 사원에 대해서는 NULL 값 대신 0으로 출력하시오.
 select ename,empno,deptno,comm from emp where comm is not null;
+
+select mgr, nvl(mgr,0) from emp;
 
 --22. DECODE 함수로 직급에 따라 급여를 인상하도록 하시오. 
 --직급이 ‘ANALIST”인 사원은 200, ‘SALESMAN’인 사원은 180, 
@@ -42,7 +44,8 @@ select ename, job, sal, decode(
             job,
             'ANALIST', sal+200,
             'SALEMAN', sal+180,
-            'MANAGER', sal+100
+            'MANAGER', sal+150,
+            'CLERCK', sal+100
             ) as up_salse
             from emp;
 
@@ -73,13 +76,16 @@ select job, count(*) as"담당업무 동일 사원 수 "
             group by job;
 
 --26. 관리자 수를 출력하시오.
-SELECT job, COUNT(*) as "직급별 인원 수"
+SELECT job, COUNT(*) as "관리자 수"
 FROM emp
 GROUP BY job
 HAVING job = 'MANAGER';
 
+select count(distinct mgr)
+from emp;
+
 --27. 급여 최고액, 급여 최저액의 차액을 출력하시오.
-select max(sal) - min(sal) as "급여 최고액 - 최저액"
+select max(sal), min(sal), max(sal) - min(sal) as "급여 최고액 - 최저액"
 from emp;
 
 --28. 직급별 사원의 최저 급여를 출력하시오. 
@@ -91,11 +97,19 @@ WHERE job != 'MANAGER' AND sal >= 2000
 GROUP BY job
 ORDER BY min_sal DESC;
 
+select job,  min(sal) 
+from emp
+where mgr is not null
+group by job
+having min(sal) >= 2000
+order by min(sal) desc
+;
+
 --29. 각 부서에 대해 부서번호, 사원 수, 
 --부서 내의 모든 사원의 평균 급여를 출력하시오.
 --평균 급여는 소수점 둘째 자리로 반올림 하시오.
 SELECT  deptno, count(*) as "사원수",
-round(avg(sal)) as "모든 사원 평균 급여"
+round(avg(sal),2) as "모든 사원 평균 급여"
 from emp 
 group by deptno;
 
@@ -107,3 +121,20 @@ ROUND(AVG(emp.sal)) AS "평균 급여"
 FROM emp JOIN dept ON emp.deptno = dept.deptno
 GROUP BY dept.deptno, dept.dname, dept.loc
 ORDER BY dept.deptno ASC;
+
+select * from dept;
+select deptno,
+        decode(deptno,10, 'ACCOUNTING',
+                       20, 'RESEARCH',
+                       30, 'SALES',
+                       40, 'OPERATIONS'
+        
+        )as dname, decode (deptno,10,'NEW YORK',
+                                    20, 'DALLAS',
+                                    30, 'CHICAGO',
+                                    40, 'BOSTON'
+        ) as loc, count(*), round(avg(sal))
+from emp
+group by deptno
+order by deptno
+;
