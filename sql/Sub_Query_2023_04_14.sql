@@ -153,3 +153,5 @@ from orders o
 where exists (select * from customer c where c.custid=o.custid and address like '%대한민국%');
 
 select * from customer c where c.custid=5 and address like '%대한민국%';
+
+
