@@ -10,6 +10,7 @@ public class UserConsoleView {
 		this.userController = userController;
 	}
 
+	
 	public void start() {
 		Scanner scan = new Scanner(System.in);
 		boolean isRunning = true;
