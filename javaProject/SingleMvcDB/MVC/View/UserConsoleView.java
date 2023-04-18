@@ -24,7 +24,6 @@ public class UserConsoleView {
 			System.out.print("메뉴를 선택하세요: ");
 			int menu = scan.nextInt();
 			scan.nextLine();
-
 			switch (menu) {
 			case 1:
 				userController.createUserConsole();
