@@ -48,5 +48,4 @@ public class UserConsoleView {
 		}
 		scan.close();
 	}
-
 }

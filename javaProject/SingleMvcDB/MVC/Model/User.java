@@ -17,7 +17,6 @@ public class User {
 	private int grade;
 	private Date creatDate;
 	private String role;
-	
 
 	// 생성자 정의
 	public User(String id, String username, String password, String name, String email, String address, String phone,
@@ -114,5 +113,4 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
 }

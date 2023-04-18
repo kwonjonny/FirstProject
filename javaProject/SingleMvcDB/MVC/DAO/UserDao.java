@@ -105,18 +105,17 @@ public class UserDao {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			// id 와 password 확인 
+			// id 와 password 확인
 			String queryCheck = "SELECT id FROM userTable WHERE id = ? AND password = ?";
 			ps = conn.prepareStatement(queryCheck);
 			ps.setString(1, id);
 			ps.setString(2, password);
 			rs = ps.executeQuery();
 			if (!rs.next()) {
-				// if id, password 맞을시 로직 실행 
+				// if id, password 맞을시 로직 실행
 				return null;
 			}
-
-			// user information 업데이트 
+			// user information 업데이트
 			String queryUpdate = "UPDATE userTable SET id = ?, username = ?, password = ?, name = ?, email = ?, address = ?, phone = ?, grade = ?, createDate = ?, role = ? WHERE id = ?";
 			ps = conn.prepareStatement(queryUpdate);
 			ps.setString(1, newUser.getId());
@@ -143,7 +142,7 @@ public class UserDao {
 			}
 			if (ps != null) {
 				ps.close();
-			} 
+			}
 		}
-	} 
+	}
 }

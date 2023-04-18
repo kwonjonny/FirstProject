@@ -59,7 +59,6 @@ public class UserController {
 		System.out.println("권한 입력 user? admin? : ");
 		String role = scan.nextLine();
 
-		
 		User user = new User(id, username, password, name, email, address, phone, grade, createDate, role);
 		try {
 			userDao.create(user);
