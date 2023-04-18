@@ -1,6 +1,6 @@
 CREATE TABLE UserTable (
     id VARCHAR2(50) PRIMARY KEY,
-    username VARCHAR2(50) NOT NULL,
+    username VARCHAR2(5) NOT NULL,
     password VARCHAR2(50) NOT NULL,
     name VARCHAR2(50),
     email VARCHAR2(50),
@@ -46,3 +46,5 @@ CREATE TABLE Board (
     writer VARCHAR2(50),
     image VARCHAR2(200)
 );
+
+select * from UserTable;
