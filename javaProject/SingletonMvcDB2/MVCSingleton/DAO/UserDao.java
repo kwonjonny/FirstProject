@@ -82,7 +82,7 @@ public class UserDao {
 		}
 		return user;
 	}
-
+	
 	// SQL delete
 	public User delete(String id, String password) throws SQLException {
 		User user = null;
