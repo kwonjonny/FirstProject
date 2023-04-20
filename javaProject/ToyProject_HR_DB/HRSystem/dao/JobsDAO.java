@@ -4,33 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.Jobs;
+import service.EmployeeJobService;
+import domain.Jobs;
 
 public class JobsDAO {
 	
-	// 인스턴스 변수 정의
-	// singleton pattern
-	private static JobsDAO instance;
-	private Connection conn;
-
-	// 생성자로 connection 초기화
-	public JobsDAO(Connection conn) {
-		this.conn = conn;
-	}
-
-	// JobsDAO 클래스의 인스턴스가 한 번만 생성되며 생성된 인스턴스에서는
-	// 인스턴스를 사용하여 Connection 객체를 얻어올 수 있다
-	public static JobsDAO getInstance(Connection conn) {
-		if (instance == null) {
-			instance = new JobsDAO(conn);
-		} else {
-			instance.conn = conn;
-		}
-		return instance;
-	}
-
 	// SQL Jobs create
-	public void JobsCreate(Jobs jobs) throws SQLException {
+	public void JobsCreate(Connection conn,Jobs jobs) throws SQLException {
 		PreparedStatement ps = null;
 		try {
 			String query = "INSERT INTO JOBS(jobs_id, jobs_title, jobs_description, salary) VALUES (?,?,?,?)";
@@ -48,7 +28,7 @@ public class JobsDAO {
 	}
 
 	// SQL Jobs read
-	public Jobs JobsRead(String jobs_id) throws SQLException {
+	public Jobs JobsRead(Connection conn, String jobs_id) throws SQLException {
 		Jobs jobs = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -74,7 +54,7 @@ public class JobsDAO {
 	}
 
 	// SQL Jobs update
-	public Jobs JobsUpdate(String jobs_id, Jobs newJobs) throws SQLException {
+	public Jobs JobsUpdate(Connection conn, String jobs_id, Jobs newJobs) throws SQLException {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
@@ -92,6 +72,7 @@ public class JobsDAO {
 			ps.setString(2, newJobs.getJobs_title());
 			ps.setString(3, newJobs.getJobs_description());
 			ps.setInt(4, newJobs.getSalary());
+			ps.setString(5, jobs_id);
 
 			int updateRows = ps.executeUpdate();
 			if (updateRows > 0) {
@@ -110,7 +91,7 @@ public class JobsDAO {
 	}
 
 	// SQL Jobs JobsDelete
-	public Jobs delete(String jobs_id) throws SQLException {
+	public Jobs delete(Connection conn, String jobs_id) throws SQLException {
 		Jobs jobs = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

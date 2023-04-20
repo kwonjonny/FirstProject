@@ -20,23 +20,21 @@ CREATE TABLE JOBS (
 
 select * from JOBS;
 
-CREATE TABLE DEPARTMENTS ( 
-    departments_id VARCHAR2 (50) PRIMARY KEY
-    
-);
-
-CREATE TABLE LOCATIONS (
-
-);
-
-CREATE TABLE COUNTRIES (
-
-);
-
-CREATE TABLE REGIONS (
-
-)
-
 CREATE TABLE JOB_HISTORY (
+    employee_id VARCHAR2(10) NOT NULL, -- 직원_id
+    start_date DATE NOT NULL, -- 시작_날짜
+    end_date DATE NOT NULL, -- 종료_날짜
+    jobs_id VARCHAR2(10) NOT NULL, -- 직업_id
+    CONSTRAINT job_history_pk PRIMARY KEY (employee_id, start_date), -- primary key 설정
+    CONSTRAINT job_history_employee_fk FOREIGN KEY (employee_id) REFERENCES EMPLOYEES (employee_id), -- foreign key 설정
+    CONSTRAINT job_history_jobs_fk FOREIGN KEY (jobs_id) REFERENCES JOBS (jobs_id) -- foreign key 설정
+);
 
-)
+
+CREATE TABLE DEPARTMENTS ( 
+    department_id VARCHAR2 (50) PRIMARY KEY
+    man
+);
+
+
+

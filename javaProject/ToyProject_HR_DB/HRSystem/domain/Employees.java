@@ -1,9 +1,9 @@
-package model;
+package domain;
 
 public class Employees {
 
-	// Employee TABLE -> 인스턴스 변수 정의
-	private String employee_id; // 직원_id --> PRIMARY KEY 
+	// EMPLOYEES TABLE -> 인스턴스 변수 정의
+	private String employee_id; // 직원_id --> PRIMARY KEY
 	private String name; // 직원_이름
 	private String email; // 직원_email
 	private String phone_number; // 직원_number
@@ -58,4 +58,11 @@ public class Employees {
 	public void setHiredate(String hiredate) {
 		this.hiredate = hiredate;
 	}
+
+	@Override
+	public String toString() {
+		return "Employees [employee_id=" + employee_id + ", name=" + name + ", email=" + email + ", phone_number="
+				+ phone_number + ", hiredate=" + hiredate;
+	}
+
 }

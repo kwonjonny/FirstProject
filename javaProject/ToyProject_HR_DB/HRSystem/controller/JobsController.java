@@ -1,35 +1,18 @@
 package controller;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
-
 import dao.JobsDAO;
-import dbConnection.DBConnection;
-import model.Jobs;
+import domain.Jobs;
 
 public class JobsController {
-
+	
+	// 인스턴스 변수 정의 
 	private JobsDAO jobsDAO;
-
+	
+	// 생성자로 JobsDAO 초기화 
 	public JobsController() {
-
-		// 콘솔로 입력받고 -> DAO 클래스로 값을 전달 하기 때문에
-		// Database 연결 정보 설정 해야한다.
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "C##KwonDB2";
-		String password = "tiger";
-
-		// JobsDAO 객체를 생성
-		try {
-			Connection conn = DriverManager.getConnection(url, id, password);
-			JobsDAO jobsDAO = JobsDAO.getInstance(conn);
-			this.jobsDAO = jobsDAO;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("JOBDAO 객체 생성 실패");
-		}
+		this.jobsDAO = jobsDAO;
 	}
 
 	// create jobs console
@@ -129,7 +112,7 @@ public class JobsController {
 		String jobs_id = scan.nextLine().trim();
 		try {
 			Jobs jobs = jobsDAO.JobsRead(jobs_id);
-			if(jobs_id == null) {
+			if (jobs_id == null) {
 				System.out.println("검색 결과가 없습니다.");
 			} else {
 				System.out.println(jobs.getJobs_id() + "의 직업 정보 삭제");

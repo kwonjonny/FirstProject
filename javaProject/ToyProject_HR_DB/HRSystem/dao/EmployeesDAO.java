@@ -4,31 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.Employees;
+
+import domain.Employees;
+import domain.EmployeeJobJobHistory;
+import service.EmployeeJobService;
 
 public class EmployeesDAO {
-	// 인스턴스 변수 정의
-    // singleton pattern
-    private static EmployeesDAO instance;
-    private Connection conn;
 
-    public EmployeesDAO(Connection conn) {
-        this.conn = conn;
-    }
-
-    // EmployeesDAO 클래스의 인스턴스가 한 번만 생성되며 생성된 인스턴스에서는 DBConnection 클래스의
-    // 인스턴스를 사용하여 Connection 객체를 얻어올 수 있다
-    public static EmployeesDAO getInstance(Connection conn) {
-        if (instance == null) {
-            instance = new EmployeesDAO(conn);
-        } else {
-            instance.conn = conn;
-        }
-        return instance;
-    }
 
 	// SQL Employee create
-	public void create(Employees employees) throws SQLException {
+	public void create(Connection conn,Employees employees) throws SQLException {
 		PreparedStatement ps = null;
 		try {
 			String query = "INSERT INTO EMPLOYEES(employee_id, name, email, phone_number, hiredate) VALUES (?, ?, ?, ?, ?)";
@@ -47,7 +32,7 @@ public class EmployeesDAO {
 	}
 
 	// SQL Employee read
-	public Employees read(String name) throws SQLException {
+	public Employees read(Connection conn,String name) throws SQLException {
 		Employees employees = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -73,7 +58,7 @@ public class EmployeesDAO {
 	}
 
 	// SQL Employee update
-	public Employees update(String name, Employees newEmployees) throws SQLException {
+	public Employees update(Connection conn,String name, Employees newEmployees) throws SQLException {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
@@ -111,7 +96,7 @@ public class EmployeesDAO {
 	}
 
 	// SQL Employee delete
-	public Employees delete(String name) throws SQLException {
+	public Employees delete(Connection conn,String name) throws SQLException {
 		Employees employees = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

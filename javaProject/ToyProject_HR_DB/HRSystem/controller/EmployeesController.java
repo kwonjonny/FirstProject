@@ -1,36 +1,21 @@
 package controller;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.SQLException;
 import java.util.Scanner;
-
 import dao.EmployeesDAO;
-import dbConnection.DBConnection;
-import model.Employees;
+import domain.Employees;
 
 public class EmployeesController {
 
+	// 인스턴스 변수 정의 
 	private EmployeesDAO employeesDAO;
 
+	// 생성자로 EmployeesDAO 초기화 
 	public EmployeesController() {
-
-		// 콘솔로 입력받고 -> DAO 클래스로 값을 전달 하기 때문에
-		// Database 연결 정보 설정 해야한다.
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "C##KwonDB2";
-		String password = "tiger";
-
-		// UserDao 객체를 생성
-		try {
-			Connection conn = DriverManager.getConnection(url, id, password);
-			EmployeesDAO employeesDAO = EmployeesDAO.getInstance(conn); // UserDao 객체 생성
-			this.employeesDAO = employeesDAO;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("EmployeesDAO 객체 생성 실패");
-		}
+		this.employeesDAO = employeesDAO;
 	}
+	
 
 	// create employee console
 	public void createEmployeeConsole() {
