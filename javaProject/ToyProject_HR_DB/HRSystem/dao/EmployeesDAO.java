@@ -56,44 +56,43 @@ public class EmployeesDAO {
 		}
 		return employees;
 	}
-
 	// SQL Employee update
-	public Employees update(Connection conn,String name, Employees newEmployees) throws SQLException {
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			String query = "SELECT * FROM EMPLOYEES WHERE name = ?";
-			ps = conn.prepareStatement(query);
-			ps.setString(1, name);
-			rs = ps.executeQuery();
-			if (!rs.next()) {
-				throw new SQLException("No record found for " + name);
-			}
+	public Employees update(Connection conn,String employee_id, Employees newEmployees) throws SQLException {
+	    PreparedStatement ps = null;
+	    ResultSet rs = null;
+	    try {
+	        String query = "SELECT * FROM EMPLOYEES WHERE employee_id = ?";
+	        ps = conn.prepareStatement(query);
+	        ps.setString(1, employee_id);
+	        rs = ps.executeQuery();
+	        if (!rs.next()) {
+	            throw new SQLException("No record found for employee_id: " + employee_id);
+	        }
 
-			String queryUpdate = "UPDATE EMPLOYEES SET employee_id = ?, name = ?, email = ?, phone_number = ?, hiredate = ? WHERE name = ?";
-			ps = conn.prepareStatement(queryUpdate);
-			ps.setString(1, newEmployees.getEmployee_id());
-			ps.setString(2, newEmployees.getName());
-			ps.setString(3, newEmployees.getEmail());
-			ps.setString(4, newEmployees.getPhone_number());
-			ps.setString(5, newEmployees.getHiredate());
-			ps.setString(6, name);
+	        String queryUpdate = "UPDATE EMPLOYEES SET name = ?, email = ?, phone_number = ?, hiredate = ? WHERE employee_id = ?";
+	        ps = conn.prepareStatement(queryUpdate);
+	        ps.setString(1, newEmployees.getName());
+	        ps.setString(2, newEmployees.getEmail());
+	        ps.setString(3, newEmployees.getPhone_number());
+	        ps.setString(4, newEmployees.getHiredate());
+	        ps.setString(5, employee_id);
 
-			int updateRows = ps.executeUpdate();
-			if (updateRows > 0) {
-				return newEmployees;
-			} else {
-				return null;
-			}
-		} finally {
-			if (rs != null) {
-				rs.close();
-			}
-			if (ps != null) {
-				ps.close();
-			}
-		}
+	        int updateRows = ps.executeUpdate();
+	        if (updateRows > 0) {
+	            return newEmployees;
+	        } else {
+	            return null;
+	        }
+	    } finally {
+	        if (rs != null) {
+	            rs.close();
+	        }
+	        if (ps != null) {
+	            ps.close();
+	        }
+	    }
 	}
+
 
 	// SQL Employee delete
 	public Employees delete(Connection conn,String name) throws SQLException {

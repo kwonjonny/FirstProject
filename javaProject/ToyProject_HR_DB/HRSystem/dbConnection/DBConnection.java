@@ -11,5 +11,4 @@ public class DBConnection {
 		String password = "tiger";
 		return  DriverManager.getConnection(url, id, password);
 	}
-
 }
