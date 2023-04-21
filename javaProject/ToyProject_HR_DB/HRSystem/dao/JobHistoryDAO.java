@@ -62,27 +62,29 @@ public class JobHistoryDAO {
 	}
 
 	// SQL JobHistory update
-	public JobHistory historyUpdateById(Connection conn, LocalDate start_date, JobHistory newJobHistory) throws SQLException {
+	public JobHistory historyUpdateById(Connection conn, JobHistory newJobHistory, String employee_id, String jobs_id) throws SQLException {
 	    PreparedStatement ps = null;
 	    ResultSet rs = null;
 	    try {
-	        String query = "SELECT * FROM JOB_HISTORY WHERE employee_id = ? AND start_date = ?";
+	        String query = "SELECT * FROM JOB_HISTORY WHERE employee_id = ? AND jobs_id =? ";
 	        ps = conn.prepareStatement(query);
-	        ps.setString(1, newJobHistory.getEmployee_id());
-	        ps.setDate(2, java.sql.Date.valueOf(start_date));
+	        ps.setString(1, employee_id);
+	        ps.setString(2, jobs_id);
 	        rs = ps.executeQuery();
 	        if (!rs.next()) {
-	            throw new SQLException("No record found for employee_id: " + newJobHistory.getEmployee_id() + ", start_date: " + start_date);
+	            throw new SQLException("No record found for employee_id: " + employee_id + ", jobs_id: " + jobs_id);
 	        }
 
-	        String queryUpdate = "UPDATE JOB_HISTORY SET start_date = ?, end_date = ? WHERE employee_id = ? AND start_date = ?";
+	        String queryUpdate = "UPDATE JOB_HISTORY SET employee_id = ?, start_date = ?, end_date = ?, jobs_id = ?WHERE employee_id = ? AND jobs_id = ?";
 	        ps = conn.prepareStatement(queryUpdate);
 
-	        ps.setDate(1, java.sql.Date.valueOf(newJobHistory.getStart_date()));
-	        ps.setDate(2, java.sql.Date.valueOf(newJobHistory.getEnd_date()));
-	        ps.setString(3, newJobHistory.getEmployee_id());
-	        ps.setDate(4, java.sql.Date.valueOf(start_date));
-
+	        ps.setString(1, employee_id);
+	        ps.setString(2, newJobHistory.getEmployee_id());
+	        ps.setDate(3, java.sql.Date.valueOf(newJobHistory.getStart_date()));
+	        ps.setDate(4, java.sql.Date.valueOf(newJobHistory.getEnd_date()));
+	        ps.setString(5, newJobHistory.getJobs_id());
+	        ps.setString(6, jobs_id);
+	        
 	        int updateRows = ps.executeUpdate();
 	        if (updateRows > 0) {
 	            return newJobHistory;
@@ -102,12 +104,13 @@ public class JobHistoryDAO {
 
 
 	// SQL JobHistory delete
-	public void historyDeleteById(Connection conn, String employee_id) throws SQLException {
+	public void historyDeleteById(Connection conn, String employee_id, String jobs_id) throws SQLException {
 		PreparedStatement ps = null;
 		try {
-			String querydelete = "DELETE FROM JOB_HISTORY WHERE employee_id = ?";
+			String querydelete = "DELETE FROM JOB_HISTORY WHERE employee_id = ? AND jobs_id = ?";
 			ps = conn.prepareStatement(querydelete);
 			ps.setString(1, employee_id);
+			ps.setString(2, jobs_id);
 
 			int deleteRows = ps.executeUpdate();
 			if (deleteRows > 0) {
@@ -121,4 +124,6 @@ public class JobHistoryDAO {
 			}
 		}
 	}
+
+	
 }

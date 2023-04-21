@@ -8,9 +8,9 @@ import service.EmployeeJobService;
 import domain.Jobs;
 
 public class JobsDAO {
-	
+
 	// SQL Jobs create
-	public void JobsCreate(Connection conn,Jobs jobs) throws SQLException {
+	public void JobsCreate(Connection conn, Jobs jobs) throws SQLException {
 		PreparedStatement ps = null;
 		try {
 			String query = "INSERT INTO JOBS(jobs_id, jobs_title, jobs_description, salary) VALUES (?,?,?,?)";
@@ -55,40 +55,40 @@ public class JobsDAO {
 
 	// SQL Jobs update
 	public Jobs JobsUpdate(Connection conn, String jobs_id, Jobs newJobs) throws SQLException {
-	    PreparedStatement ps = null;
-	    ResultSet rs = null;
-	    try {
-	        String query = "SELECT * FROM JOBS WHERE jobs_id =?";
-	        ps = conn.prepareStatement(query);
-	        ps.setString(1, jobs_id);
-	        rs = ps.executeQuery();
-	        if (!rs.next()) {
-	            throw new SQLException("No record found for jobs_id: " + jobs_id);
-	        }
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			String query = "SELECT * FROM JOBS WHERE jobs_id =?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, jobs_id);
+			rs = ps.executeQuery();
+			if (!rs.next()) {
+				throw new SQLException("No record found for jobs_id: " + jobs_id);
+			}
 
-	        String queryUpdate = "UPDATE Jobs SET jobs_title = ?, jobs_description = ?, salary = ? WHERE jobs_id = ?";
-	        ps = conn.prepareStatement(queryUpdate);
-	        ps.setString(1, newJobs.getJobs_title());
-	        ps.setString(2, newJobs.getJobs_description());
-	        ps.setInt(3, newJobs.getSalary());
-	        ps.setString(4, jobs_id);
-
-	        int updateRows = ps.executeUpdate();
-	        if (updateRows > 0) {
-	            return newJobs;
-	        } else {
-	            return null;
-	        }
-	    } finally {
-	        if (rs != null) {
-	            rs.close();
-	        }
-	        if (ps != null) {
-	            ps.close();
-	        }
-	    }
+			String queryUpdate = "UPDATE Jobs SET jobs_id =?, jobs_title = ?, jobs_description = ?, salary = ? WHERE jobs_id = ?";
+			ps = conn.prepareStatement(queryUpdate);
+			ps.setString(1, newJobs.getJobs_id());
+			ps.setString(2, newJobs.getJobs_title());
+			ps.setString(3, newJobs.getJobs_description());
+			ps.setInt(4, newJobs.getSalary());
+			ps.setString(5, jobs_id);
+			
+			int updateRows = ps.executeUpdate();
+			if (updateRows > 0) {
+				return newJobs;
+			} else {
+				return null;
+			}
+		} finally {
+			if (rs != null) {
+				rs.close();
+			}
+			if (ps != null) {
+				ps.close();
+			}
+		}
 	}
-
 
 	// SQL Jobs JobsDelete
 	public Jobs delete(Connection conn, String jobs_id) throws SQLException {

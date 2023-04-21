@@ -9,6 +9,13 @@ CREATE TABLE EMPLOYEES (
 );
 
 select * from EMPLOYEES;
+DELETE FROM EMPLOYEES 
+WHERE NAME = '1' 
+AND EMPLOYEE_ID = '1' 
+AND EMAIL = '1' 
+AND PHONE_NUMBER = '1998-06-26' 
+AND HIREDATE = '1';
+commit;
 
 -- JOB TABALE
 CREATE TABLE JOBS (
@@ -19,6 +26,11 @@ CREATE TABLE JOBS (
 );
 
 select * from JOBS;
+delete FROM Jobs where JOBS_ID = 1 and JOBS_TITLE = 1 and JOBS_DESCRIPTION = 1 and SALARY = 1;
+commit;
+select * from JOB_history;
+select * from employees;
+select * from jobs;
 
 CREATE TABLE JOB_HISTORY (
     employee_id VARCHAR2(10) NOT NULL, -- 직원_id
@@ -30,11 +42,12 @@ CREATE TABLE JOB_HISTORY (
     CONSTRAINT job_history_jobs_fk FOREIGN KEY (jobs_id) REFERENCES JOBS (jobs_id) -- foreign key 설정
 );
 
-
+select * from JOB_HISTORY,jobs,employees ;
+select * from JOB_HISTORY;
 CREATE TABLE DEPARTMENTS ( 
     department_id VARCHAR2 (50) PRIMARY KEY
     man
 );
 
-
+commit;
 

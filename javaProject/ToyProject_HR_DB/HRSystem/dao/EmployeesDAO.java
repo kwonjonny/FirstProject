@@ -56,30 +56,34 @@ public class EmployeesDAO {
 		}
 		return employees;
 	}
+	
 	// SQL Employee update
-	public Employees update(Connection conn,String employee_id, Employees newEmployees) throws SQLException {
-	    PreparedStatement ps = null;
+	public Employees update(Connection conn, String name, Employees newEmployees) throws SQLException {
+	    PreparedStatement psSelect = null;
+	    PreparedStatement psUpdate = null;
 	    ResultSet rs = null;
 	    try {
-	        String query = "SELECT * FROM EMPLOYEES WHERE employee_id = ?";
-	        ps = conn.prepareStatement(query);
-	        ps.setString(1, employee_id);
-	        rs = ps.executeQuery();
+	        // 기존 정보를 조회합니다.
+	        String selectQuery = "SELECT * FROM EMPLOYEES WHERE name = ?";
+	        psSelect = conn.prepareStatement(selectQuery);
+	        psSelect.setString(1, name);
+	        rs = psSelect.executeQuery();
 	        if (!rs.next()) {
-	            throw new SQLException("No record found for employee_id: " + employee_id);
+	            throw new SQLException("No record found for employee_id: " + name);
 	        }
-
-	        String queryUpdate = "UPDATE EMPLOYEES SET name = ?, email = ?, phone_number = ?, hiredate = ? WHERE employee_id = ?";
-	        ps = conn.prepareStatement(queryUpdate);
-	        ps.setString(1, newEmployees.getName());
-	        ps.setString(2, newEmployees.getEmail());
-	        ps.setString(3, newEmployees.getPhone_number());
-	        ps.setString(4, newEmployees.getHiredate());
-	        ps.setString(5, employee_id);
-
-	        int updateRows = ps.executeUpdate();
+	        
+	        // 기존 정보를 업데이트합니다.
+	        String updateQuery = "UPDATE EMPLOYEES SET employee_id = ?, name = ?, email = ?, phone_number = ?, hiredate = ? WHERE name = ?";
+	        psUpdate = conn.prepareStatement(updateQuery);
+	        psUpdate.setString(1, newEmployees.getEmployee_id());
+	        psUpdate.setString(2, newEmployees.getName());
+	        psUpdate.setString(3, newEmployees.getEmail());
+	        psUpdate.setString(4, newEmployees.getPhone_number());
+	        psUpdate.setString(5, newEmployees.getHiredate());
+	        psUpdate.setString(6, name);
+	        int updateRows = psUpdate.executeUpdate();
 	        if (updateRows > 0) {
-	            return newEmployees;
+	        	throw new SQLException("NO reocord found for " + name , newEmployees.getEmployee_id());
 	        } else {
 	            return null;
 	        }
@@ -87,8 +91,11 @@ public class EmployeesDAO {
 	        if (rs != null) {
 	            rs.close();
 	        }
-	        if (ps != null) {
-	            ps.close();
+	        if (psSelect != null) {
+	            psSelect.close();
+	        }
+	        if (psUpdate != null) {
+	            psUpdate.close();
 	        }
 	    }
 	}
