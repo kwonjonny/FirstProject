@@ -1,16 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+	pageEncoding="UTF-8"%>
 
+<%
+String method = request.getMethod();
+//out.println(method);
 
-<h1>로그인 처리페이지</h1>
+if (method.equals("GET")) {
+	response.sendRedirect("login_form.jsp");
+} else {
 
+	String userid = request.getParameter("userid");
+	String password = request.getParameter("password");
 
-</body>
-</html>
+	if (userid.equals(password)) {
+		// 로그인 완료 
+		// session 객체의 속성에 로그인 정보를 저장 
+		session.setAttribute("loginInfo", userid);
+		response.sendRedirect("mypage.jsp");
+	} else {
+		// 다르면 로그인 실패
+		response.sendRedirect("login_form.jsp");
+	}
+}
+%>

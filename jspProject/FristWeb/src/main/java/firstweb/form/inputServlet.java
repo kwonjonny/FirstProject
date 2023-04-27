@@ -67,7 +67,7 @@ public class inputServlet extends HttpServlet {
 		
 		out.println("<h3>birthYear :" + birthYear + "</h3>");
 		out.println("<h3>birth :" + date + "</h3>");
-		
+		 
 		out.close();
 		
 	}

@@ -1,0 +1,12 @@
+CREATE TABLE USERS (
+  username VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  id VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+select * from USERS;
+
+INSERT INTO USERS VALUES (1,1,1,1);
+commit;
