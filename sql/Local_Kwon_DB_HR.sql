@@ -8,5 +8,9 @@ CREATE TABLE USERS (
 
 select * from USERS;
 
+DELETE FROM USERS
+WHERE id = 'thistrik';
+
+
 INSERT INTO USERS VALUES (1,1,1,1);
 commit;
