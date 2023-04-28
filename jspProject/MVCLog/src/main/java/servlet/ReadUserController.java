@@ -29,5 +29,4 @@ public class ReadUserController extends HttpServlet {
 		request.setAttribute("message", "회원 리스트 목록 출력");
 		response.sendRedirect("main.jsp");
 	}
-
 }
