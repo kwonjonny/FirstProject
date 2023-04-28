@@ -4,81 +4,189 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import domain.User;
-import DBUtil.DBUtil;
 
-public class UserDAO {
-   
-	UserDAO dao;
-	
-    public UserDAO()  {
-        this.dao = UserDAO.getInstance();
-    }
-    
-    private static UserDAO DAO = new UserDAO();
-    
-    public static UserDAO getInstance() {
-    	return DAO;
-    }
+public class UserDao {
 
-    public boolean insert(User user) {
-    	Connection conn = null;
-        String sql = "INSERT INTO users (username, email, id, password) VALUES (?, ?, ?, ?)";
-        try {
-        	conn= DBUtil.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, user.getUsername());
-            pstmt.setString(2, user.getEmail());
-            pstmt.setString(3, user.getId());
-            pstmt.setString(4, user.getPassword());
-            int result = pstmt.executeUpdate();
-            return result == 1;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+	// default 생성자 정의
+	private UserDao() {
+	}
 
-    public User findByIdAndPassword(String id, String password) {
-    	Connection conn = null;
-        String sql = "SELECT * FROM users WHERE id = ? AND password = ?";
-        try {
-        	conn= DBUtil.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, id);
-            pstmt.setString(2, password);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                User user = new User(rs.getString("username"), rs.getString("email"), rs.getString("id"), rs.getString("password"));
-                return user;
-            } else {
-                return null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+	// singleton pattern
+	private static UserDao dao = new UserDao();
 
-    public User findByUsername(String username) {
-    	Connection conn = null;
-        String sql = "SELECT * FROM users WHERE username = ?";
-        try {
-        	conn= DBUtil.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, username);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                User user = new User(rs.getString("username"), rs.getString("email"), rs.getString("id"), rs.getString("password"));
-                return user;
-            } else {
-                return null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+	public static UserDao getInstance() {
+		return dao;
+	}
+
+	public User findLogin(Connection conn, String id, String password) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		User user = null;
+		try {
+			String query = "SELECT * FROM USERS WHERE id =? AND password = ?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, id);
+			ps.setString(2, password);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				String username = rs.getString("username");
+				String email = rs.getString("email");
+				user = new User(username, id, password, email);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return user;
+
+	}
+
+	public List<User> getUserList(Connection conn) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<User> result = new ArrayList<>();
+
+		try {
+			String query = "SELECT * FROM USERS";
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				String username = rs.getString("username");
+				String id = rs.getString("id");
+				String password = rs.getString("password");
+				String email = rs.getString("email");
+				User user = new User(username, id, password, email);
+				result.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	public int createUser(Connection conn, User user) {
+		PreparedStatement ps = null;
+		int result = 0;
+		try {
+			String query = "INSERT INTO USERS(username,email,id,password) VALUES(?,?,?,?)";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, user.getUsername());
+			ps.setString(2, user.getEmail());
+			ps.setString(3, user.getId());
+			ps.setString(4, user.getPassword());
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+
+	public User readUser(Connection conn, String id) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		User result = null;
+		try {
+			String query = "SELECT * FROM WHERE id =?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				result = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getNString(4));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	public int update(Connection conn, User user) {
+		PreparedStatement ps = null;
+		int result = 0;
+		try {
+			String query = "UPDATE USERS SET username=?, password=?, email=? WHERE id=?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, user.getUsername());
+			ps.setString(2, user.getPassword());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getId());
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+
+	public int deleteUser(Connection conn, String id) {
+		PreparedStatement ps = null;
+		int result = 0;
+		try {
+			String query = "DELETE FROM USERS WHERE id = ?";
+			ps.setString(1, id);
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+
 }
-

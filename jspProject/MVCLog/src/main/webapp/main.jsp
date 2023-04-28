@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mt-5">Main Page</h1>
-        <div class="text-center mt-5">
-            <a href="login.jsp" class="btn btn-primary">Join</a>
-            <a href="joinMember.jsp" class="btn btn-primary">Join Member</a>
-            <a href="mypage" class="btn btn-primary">My Page</a>
+        <h2>Main</h2>
+        <% if(request.getAttribute("message") != null){ %>
+            <div class="alert alert-success" role="alert">
+                <%= request.getAttribute("message") %>
+            </div>
+        <% } %>
+
+        <div>
+            <a href="login.jsp" class="btn btn-primary">Login</a>
+            <a href="createUser.jsp" class="btn btn-primary">Create User</a>
+            <a href="updateUser.jsp" class="btn btn-primary">Update User</a>
+            <a href="deleteUser.jsp" class="btn btn-primary">Delete User</a>
+            <a href="logout" class="btn btn-primary">Logout</a>
         </div>
     </div>
 </body>
