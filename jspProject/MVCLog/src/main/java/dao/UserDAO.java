@@ -18,10 +18,12 @@ public class UserDao {
 	// singleton pattern
 	private static UserDao dao = new UserDao();
 
+	// getInstance 생성
 	public static UserDao getInstance() {
 		return dao;
 	}
 
+	// loginUser 로직
 	public User findLogin(Connection conn, String id, String password) {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -55,6 +57,7 @@ public class UserDao {
 
 	}
 
+	// ListUser 로직
 	public List<User> getUserList(Connection conn) {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -89,6 +92,7 @@ public class UserDao {
 		return result;
 	}
 
+	// createUser 로직
 	public int createUser(Connection conn, User user) {
 		PreparedStatement ps = null;
 		int result = 0;
@@ -114,12 +118,13 @@ public class UserDao {
 		return result;
 	}
 
+	// readUser 로직
 	public User readUser(Connection conn, String id) {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		User result = null;
 		try {
-			String query = "SELECT * FROM WHERE id =?";
+			String query = "SELECT * FROM USERS WHERE id =?";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
@@ -143,15 +148,16 @@ public class UserDao {
 		return result;
 	}
 
-	public int update(Connection conn, User user) {
+	// updateUser 로직
+	public int updateUser(Connection conn, User user) {
 		PreparedStatement ps = null;
 		int result = 0;
 		try {
-			String query = "UPDATE USERS SET username=?, password=?, email=? WHERE id=?";
+			String query = "UPDATE USERS SET username=?, email=?, password=? WHERE id=?";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, user.getUsername());
-			ps.setString(2, user.getPassword());
-			ps.setString(3, user.getEmail());
+			ps.setString(2, user.getEmail());
+			ps.setString(3, user.getPassword());
 			ps.setString(4, user.getId());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
@@ -168,11 +174,13 @@ public class UserDao {
 		return result;
 	}
 
+	// deleteUser 로직
 	public int deleteUser(Connection conn, String id) {
 		PreparedStatement ps = null;
 		int result = 0;
 		try {
 			String query = "DELETE FROM USERS WHERE id = ?";
+			ps = conn.prepareStatement(query);
 			ps.setString(1, id);
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
@@ -189,4 +197,32 @@ public class UserDao {
 		return result;
 	}
 
+	// Email 로직
+	public User findByEmail(Connection conn, String email) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		User result = null;
+		try {
+			String query = "SELECT * FROM USERS WHERE email = ?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				result = new User(rs.getString("username"), rs.getString("email"), rs.getString("password"),
+						rs.getString("id"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					;
+				}
+			}
+		}
+		return result;
+	}
 }

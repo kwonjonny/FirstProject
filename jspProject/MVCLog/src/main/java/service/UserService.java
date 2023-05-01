@@ -4,20 +4,25 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import dao.UserDao;
 import domain.User;
 import util.DBConnection;
+import util.EmailSender;
 
 public class UserService {
 
 	// UserDao dao 인스턴스 생성
 	private UserDao dao;
+	private EmailService emailService;
 
 	private static UserService service = new UserService();
-
+	
 	// UserDao 의 인스턴스 가져옴
 	public UserService() {
 		this.dao = UserDao.getInstance();
+		this.emailService = EmailService.getInstance();
 	}
 
 	public static UserService getInstance() {
@@ -84,6 +89,7 @@ public class UserService {
 		return list;
 	}
 
+	// 유저 회원가입
 	public int createUser(User user) {
 		Connection conn = null;
 		int result = 0;
@@ -136,10 +142,17 @@ public class UserService {
 		try {
 			conn = DBConnection.getConnection();
 			conn.setAutoCommit(false);
-			result = dao.update(conn, user);
+			result = dao.updateUser(conn, user);
 			conn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
 		} finally {
 			if (conn != null) {
 				try {
@@ -175,4 +188,36 @@ public class UserService {
 		return result;
 	}
 
+	// 이메일 보내기
+	public User sendEmail(String email) {
+		Connection conn = null;
+		User user = null;
+		try {
+			conn = DBConnection.getConnection();
+			conn.setAutoCommit(false);
+			// 이메일 보내기 전 해당 이메일 가입 유저가 있는지 확인
+			user = dao.findByEmail(conn, email);
+			conn.commit();
+			// 이메일 전송 
+			emailService.sendEmail(user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return user;
+	}
 }

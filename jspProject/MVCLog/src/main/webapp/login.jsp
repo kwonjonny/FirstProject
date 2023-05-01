@@ -1,5 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +21,11 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <!-- 비밀번호 찾기 버튼 추가 -->
+        <br>
+        <button onclick="location.href='email.jsp'" class="btn btn-link">아이디/패스워드를 잊어버리셨나요?</button>
     </div>
 </body>
 </html>
+
 

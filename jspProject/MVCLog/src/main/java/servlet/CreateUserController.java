@@ -28,16 +28,21 @@ public class CreateUserController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8"); 
+		// createUser는 사용자의 입력을 받아야 하므로 UTF-8로 설정 
+		request.setCharacterEncoding("UTF-8");
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 
 		User user = new User(username, email, id, password);
-		userService.createUser(user);
 
+		// user의 정보를 service에게 전달 
+		userService.createUser(user);
 		request.setAttribute("message", "회원가입완료");
+		// main 페이지로 redirect 
 		response.sendRedirect("main.jsp");
 	}
 }
+
+

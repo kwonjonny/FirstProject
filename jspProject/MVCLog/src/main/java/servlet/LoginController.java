@@ -21,10 +21,18 @@ public class LoginController extends HttpServlet {
 	public LoginController() {
 		userService = new UserService();
 	}
+	
+	private static LoginController controller = new LoginController();
+	
+	public static LoginController getInstance() {
+		return controller;
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// login 은 세션이 최초 생성 되는 곳이므로 getSession을 하지 않는다 
+		// id,password를 입력받고 DB에 있는 정보와 비교 
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 
@@ -44,5 +52,5 @@ public class LoginController extends HttpServlet {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
-
 }
+
