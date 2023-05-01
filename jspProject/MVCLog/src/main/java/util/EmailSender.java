@@ -1,13 +1,11 @@
 package util;
 
-
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
 public class EmailSender {
 	
-
     /**
      * 이메일을 전송하는 메서드
      * 

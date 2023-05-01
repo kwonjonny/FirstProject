@@ -16,7 +16,6 @@ public class EmailService {
 		return emailService;
 	}
 	
-
 	public void sendEmail(User user) {
 		if (user != null) {
 			String from = "thistrik@naver.com";
