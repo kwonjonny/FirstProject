@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.User;
 import service.UserService;
-import util.EmailSender;
 
 @WebServlet("/shootInformaiton")
 public class ForgotPasswordController extends HttpServlet {

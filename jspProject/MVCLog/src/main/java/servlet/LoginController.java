@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import javax.servlet.http.HttpSession;
 
+//import dao.LogDao;
 import domain.User;
 import service.UserService;
 
@@ -18,6 +19,7 @@ public class LoginController extends HttpServlet {
 
 	private UserService userService;
 
+	
 	public LoginController() {
 		userService = new UserService();
 	}
@@ -42,6 +44,7 @@ public class LoginController extends HttpServlet {
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
+			
 			request.setAttribute("message", "로그인 완료");
 			// 로그인 완료 메시지를 전달하기 위해 RequestDispatcher를 사용
 			request.getRequestDispatcher("main.jsp").forward(request, response);

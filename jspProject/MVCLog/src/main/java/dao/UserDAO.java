@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
 
 import domain.User;
 
@@ -37,7 +38,9 @@ public class UserDao {
 			if (rs.next()) {
 				String username = rs.getString("username");
 				String email = rs.getString("email");
-				user = new User(username, id, password, email);
+				int passwordChangeInterval = rs.getInt("passwordChangeInterval");
+				Date last_password_change = rs.getDate("last_password_change");
+				user = new User(username, email, id, password, passwordChangeInterval, last_password_change);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -72,7 +75,9 @@ public class UserDao {
 				String id = rs.getString("id");
 				String password = rs.getString("password");
 				String email = rs.getString("email");
-				User user = new User(username, id, password, email);
+				int passwordChangeInterval = rs.getInt("passwordChangeInterval");
+				Date last_password_change = rs.getDate("last_password_change");
+				User user = new User(username, email, id, password, passwordChangeInterval, last_password_change);
 				result.add(user);
 			}
 		} catch (SQLException e) {
@@ -97,12 +102,14 @@ public class UserDao {
 		PreparedStatement ps = null;
 		int result = 0;
 		try {
-			String query = "INSERT INTO USERS(username,email,id,password) VALUES(?,?,?,?)";
+			String query = "INSERT INTO USERS(username, email, id, password, passwordChangeInterval, last_password_change) VALUES(?, ?, ?, ?, ?, ?)";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getId());
 			ps.setString(4, user.getPassword());
+			ps.setInt(5, user.getPasswordChangeInterval());
+			ps.setDate(6, new java.sql.Date(user.getLast_password_change().getTime()));
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -129,7 +136,12 @@ public class UserDao {
 			ps.setString(1, id);
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				result = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getNString(4));
+				String username = rs.getString("username");
+				String email = rs.getString("email");
+				String password = rs.getString("password");
+				int passwordChangeInterval = rs.getInt("passwordChangeInterval");
+				Date last_password_change = rs.getDate("last_password_change");
+				result = new User(username, email, id, password, passwordChangeInterval, last_password_change);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -153,12 +165,14 @@ public class UserDao {
 		PreparedStatement ps = null;
 		int result = 0;
 		try {
-			String query = "UPDATE USERS SET username=?, email=?, password=? WHERE id=?";
+			String query = "UPDATE USERS SET username=?, email=?, password=?, passwordChangeInterval=?, last_password_change=? WHERE id=?";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getPassword());
-			ps.setString(4, user.getId());
+			ps.setInt(4, user.getPasswordChangeInterval());
+			ps.setDate(5, new java.sql.Date(user.getLast_password_change().getTime()));
+			ps.setString(6, user.getId());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -208,8 +222,12 @@ public class UserDao {
 			ps.setString(1, email);
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				result = new User(rs.getString("username"), rs.getString("email"), rs.getString("password"),
-						rs.getString("id"));
+				String username = rs.getString("username");
+				String id = rs.getString("id");
+				String password = rs.getString("password");
+				int passwordChangeInterval = rs.getInt("passwordChangeInterval");
+				Date last_password_change = rs.getDate("last_password_change");
+				result = new User(username, email, id, password, passwordChangeInterval, last_password_change);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

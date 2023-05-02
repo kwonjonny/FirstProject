@@ -4,25 +4,25 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.mail.MessagingException;
-
 import dao.UserDao;
 import domain.User;
+
+import serviceEmail.EmailServiceCreateUser;
+import serviceEmail.EmailServiceForgotPassword;
+import serviceEmail.EmailServiceDeleteUser;
+
 import util.DBConnection;
-import util.EmailSender;
 
 public class UserService {
 
 	// UserDao dao 인스턴스 생성
 	private UserDao dao;
-	private EmailService emailService;
 
 	private static UserService service = new UserService();
-	
+
 	// UserDao 의 인스턴스 가져옴
 	public UserService() {
 		this.dao = UserDao.getInstance();
-		this.emailService = EmailService.getInstance();
 	}
 
 	public static UserService getInstance() {
@@ -98,6 +98,8 @@ public class UserService {
 			conn.setAutoCommit(false);
 			result = dao.createUser(conn, user);
 			conn.commit();
+			// 유저 생성 후 이메일 발송
+			EmailServiceCreateUser.getInstance().sendEmailCreateUser(user);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -137,33 +139,34 @@ public class UserService {
 
 	// 유저 업데이트
 	public int updateUser(User user) {
-		Connection conn = null;
-		int result = 0;
-		try {
-			conn = DBConnection.getConnection();
-			conn.setAutoCommit(false);
-			result = dao.updateUser(conn, user);
-			conn.commit();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			if (conn != null) {
-				try {
-					conn.rollback();
-				} catch (SQLException ex) {
-					ex.printStackTrace();
-				}
-			}
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return result;
+	    Connection conn = null;
+	    int result = 0;
+	    try {
+	        conn = DBConnection.getConnection();
+	        conn.setAutoCommit(false);
+	        result = dao.updateUser(conn, user);
+	        conn.commit();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        if (conn != null) {
+	            try {
+	                conn.rollback();
+	            } catch (SQLException ex) {
+	                ex.printStackTrace();
+	            }
+	        }
+	    } finally {
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+	    return result;
 	}
+
 
 	// 유저 삭제
 	public int deleteUser(String id) {
@@ -172,8 +175,11 @@ public class UserService {
 		try {
 			conn = DBConnection.getConnection();
 			conn.setAutoCommit(false);
+			User user = dao.readUser(conn, id);
 			result = dao.deleteUser(conn, id);
 			conn.commit();
+			// 삭제 후 이메일 발송 
+			EmailServiceDeleteUser.getInsatnce().sendEmailDeleteUser(user);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -198,8 +204,8 @@ public class UserService {
 			// 이메일 보내기 전 해당 이메일 가입 유저가 있는지 확인
 			user = dao.findByEmail(conn, email);
 			conn.commit();
-			// 이메일 전송 
-			emailService.sendEmail(user);
+			// 이메일 발송
+			EmailServiceForgotPassword.getInstance().sendEmail(user);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			if (conn != null) {

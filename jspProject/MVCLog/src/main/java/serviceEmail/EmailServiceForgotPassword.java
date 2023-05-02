@@ -1,24 +1,25 @@
-package service;
+package serviceEmail;
 
 import javax.mail.MessagingException;
 
 import domain.User;
-import util.EmailSender;
+import utilEmailSender.EmailSender;
 
-public class EmailService {
+public class EmailServiceForgotPassword {
 
-	private EmailService() {
+	private EmailServiceForgotPassword() {
 	}
 
-	private static EmailService emailService = new EmailService();
+	private static EmailServiceForgotPassword emailService = new EmailServiceForgotPassword();
 
-	public static EmailService getInstance() {
+	public static EmailServiceForgotPassword getInstance() {
 		return emailService;
 	}
-	
+
 	public void sendEmail(User user) {
 		if (user != null) {
 			String from = "thistrik@naver.com";
+			// 개인정보 보호
 			String password = "";
 			String to = user.getEmail();
 			String subject = "Account informaiton";
