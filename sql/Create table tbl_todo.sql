@@ -1,9 +1,11 @@
+-- 테이블 생성
 CREATE TABLE tbl_todo (
-  tno NUMBER(10) PRIMARY KEY,
+  tno NUMBER(10) GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   todo VARCHAR2(100) NOT NULL,
   duedate DATE DEFAULT SYSDATE,
   finished NUMBER(1) DEFAULT 0 NOT NULL
 );
+
 
 -- sequence
 CREATE SEQUENCE seq_tbl_todo
