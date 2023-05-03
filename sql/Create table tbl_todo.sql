@@ -20,9 +20,9 @@ VALUES (seq_tbl_todo.nextval, 'jsp_공부', '2023-05-05');
 -- Insert INTO tbl_todo (todo,duedate) values (?,?);
 
 -- DML update 
-UPDATE tbl_todo SET todo ='청소', duedate='2023-05-03'
+UPDATE tbl_todo SET todo ='청소', duedate='2023-05-03', finished=1
 WHERE tno =2;
--- UPDATE tbl_todo SET todo =?, duedate=? WHERE tno =?;
+-- UPDATE tbl_todo SET todo =?, duedate=?, fisihed=? WHERE tno =?;
 
 -- DML delete
 delete from tbl_todo where tno=8;

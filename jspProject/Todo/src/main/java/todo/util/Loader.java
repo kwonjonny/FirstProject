@@ -20,9 +20,6 @@ public class Loader extends HttpServlet {
 		} catch (ClassNotFoundException e) {
 			System.out.println("driver load failed");
 			e.printStackTrace();
-		}
-		
+		}	
 	}
-
-
 }
