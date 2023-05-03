@@ -32,6 +32,14 @@ public class CreateUserController extends HttpServlet {
 			throws ServletException, IOException {
 		// createUser는 사용자의 입력을 받아야 하므로 UTF-8로 설정
 		request.setCharacterEncoding("UTF-8");
+
+		boolean isAgree = request.getParameter("agree") != null;
+		if (!isAgree) {
+			// 동의하지 않은 경우 에러 메시지를 반환하고 회원 가입을 중단합니다.
+			request.setAttribute("error", "이용 약관 및 개인정보 처리방침에 동의해주세요.");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+			return;
+		}
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
 		String id = request.getParameter("id");
@@ -40,10 +48,15 @@ public class CreateUserController extends HttpServlet {
 		int passwordChangeInterval = 30;
 		java.util.Date currentDate = new java.util.Date();
 		Date last_password_change = new Date(currentDate.getTime());
-		
+
 		User user = new User(username, email, id, password, passwordChangeInterval, last_password_change);
+
 		// user의 정보를 service에게 전달
-		userService.createUser(user);
+//		userService.createUser(user);
+
+		// 로그인 3개월 password변경 권고 test용 로직
+		userService.createTestUser(user);
+
 		request.setAttribute("message", "회원가입완료");
 		// main 페이지로 redirect
 		response.sendRedirect("main.jsp");

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.sql.Date;
 
@@ -96,34 +97,68 @@ public class UserDao {
 		}
 		return result;
 	}
+	
+	// 로그인 3개월 password 변경 테스트용 createUser 로직
+	public int createTestUser(Connection conn, User user) {
+	    PreparedStatement ps = null;
+	    int result = 0;
+	    try {
+	        // 현재 시간보다 3개월 이전으로 설정
+	        Calendar calendar = Calendar.getInstance();
+	        calendar.add(Calendar.MONTH, -3);
+	        java.sql.Date threeMonthsAgo = new java.sql.Date(calendar.getTimeInMillis());
+	        user.setLast_password_change(threeMonthsAgo);
 
-	// createUser 로직
-	public int createUser(Connection conn, User user) {
-		PreparedStatement ps = null;
-		int result = 0;
-		try {
-			String query = "INSERT INTO USERS(username, email, id, password, passwordChangeInterval, last_password_change) VALUES(?, ?, ?, ?, ?, ?)";
-			ps = conn.prepareStatement(query);
-			ps.setString(1, user.getUsername());
-			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getId());
-			ps.setString(4, user.getPassword());
-			ps.setInt(5, user.getPasswordChangeInterval());
-			ps.setDate(6, new java.sql.Date(user.getLast_password_change().getTime()));
-			result = ps.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (ps != null) {
-				try {
-					ps.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return result;
+	        String query = "INSERT INTO USERS(username, email, id, password, passwordChangeInterval, last_password_change) VALUES(?, ?, ?, ?, ?, ?)";
+	        ps = conn.prepareStatement(query);
+	        ps.setString(1, user.getUsername());
+	        ps.setString(2, user.getEmail());
+	        ps.setString(3, user.getId());
+	        ps.setString(4, user.getPassword());
+	        ps.setInt(5, user.getPasswordChangeInterval());
+	        ps.setDate(6, new java.sql.Date(user.getLast_password_change().getTime()));
+	        result = ps.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (ps != null) {
+	            try {
+	                ps.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+	    return result;
 	}
+
+//	// createUser 로직
+//	public int createUser(Connection conn, User user) {
+//		PreparedStatement ps = null;
+//		int result = 0;
+//		try {
+//			String query = "INSERT INTO USERS(username, email, id, password, passwordChangeInterval, last_password_change) VALUES(?, ?, ?, ?, ?, ?)";
+//			ps = conn.prepareStatement(query);
+//			ps.setString(1, user.getUsername());
+//			ps.setString(2, user.getEmail());
+//			ps.setString(3, user.getId());
+//			ps.setString(4, user.getPassword());
+//			ps.setInt(5, user.getPasswordChangeInterval());
+//			ps.setDate(6, new java.sql.Date(user.getLast_password_change().getTime()));
+//			result = ps.executeUpdate();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			if (ps != null) {
+//				try {
+//					ps.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+//		return result;
+//	}
 
 	// readUser 로직
 	public User readUser(Connection conn, String id) {

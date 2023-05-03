@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,6 +32,12 @@
                 <%= request.getAttribute("message") %>
             </div>
         <% } %>
+        <% if(request.getAttribute("passwordChangeMessage") != null) { %>
+            <div class="alert alert-warning" role="alert">
+                <%= request.getAttribute("passwordChangeMessage") %>
+                <a href="updateUser.jsp" class="btn btn-primary">Update User</a>
+            </div>
+        <% } %>
         <div>
             <form action="readUser" method="get">
                 <button type="submit" class="btn btn-primary">List User</button>
@@ -50,4 +55,3 @@
     </div>
 </body>
 </html>
-

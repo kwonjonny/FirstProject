@@ -18,6 +18,7 @@ public class UserService {
 	// UserDao dao 인스턴스 생성
 	private UserDao dao;
 
+	// singleton pattern
 	private static UserService service = new UserService();
 
 	// UserDao 의 인스턴스 가져옴
@@ -25,6 +26,7 @@ public class UserService {
 		this.dao = UserDao.getInstance();
 	}
 
+	// controller에서 필요한 getInstance 생성
 	public static UserService getInstance() {
 		return service;
 	}
@@ -89,19 +91,51 @@ public class UserService {
 		return list;
 	}
 
-	// 유저 회원가입
-	public int createUser(User user) {
-		Connection conn = null;
+//	// 유저 회원가입
+//	public int createUser(User user) {
+//		Connection conn = null;
+//		int result = 0;
+//		try {
+//			conn = DBConnection.getConnection();
+//			conn.setAutoCommit(false);
+//			result = dao.createUser(conn, user);
+//			conn.commit();
+//			// 유저 생성 후 이메일 발송
+//			EmailServiceCreateUser.getInstance().sendEmailCreateUser(user);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			if (conn != null) {
+//				try {
+//					conn.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+//		return result;
+//	}
+
+	// 로그인 3개월 password 변경 테스트용 createUser 로직
+	public int createTestUser(User user) {
 		int result = 0;
+		Connection conn = null;
+
 		try {
 			conn = DBConnection.getConnection();
 			conn.setAutoCommit(false);
-			result = dao.createUser(conn, user);
-			conn.commit();
-			// 유저 생성 후 이메일 발송
+			result = dao.createTestUser(conn, user);
 			EmailServiceCreateUser.getInstance().sendEmailCreateUser(user);
+			conn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
 		} finally {
 			if (conn != null) {
 				try {
@@ -111,6 +145,7 @@ public class UserService {
 				}
 			}
 		}
+
 		return result;
 	}
 
@@ -139,34 +174,33 @@ public class UserService {
 
 	// 유저 업데이트
 	public int updateUser(User user) {
-	    Connection conn = null;
-	    int result = 0;
-	    try {
-	        conn = DBConnection.getConnection();
-	        conn.setAutoCommit(false);
-	        result = dao.updateUser(conn, user);
-	        conn.commit();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	        if (conn != null) {
-	            try {
-	                conn.rollback();
-	            } catch (SQLException ex) {
-	                ex.printStackTrace();
-	            }
-	        }
-	    } finally {
-	        if (conn != null) {
-	            try {
-	                conn.close();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	    }
-	    return result;
+		Connection conn = null;
+		int result = 0;
+		try {
+			conn = DBConnection.getConnection();
+			conn.setAutoCommit(false);
+			result = dao.updateUser(conn, user);
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
 	}
-
 
 	// 유저 삭제
 	public int deleteUser(String id) {
@@ -178,7 +212,7 @@ public class UserService {
 			User user = dao.readUser(conn, id);
 			result = dao.deleteUser(conn, id);
 			conn.commit();
-			// 삭제 후 이메일 발송 
+			// 삭제 후 이메일 발송
 			EmailServiceDeleteUser.getInsatnce().sendEmailDeleteUser(user);
 		} catch (SQLException e) {
 			e.printStackTrace();

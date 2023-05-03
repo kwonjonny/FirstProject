@@ -28,6 +28,12 @@
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
             </div>
+            
+            <div class="form-group">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">이용 약관 및 개인정보 처리방침에 동의합니다. (<a href="/terms-of-service" target="_blank">이용 약관</a>, <a href="/privacy-policy" target="_blank">개인정보 처리방침</a>)</label>
+            </div>
+            
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

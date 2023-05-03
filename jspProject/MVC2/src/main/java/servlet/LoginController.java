@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 //import dao.LogDao;
 import domain.User;
+import service.PasswordRequiredService;
 import service.UserService;
 
 @WebServlet("/login")
@@ -18,10 +19,11 @@ public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private UserService userService;
-
+	private PasswordRequiredService passwordRequiredService;
 	
 	public LoginController() {
 		userService = new UserService();
+		passwordRequiredService = new PasswordRequiredService();
 	}
 	
 	private static LoginController controller = new LoginController();
@@ -44,6 +46,11 @@ public class LoginController extends HttpServlet {
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
+			
+			// 패스워드 변경 권고 로직 
+			if(passwordRequiredService.isPasswordChangeRequired(user.getId())) {
+				request.setAttribute("passwordChangeMessage", "패스워드 변경 권고: 패스워드를 변경한 지 3개월이 지났습니다.");
+			}
 			
 			request.setAttribute("message", "로그인 완료");
 			// 로그인 완료 메시지를 전달하기 위해 RequestDispatcher를 사용

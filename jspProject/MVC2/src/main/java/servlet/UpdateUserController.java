@@ -12,21 +12,15 @@ import javax.servlet.http.HttpSession;
 
 import service.UserService;
 import domain.User;
-//import servicePasswordChange.ChangeServiceLog;
-//import servicePasswordChange.ChangeServicePassword;
 
 @WebServlet("/updateUser")
 public class UpdateUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private UserService userService;
-//	private ChangeServiceLog changeServiceLog;
-//	private ChangeServicePassword changeServicePassword;
 
 	public UpdateUserController() {
 		userService = new UserService();
-//		changeServiceLog = ChangeServiceLog.getInstance();
-//		changeServicePassword = ChangeServicePassword.getInstance();
 	}
 
 	private static UpdateUserController controller = new UpdateUserController();
@@ -41,6 +35,13 @@ public class UpdateUserController extends HttpServlet {
 		// userUpdate는 사용자의 입력을 받아야 하므로 UTF-8로 설정
 		request.setCharacterEncoding("UTF-8");
 
+		boolean isAgree = request.getParameter("agree") != null;
+		if (!isAgree) {
+			// 동의하지 않은 경우 에러 메시지를 반환하고 회원 가입을 중단합니다.
+			request.setAttribute("error", "이용 약관 및 개인정보 처리방침에 동의해주세요.");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+			return;
+		}
 		// 세션에 있는 사용자 정보 가져옴
 		HttpSession session = request.getSession(false);
 		User user = (User) session.getAttribute("user");
@@ -58,12 +59,9 @@ public class UpdateUserController extends HttpServlet {
 					last_password_change);
 			userService.updateUser(updateUser);
 
-//			// passwordChangeRequired 로그 기록
-//			// 패스워드 변경일 요구 기록 
-//			changeServicePassword.checkPasswordChangeRequired(user.getId());
-//			// 회원 정보 변경 로그일 기록 
-//			changeServiceLog.logPasswordChangeRequired(user.getId());
-
+			// 세션의 사용자 정보를 업데이트한 사용자 정보로 변경
+			session.setAttribute("user", updateUser);
+			
 			request.setAttribute("mesaage", "회원 업데이트 완료");
 			request.getRequestDispatcher("main.jsp").forward(request, response);
 		} else {
