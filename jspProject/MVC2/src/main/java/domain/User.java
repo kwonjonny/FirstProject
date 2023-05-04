@@ -11,6 +11,27 @@ public class User {
 	private int passwordChangeInterval;
 	private Date last_password_change;
 	
+	private String verificationCode = "";
+	private boolean isVerified;
+	
+	
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+
+	public boolean isVerified() {
+		return isVerified;
+	}
+
+	public void setVerified(boolean isVerified) {
+		this.isVerified = isVerified;
+	}
+
 	public User(String username, String email, String id, String password, int passwordChangeInterval,
 			Date last_password_change) {
 		super();

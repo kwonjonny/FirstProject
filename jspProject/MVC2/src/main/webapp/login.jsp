@@ -13,11 +13,15 @@
         <form action="login" method="post">
             <div class="form-group">
                 <label for="id">ID:</label>
-                <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID" required>
+                <input type="text" class="form-control" id="id" name="id" placeholder="Enter ID" value="${cookie.loginCookie != null ? cookie.loginCookie.value : ''}" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me" ${cookie.loginCookie != null ? 'checked' : ''}>
+                <label class="form-check-label" for="remember_me">Remember me</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -27,5 +31,3 @@
     </div>
 </body>
 </html>
-
-

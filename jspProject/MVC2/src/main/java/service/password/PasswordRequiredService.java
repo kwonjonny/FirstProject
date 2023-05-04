@@ -1,14 +1,14 @@
-package service;
+package service.password;
 
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 
-import dao.PasswordRequiredDao;
-import dao.UserDao;
+import dao.auth.PasswordRequiredDao;
+import dao.user.UserDao;
 import domain.User;
-import util.DBConnection;
+import util.DB.DBConnection;
 
 public class PasswordRequiredService {
 

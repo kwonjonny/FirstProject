@@ -1,5 +1,5 @@
 
-package servlet;
+package controller.auth;
 
 import java.io.IOException;
 
@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import domain.User;
-import service.UserService;
+import service.user.UserService;
+import util.session.ManagementSession;
 
 @WebServlet("/shootInformaiton")
 public class ForgotPasswordController extends HttpServlet {
@@ -35,13 +36,15 @@ public class ForgotPasswordController extends HttpServlet {
 
 		// 클라이언트로부터 email 파라미터를 전송받음
 		String email = request.getParameter("email");
+		// userService.sendEmail -> 이메일 전송
 		User user = userService.sendEmail(email);
 
 		if (user != null) {
-			request.setAttribute("message", "계정 정보가 이메일로 전송되었습니다.");
+			// 유저의 정보가 있으면? -> main.jsp
+			response.sendRedirect("login.jsp");
 		} else {
-			request.setAttribute("message", "가입된 이메일이 없습니다. 다시 시도해 주세요.");
+			// 유저의 정보가 없으면? -> main.jsp
+			response.sendRedirect("createUser.jsp");
 		}
-		request.getRequestDispatcher("main.jsp").forward(request, response);
 	}
 }

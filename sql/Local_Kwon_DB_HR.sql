@@ -1,8 +1,6 @@
 
 select * from USERS;
 
-DROP TABLE USERS;
-
 commit;
 
 CREATE TABLE USERS (

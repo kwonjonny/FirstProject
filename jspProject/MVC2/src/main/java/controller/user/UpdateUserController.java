@@ -1,4 +1,4 @@
-package servlet;
+package controller.user;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import service.UserService;
 import domain.User;
+import service.user.UserService;
+import util.session.ManagementSession;
 
 @WebServlet("/updateUser")
 public class UpdateUserController extends HttpServlet {
@@ -32,8 +33,6 @@ public class UpdateUserController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// userUpdate는 사용자의 입력을 받아야 하므로 UTF-8로 설정
-		request.setCharacterEncoding("UTF-8");
 
 		boolean isAgree = request.getParameter("agree") != null;
 		if (!isAgree) {
@@ -43,8 +42,7 @@ public class UpdateUserController extends HttpServlet {
 			return;
 		}
 		// 세션에 있는 사용자 정보 가져옴
-		HttpSession session = request.getSession(false);
-		User user = (User) session.getAttribute("user");
+		User user = ManagementSession.getSessionUser(request);
 
 		if (user != null) {
 			String username = request.getParameter("username");
@@ -60,14 +58,11 @@ public class UpdateUserController extends HttpServlet {
 			userService.updateUser(updateUser);
 
 			// 세션의 사용자 정보를 업데이트한 사용자 정보로 변경
-			session.setAttribute("user", updateUser);
-			
-			request.setAttribute("mesaage", "회원 업데이트 완료");
-			request.getRequestDispatcher("main.jsp").forward(request, response);
-		} else {
-			// 세션 connect 실패시
-			request.setAttribute("errorMesaage", "로그인 후 이용 바랍니다");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			ManagementSession.setSession(request, user);
+			// 기존의 사용자 세션 삭제
+			ManagementSession.removeSession(request);
+
+			response.sendRedirect("main.jsp");
 		}
 	}
 }

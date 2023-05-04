@@ -1,4 +1,4 @@
-package util;
+package util.DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

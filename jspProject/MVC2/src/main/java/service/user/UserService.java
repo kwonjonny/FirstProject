@@ -1,17 +1,16 @@
-package service;
+package service.user;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import dao.UserDao;
+import dao.user.UserDao;
 import domain.User;
-
-import serviceEmail.EmailServiceCreateUser;
-import serviceEmail.EmailServiceForgotPassword;
-import serviceEmail.EmailServiceDeleteUser;
-
-import util.DBConnection;
+import service.email.EmailServiceCreateUser;
+import service.email.EmailServiceDeleteUser;
+import service.email.EmailServiceForgotPassword;
+import service.email.EmailServiceVerifyCode;
+import util.DB.DBConnection;
 
 public class UserService {
 
@@ -115,6 +114,36 @@ public class UserService {
 //		}
 //		return result;
 //	}
+
+	// 인증 이메일 발송 로직
+	public int EmailVerifyCode(User user) {
+		Connection conn = null;
+		int authCode = 0;
+		try {
+			conn = DBConnection.getConnection();
+			conn.setAutoCommit(false);
+			authCode = EmailServiceVerifyCode.getInstance().sendEmailVerifyCode(user);
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return authCode;
+	}
 
 	// 로그인 3개월 password 변경 테스트용 createUser 로직
 	public int createTestUser(User user) {
@@ -259,5 +288,26 @@ public class UserService {
 			}
 		}
 		return user;
+	}
+
+	public User findUserByEmail(String email) {
+		User result = null;
+		Connection conn = null;
+
+		try {
+			conn = DBConnection.getConnection();
+			result = dao.findByEmail(conn, email); // findByEmail 메소드를 사용하여 사용자 찾기
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
 	}
 }

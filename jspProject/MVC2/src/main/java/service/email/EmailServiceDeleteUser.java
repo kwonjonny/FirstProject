@@ -1,9 +1,9 @@
-package serviceEmail;
+package service.email;
 
 import javax.mail.MessagingException;
 
 import domain.User;
-import utilEmailSender.EmailSender;
+import util.email.EmailSender;
 
 
 public class EmailServiceDeleteUser {

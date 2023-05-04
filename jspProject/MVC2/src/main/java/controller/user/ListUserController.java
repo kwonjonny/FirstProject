@@ -1,5 +1,5 @@
 
-package servlet;
+package controller.user;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.User;
-import service.UserService;
+import service.user.UserService;
+import util.session.ManagementSession;
 
 @WebServlet("/readUser")
 public class ListUserController extends HttpServlet {
@@ -23,9 +24,9 @@ public class ListUserController extends HttpServlet {
 	public ListUserController() {
 		userService = new UserService();
 	}
-	
+
 	private static ListUserController controller = new ListUserController();
-	
+
 	public static ListUserController getInstance() {
 		return controller;
 	}
@@ -35,23 +36,13 @@ public class ListUserController extends HttpServlet {
 			throws ServletException, IOException {
 
 		// 세션에 있는 사용자 정보 가져옴
-		HttpSession session = request.getSession(false);
-		User user = (User) session.getAttribute("user");
+		User user = ManagementSession.getSessionUser(request);
 
 		// 세션 connect 성공시
 		if (user != null) {
 			// 모든 회원 정보를 가져옴
 			List<User> userList = userService.getUserList();
-			request.setAttribute("userList", userList);
-
-			request.getRequestDispatcher("list.jsp").forward(request, response);
-		} else {
-			// 세션 connect 실패시
-			request.setAttribute("errorMessage", "로그인 후 이용 바랍니다");
-
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			response.sendRedirect("list.jsp");
 		}
 	}
 }
-
-

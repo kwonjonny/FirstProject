@@ -1,4 +1,4 @@
-package servlet;
+package controller.auth;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import domain.User;
+import util.session.ManagementSession;
 
 @WebServlet("/logout")
 public class logoutController extends HttpServlet {
@@ -16,20 +18,13 @@ public class logoutController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 세션에 있는 사용자 정보 가져옴
-		HttpSession session = request.getSession(false);
-		// 세션 connect 성공 시
-		if (session != null) {
-			session.invalidate();
-			request.setAttribute("message", "로그아웃 완료");
-			request.getRequestDispatcher("main.jsp").forward(request, response);
-		} else {
-			// 세션 connect 실패시
-			request.setAttribute("errorMesaage", "로그인 후 이용 바랍니다");
+		// session 있는 사용자 정보 가져옴
+		User user = ManagementSession.getSessionUser(request);
 
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
+		if (user != null) {
+			// session 삭제
+			ManagementSession.removeSession(request);
+			response.sendRedirect("main.jsp");
+		} 
 	}
 }
-
-
