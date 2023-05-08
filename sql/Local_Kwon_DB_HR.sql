@@ -1,5 +1,6 @@
 
 select * from USERS;
+delete from USERS where username = '권성준';
 
 commit;
 
@@ -12,6 +13,14 @@ CREATE TABLE USERS (
   last_password_change DATE NOT NULL,
   CONSTRAINT users_pk PRIMARY KEY (id)
 );
+
+ALTER TABLE USERS
+ADD (
+  verificationCode VARCHAR2(255) DEFAULT '' NOT NULL,
+  isVerified NUMBER(1,0) DEFAULT 0 NOT NULL
+);
+
+
 
 CREATE TABLE USER_LOGS (
   id NUMBER(10) PRIMARY KEY,
