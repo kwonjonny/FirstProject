@@ -21,7 +21,8 @@ public class VerifyCodeControllerUrl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String email = request.getParameter("email");
+		String email = req
+				uest.getParameter("email");
 		String code = request.getParameter("code");
 
 		User user = userService.findUserByEmail(email);
