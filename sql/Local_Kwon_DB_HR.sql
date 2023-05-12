@@ -1,6 +1,6 @@
 
 select * from USERS;
-delete from USERS where username = '권성준';
+delete from USERS where id = 'thistrik';
 
 commit;
 
@@ -13,6 +13,8 @@ CREATE TABLE USERS (
   last_password_change DATE NOT NULL,
   CONSTRAINT users_pk PRIMARY KEY (id)
 );
+ALTER TABLE USERS ADD isVerified CHAR(1) DEFAULT 'N' NOT NULL;
+
 
 ALTER TABLE USERS
 ADD (

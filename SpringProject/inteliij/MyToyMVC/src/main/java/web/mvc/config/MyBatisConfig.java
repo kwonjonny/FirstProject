@@ -1,4 +1,4 @@
-package web.mvc;
+package web.mvc.config;
 
 import lombok.extern.log4j.Log4j2;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -6,7 +6,9 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
@@ -23,21 +25,22 @@ public class MyBatisConfig {
         dataSource.setUsername("C##KwonDB2");
         dataSource.setPassword("tiger");
 
-        log.info("DataSource created successfully ------------------------------------------");
+        log.info("DataSource isReady ----------------------------------------------");
 
         return dataSource;
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
+    public SqlSessionFactory sqlSessionFactory(ResourcePatternResolver resourcePatternResolver) throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource());
 
         // 매퍼 파일 경로 설정
-        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sqlSessionFactory.setMapperLocations(resolver.getResources("classpath*:mapper/UserMapper.xml"));
+        // mapper 패키지 내 All mapper sacn
+        Resource[] resources = resourcePatternResolver.getResources("classpath*:mapper/*.xml");
+        sqlSessionFactory.setMapperLocations(resources);
 
-        log.info("SqlSessionFactory created successfully ------------------------------------------");
+        log.info("SqlSession isReady ---------------------------------------------");
 
         return sqlSessionFactory.getObject();
 
@@ -47,9 +50,8 @@ public class MyBatisConfig {
     @Bean
     public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
 
-        log.info("SqlSessionTemplate created successfully ------------------------------------------");
+        log.info("SqlSessionTemplate isReady -------------------------------------");
 
         return new SqlSessionTemplate(sqlSessionFactory);
     }
-
 }
