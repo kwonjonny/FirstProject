@@ -11,16 +11,13 @@
     <title>Todo Regist</title>
 </head>
 <body>
-
 <h1>Todo 등록</h1>
 <hr>
 <form method="post">
-    todo <input type="text" name="todo"><br>
-    duedate <input type="date" name="duedate"><br>
+    todo : <input type="text" name="todo"><br>
+    duedate : <input type="date" name="duedate"><br>
     <input type="reset"> <input type="submit" value="등록">
-
 </form>
 <a href="/todo/list">todo List</a>
-
 </body>
 </html>
