@@ -8,3 +8,4 @@
 2023.05.12 ~ 2023.05.15 : 이 기간 공부한것 -> 개인 toyProject Spring MVC패턴 SpringSecurity 권한부여 , 권한삭제, 세션 을 이용한 컨트롤러동작 확인 
 
 2023.05.16 : 오늘 공부한것 -> MyToyProjectMVC SpringSecurity 인증코드 controller get인증코드 검사 후 동작 확인
+2023.05.16 : 오늘 수업한것 -> 수업 myBatis Crud
