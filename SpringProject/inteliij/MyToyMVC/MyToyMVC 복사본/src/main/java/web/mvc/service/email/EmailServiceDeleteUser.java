@@ -6,18 +6,22 @@ import web.mvc.util.email.EmailSender;
 
 import javax.mail.MessagingException;
 
+// 회원탈퇴 시 이메일 발송 서비스
 @Service
 public class EmailServiceDeleteUser {
 
     // default 생성자 정의
     private EmailServiceDeleteUser() {
     }
+
+    // SingletonPattern
     private static EmailServiceDeleteUser emailServiceDeleteUser = new EmailServiceDeleteUser();
 
     public static EmailServiceDeleteUser getInstance() {
         return emailServiceDeleteUser;
     }
 
+    // DeleteUser Bye email 발송
     public void sendEmilDelete(User user) {
         if(user == null) {
             throw new IllegalArgumentException("User cannot be null");

@@ -33,7 +33,7 @@ public class CreateUserController {
     @GetMapping
     public String getCreate() {
         log.info("isOkGetCreate");
-        return "/CreateUser";
+        return "CreateUser";
     }
 
     // post
@@ -45,16 +45,13 @@ public class CreateUserController {
 
         if (isDuplicatedEmail || isDuplicatedId) {
             model.addAttribute("error" ,"이미 사용 중인 이메일이거나 아이디 입니다");
-            return "/CreateUser";
+            return "CreateUser";
         }
         user.setVerified(false);
         int authCode = emailServiceVerifyCode.sendEmailVerifyCode(user);
         // session 인증 코드와 USER 정보 저장 - > waiting.jsp로 전달
         ManagementSession.setSession(request, user);
         ManagementSession.setSessionAuthCode(request, authCode);
-        // waiting.jsp 에서는 createUserController 정보를 가지고 있다
-        // 사용자가 제출시에 verifyCodeController 에서 session 정보를 사용하므로
-        // session 을 여기서 삭제하면 안된다
 
         // redirect waiting.jsp
         return "redirect:/waiting";

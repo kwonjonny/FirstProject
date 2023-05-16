@@ -17,6 +17,7 @@ public class EmailRepositoryImpl implements EmailRepository {
         this.sqlSession = sqlSession;
     }
 
+    // findByEmail 로직 이메일로 회원 정보 찾기
     @Override
     public User findByEmail(String email) throws Exception {
         return sqlSession.selectOne("web.mvc.repository.email.EmailRepository.findByEmail", email);

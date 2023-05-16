@@ -19,31 +19,31 @@ public class UserRepositoryImpl implements UserRepository {
         this.sqlSession = sqlSession;
     }
 
-    // createUser 로직
+    // 회원가입 로직
     @Override
     public void createUser(User user) throws Exception {
         sqlSession.insert("web.mvc.repository.user.UserRepository.createUser", user);
     }
 
-    // readUser 로직
+    // 회원찾기 로직
     @Override
     public User readUser(String id) throws Exception {
         return sqlSession.selectOne("web.mvc.repository.user.UserRepository.readUser", id);
     }
 
-    // updateUser 로직
+    // 회원 업데이트 로직
     @Override
     public void updateUser(User user) throws Exception {
         sqlSession.update("web.mvc.repository.user.UserRepository.updateUser", user);
     }
 
-    // deleteUser 로직
+    // 회원 탈퇴 로직
     @Override
     public void deleteUser(String id) throws Exception {
         sqlSession.delete("web.mvc.repository.user.UserRepository.deleteUser", id);
     }
 
-    // ListUser 로직
+    // 회원 리스트 로직
     @Override
     public List<User> listUser() throws Exception {
         return sqlSession.selectList("web.mvc.repository.user.UserRepository.ListUser");

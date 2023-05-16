@@ -5,8 +5,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fcbda02-7a51-42ff-b048-755061a70f3f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/controller/DeptDeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/controller/DeptListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/controller/DeptModfiyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/controller/DeptRegistController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/domain/DeptDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/domain/DeptRegistRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/mapper/DeptMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/mapper/TimeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/mapper/TimeMapper2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/service/DeptDeleteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/service/DeptListService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/service/DeptModfiyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/service/DeptReadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/service/DeptRegistService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/resources/mapper/DeptMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/resources/mapper/TimeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/webapp/WEB-INF/spring/servlet-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/webapp/WEB-INF/views/dept/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/webapp/WEB-INF/views/dept/modifyForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/webapp/WEB-INF/views/dept/registForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/test/java/com/hi/deptspring/ConnectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/CustomAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/CustomAuthenticationSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/ForgotPasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/LogoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/LogoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/VerifyCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/VerifyCodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/CreateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/DeleteUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/DeleteUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/ListUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/ListUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/UpdateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/DuplicateCheckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/DuplicateCheckRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/DuplicateCheckRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/DuplicateCheckRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/PasswordRequiredRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/PasswordRequiredRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/PasswordRequiredRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/PasswordRequiredRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/UserLoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/UserLoginRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/UserLoginRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/UserLoginRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/email/EmailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/email/EmailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/email/EmailRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/email/EmailRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/user/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/user/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/CustomAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/CustomAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/DuplicateServiceCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/DuplicateServiceCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/DuplicateServiceCheckImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/DuplicateServiceCheckImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/PasswordRequiredService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/PasswordRequiredService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/PasswordRequiredServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/PasswordRequiredServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceCreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceCreateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceDeleteUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceDeleteUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceForgotPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceVerifyCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceVerifyCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/CreateUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/CreateUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/CreateUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/CreateUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/DeleteUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/DeleteUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/DeleteUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/DeleteUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/ListUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/ListUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/ListUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/ListUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/UpdateUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/UpdateUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/UpdateUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/user/UpdateUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/util/email/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/util/email/EmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/ListUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/ListUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/Main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/Main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/UpdateUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/UpdateUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/loginUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/loginUser.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +315,8 @@
       <workItem from="1684111032204" duration="213000" />
       <workItem from="1684111296053" duration="25719000" />
       <workItem from="1684197502055" duration="176000" />
+      <workItem from="1684198621248" duration="3726000" />
+      <workItem from="1684211967238" duration="13034000" />
     </task>
     <servers />
   </component>

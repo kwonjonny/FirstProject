@@ -1,7 +1,11 @@
 package web.mvc.repository.auth;
 
+import org.apache.ibatis.annotations.Mapper;
 import web.mvc.domain.User;
 
+@Mapper
 public interface UserLoginRepository {
-    public User login(String id, String password) throws Exception;
+
+    // 유저 로그인
+    User login(String id, String password) throws Exception;
 }

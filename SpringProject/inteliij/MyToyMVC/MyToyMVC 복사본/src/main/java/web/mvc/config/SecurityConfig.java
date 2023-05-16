@@ -27,25 +27,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        log.info("HttpSecurityIsOk -------------------------------------");
-        httpSecurity
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/", "/login", "/logout", "/CreateUser",
-                 "/ForgotPassword", "/waiting", "/create", "/resendCode").permitAll()
+    log.info("HttpSecurityIsOk");
+    httpSecurity
+        .csrf().disable()
+        .authorizeRequests()
+                .antMatchers("/", "/custom-login", "/logout", "/CreateUser",
+                 "/forgotPassword", "/waiting", "/create", "/resendCode").permitAll()
                 .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .defaultSuccessUrl("/")
+        .and()
+        .formLogin()
+                .loginPage("/custom-login") // 커스텀 로그인 페이지 경로
+                .usernameParameter("id")
                 .successHandler(successHandler)
-                .and()
-                .logout()
+                .defaultSuccessUrl("/")
+        .and()
+        .logout()
                 .logoutSuccessUrl("/")
-                .and()
-                .sessionManagement()
+        .and()
+        .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-                .and()
-                .headers()
+        .and()
+        .headers()
                 .cacheControl().disable();
     }
 

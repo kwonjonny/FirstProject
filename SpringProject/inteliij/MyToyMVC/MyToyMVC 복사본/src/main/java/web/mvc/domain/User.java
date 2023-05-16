@@ -4,7 +4,7 @@ import lombok.*;
 import java.sql.Date;
 import java.util.List;
 
-// lombok 사용
+// use lombok
 @Getter
 @Setter
 @ToString

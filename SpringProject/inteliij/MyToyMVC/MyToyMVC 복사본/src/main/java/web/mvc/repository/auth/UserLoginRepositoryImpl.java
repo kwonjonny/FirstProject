@@ -17,7 +17,7 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
         this.sqlSession = sqlSession;
     }
 
-    // login 로직
+    // 유저 로그인 로직
     @Override
     public User login(String id, String password) throws Exception {
         User user = new User();

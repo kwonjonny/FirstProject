@@ -6,6 +6,7 @@ import web.mvc.domain.User;
 import javax.mail.MessagingException;
 import web.mvc.util.email.EmailSender;
 
+// 패스워드 forgot 시 이메일 발송 서비스
 @Service
 public class EmailServiceForgotPassword {
 
@@ -13,12 +14,14 @@ public class EmailServiceForgotPassword {
     private EmailServiceForgotPassword(){
     }
 
+    // SingletonPatter
     private static EmailServiceForgotPassword emailServiceForgotPassword = new EmailServiceForgotPassword();
 
     public static EmailServiceForgotPassword getInstance() {
         return emailServiceForgotPassword;
     }
 
+    // ForgotPassword email 발송
     public void sendEmailForgotPassword(User user) {
         if (user != null) {
             String from = "thistrik@naver.com";

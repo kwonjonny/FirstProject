@@ -32,14 +32,19 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String id = authentication.getName();
         String password = authentication.getCredentials().toString();
 
+        log.info("id: " + id + ", Password: " + password);
+
         User user;
         try {
+            log.info("Calling loginService.login");
             user = loginService.login(id, password);
+            log.info("Returned from loginService.login, user: " + user);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         if (user == null) {
+            log.info("User is null, throwing BadCredentialsException");
             throw new BadCredentialsException("Invalid username or password");
         }
 
@@ -52,6 +57,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> authentication) {
+        log.info("Creating new UsernamePasswordAuthenticationToken");
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }

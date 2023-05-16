@@ -20,9 +20,9 @@ import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.time.LocalDate;
 
+@Log4j2
 @Controller
 @RequestMapping("/update")
-@Log4j2
 public class UpdateUserController {
     // Main.jsp 에서는 href = /update 로 지정
 
@@ -41,28 +41,33 @@ public class UpdateUserController {
         log.info("isOkGetUpdate");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.isAuthenticated()) {
-            HttpSession session = request.getSession();
-            User user = (User) session.getAttribute("user");
+            User user = (User) authentication.getPrincipal();
             model.addAttribute("user", user);
-            return "/UpdateUser";
-        } return "/";
+            return "UpdateUser";
+        } else {
+            return "/";
+        }
     }
+
     // post
     @PostMapping
     public String postUpdate(@ModelAttribute User user, HttpServletRequest request) throws Exception {
         log.info("isOkPostUpdate");
-        user.setPasswordChangeInterval(30);
-        user.setLast_password_change(Date.valueOf(LocalDate.now()));
-        user.setVerified(true);
 
-        // updateUserService 호출 값 전달
-        updateUserService.updateUser(user);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication.isAuthenticated()) {
 
-        HttpSession session = request.getSession(false);
-        if(session != null) {
-            session.setAttribute("user", user);
-        }
+            user.setPasswordChangeInterval(30);
+            user.setLast_password_change(Date.valueOf(LocalDate.now()));
+            user.setVerified(true);
 
-        return "redirect:/";
+            // updateUserService 호출 값 전달
+            updateUserService.updateUser(user);
+
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.setAttribute("user", user);
+            }
+        }  return "redirect:/";
     }
 }

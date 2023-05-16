@@ -26,7 +26,7 @@ public class ForgotPasswordController {
     @GetMapping
     public String getForgotPassword() {
         log.info("isOkGetForgotPassword");
-        return "/ForgotPassword";
+        return "ForgotPassword";
     }
 
     @PostMapping
@@ -35,7 +35,7 @@ public class ForgotPasswordController {
         String email = request.getParameter("email");
         User user = emailService.findByEmail(email);
         if (user != null) {
-            return "/loginUser";
+            return "loginUser";
         }
         return "redirect:/";
     }

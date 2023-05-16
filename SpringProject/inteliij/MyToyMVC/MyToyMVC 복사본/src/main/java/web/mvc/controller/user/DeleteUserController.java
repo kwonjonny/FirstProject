@@ -39,17 +39,11 @@ public class DeleteUserController {
 
         // if 인증정보가 있으면
         if (authentication.isAuthenticated()) {
-            // session 을 가져온다
-            HttpSession session = request.getSession();
-            User user = (User) session.getAttribute("user");
+           User user = (User) authentication.getPrincipal();
             // deleteUserService 호출 값 전달
             boolean isDeleted = deleteUserService.deleteUser(user.getId());
             // if isDeleted = true 이면
             if(isDeleted) {
-                session = request.getSession(false);
-                if (session != null) {
-                    session.invalidate();
-                }
                 // 인증 정보 삭제
                 SecurityContextHolder.getContext().setAuthentication(null);
                 // 삭제시 Main

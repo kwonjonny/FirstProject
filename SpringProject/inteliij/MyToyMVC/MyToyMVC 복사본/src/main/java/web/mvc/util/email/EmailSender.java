@@ -1,12 +1,11 @@
 package web.mvc.util.email;
 
-import org.springframework.security.core.parameters.P;
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+// Email 을 발송해주는 클래스
 public class EmailSender {
 
     public static void sendEmail(String from, String password, String to, String subject, String message) throws MessagingException {

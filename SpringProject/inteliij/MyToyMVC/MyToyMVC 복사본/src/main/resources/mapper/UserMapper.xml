@@ -13,10 +13,12 @@
         #{isVerified})
     </insert>
 
+
     <!-- READ -->
     <select id="readUser" parameterType="String" resultType="web.mvc.domain.User">
         SELECT * FROM USERS WHERE id = #{id}
     </select>
+
 
     <!-- UPDATE -->
     <update id="updateUser" parameterType="web.mvc.domain.User">
@@ -25,14 +27,17 @@
                          WHERE id = #{id}
     </update>
 
+
     <!-- DELETE -->
     <delete id="deleteUser" parameterType="String">
         DELETE FROM USERS WHERE id = #{id}
     </delete>
 
+
     <!-- LIST -->
     <select id="ListUser" resultType="web.mvc.domain.User">
         SELECT * FROM USERS
     </select>
+
 
 </mapper>

@@ -36,12 +36,15 @@ public class ListUserController {
         log.info("isOkGetList");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.isAuthenticated()) {
-            HttpSession session = request.getSession();
-            User user = (User) session.getAttribute("user");
+            User user = (User) authentication.getPrincipal();
             // 인증된 사용자의 처리 로직
             List<User> userList = listUserService.userList();
             model.addAttribute("users", userList);
-            return "/ListUser";
+
+            // Log the user retrieved from authentication object
+            log.info("User retrieved from authentication: " + user);
+
+            return "ListUser";
         } else {
             return "redirect:/";
         }

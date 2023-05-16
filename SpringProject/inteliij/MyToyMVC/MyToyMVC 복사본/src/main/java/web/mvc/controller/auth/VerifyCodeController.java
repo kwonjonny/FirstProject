@@ -30,7 +30,7 @@ public class VerifyCodeController {
     @GetMapping
     public String getWaiting() {
         log.info("isOkGetWaiting");
-        return "/waiting";
+        return "waiting";
     }
 
     @PostMapping
@@ -54,6 +54,6 @@ public class VerifyCodeController {
                 return "redirect:/";
             }
         }
-        return "redirect:/waiting";
+        return "waiting";
     }
 }

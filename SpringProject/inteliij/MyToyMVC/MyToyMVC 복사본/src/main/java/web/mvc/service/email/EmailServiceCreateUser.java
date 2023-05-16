@@ -6,18 +6,22 @@ import web.mvc.util.email.EmailSender;
 
 import javax.mail.MessagingException;
 
+// 회원가입 성공 시 환영 이메일 발송 서비스
 @Service
 public class EmailServiceCreateUser {
 
-    private EmailServiceCreateUser(){
+    // default 생성자 정의
+    private EmailServiceCreateUser() {
     }
 
+    // SingletonPattern
     private static EmailServiceCreateUser emailServiceCreateUser = new EmailServiceCreateUser();
 
     public static EmailServiceCreateUser getInstance() {
         return emailServiceCreateUser;
     }
 
+    // CreateUser welcome email 발송
     public void sendEmailCreateUser(User user) {
         if (user != null) {
             String from = "thistrik@naver.com";

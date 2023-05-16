@@ -36,6 +36,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
+        log.info("User stored in session: " + session.getAttribute("user"));
 
         // 패스워드 변경 3개월 지났는지 체크
         boolean isPasswordChangeRequired = false;

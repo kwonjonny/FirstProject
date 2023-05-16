@@ -48,7 +48,7 @@
             <button type="submit" class="btn btn-primary">delete User</button>
         </form>
 
-        <a href="/login" class="btn btn-primary">login</a>
+        <a href="/custom-login" class="btn btn-primary">login</a>
 
         <form action="/logout" method="post">
             <button type="submit" class="btn btn-primary">logout</button>

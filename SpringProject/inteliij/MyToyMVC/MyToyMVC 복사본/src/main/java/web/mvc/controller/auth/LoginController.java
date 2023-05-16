@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Log4j2
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/custom-login")
 public class LoginController {
     // Main.jsp 에서는 href = /login 로 지정
 
@@ -14,7 +14,7 @@ public class LoginController {
     @GetMapping
     public String getLogin() {
         log.info("isOkGetLogin");
-        return "/loginUser";
+        return "loginUser";
     }
 }
 
