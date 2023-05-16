@@ -1,6 +1,6 @@
 package web.mvc.config;
 
-
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,6 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import web.mvc.controller.auth.CustomAuthenticationSuccessHandler;
 import web.mvc.service.auth.CustomAuthenticationProvider;
 
+@Log4j2
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -26,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+        log.info("HttpSecurityIsOk -------------------------------------");
         httpSecurity
                 .csrf().disable()
                 .authorizeRequests()

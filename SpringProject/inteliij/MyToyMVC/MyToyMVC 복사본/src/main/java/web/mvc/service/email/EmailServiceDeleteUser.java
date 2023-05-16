@@ -25,7 +25,7 @@ public class EmailServiceDeleteUser {
 
         String from = "thistrik@naver.com";
         // 개인정보 보호
-        String password = "lucy342206!";
+        String password = "";
         String to = user.getEmail();
         String subject = "Delete Member ";
         String message = "지금까지 저희 웹 서비스를 이용해주셔서 감사합니다 귀하의 개인 정보는 더 이상 보관되지 않음을 알립니다";

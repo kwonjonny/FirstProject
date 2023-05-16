@@ -26,7 +26,7 @@ public class EmailServiceVerifyCode {
         String authCodeStr = String.format("%06d", authCode); // 난수 숫자 생성
 
         String from = "thistrik@naver.com";
-        String password = "lucy342206!";
+        String password = "";
         String to = user.getEmail();
         String subject = "Please submit our verifyCode in our page";
         String message = "Your verfiy code is: " + authCodeStr + "\nPlease enter this code on our page to complete the registration process.";

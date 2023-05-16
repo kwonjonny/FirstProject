@@ -24,17 +24,14 @@ public class MyAppConfig implements WebMvcConfigurer {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
-
         log.info("InternalResourceViewResolver isReady -----------------------------------------");
-
         return resolver;
     }
 
+    // 정적 file 설정
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
         log.info("addResourceHandlers isReady --------------------------------------------------");
-
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
         registry.addResourceHandler("/css/**").addResourceLocations("/css/");
     }

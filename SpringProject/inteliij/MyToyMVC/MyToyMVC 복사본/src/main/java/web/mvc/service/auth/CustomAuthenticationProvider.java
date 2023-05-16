@@ -1,5 +1,6 @@
 package web.mvc.service.auth;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,6 +15,7 @@ import web.mvc.domain.User;
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j2
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
@@ -26,6 +28,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        log.info("authenticateIsOk");
         String id = authentication.getName();
         String password = authentication.getCredentials().toString();
 

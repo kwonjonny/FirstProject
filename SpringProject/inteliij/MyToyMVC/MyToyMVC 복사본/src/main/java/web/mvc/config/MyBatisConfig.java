@@ -11,8 +11,8 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
-@Configuration
 @Log4j2
+@Configuration
 public class MyBatisConfig {
 
     @Bean
@@ -27,29 +27,20 @@ public class MyBatisConfig {
 
         return dataSource;
     }
-
     @Bean
     public SqlSessionFactory sqlSessionFactory(ResourcePatternResolver resourcePatternResolver) throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource());
-
         // 매퍼 파일 경로 설정
         // mapper 패키지 내 All mapper sacn
         Resource[] resources = resourcePatternResolver.getResources("classpath*:mapper/*.xml");
         sqlSessionFactory.setMapperLocations(resources);
-
         log.info("SqlSession isReady ---------------------------------------------");
-
         return sqlSessionFactory.getObject();
-
-
     }
-
     @Bean
     public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) throws Exception {
-
         log.info("SqlSessionTemplate isReady -------------------------------------");
-
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }
