@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- interface 와 연결되는 mapper XML 파일 -->
+
+<!-- namespace 속성 설정 필수 -> mapper interface 의 풀 네임-->
+<mapper namespace="com.hi.deptspring.deptspring.mapper.TimeMapper">
+
+    <select id="getTime" resultType="String">
+        SELECT SYSDATE FROM DUAL
+    </select>
+
+
+
+</mapper>
