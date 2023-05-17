@@ -9,3 +9,6 @@
 
 2023.05.16 : 오늘 공부한것 -> MyToyProjectMVC SpringSecurity 인증코드 controller get인증코드 검사 후 동작 확인
 2023.05.16 : 오늘 수업한것 -> 수업 myBatis Crud
+
+2023.05.17 : 오늘 수업한것 RESTAPI @RESTCONTROLLER, 동적 SQL 
+2023.05.17 : 오늘 공부한것 -> MyToyPrjectMVC SpringSecurity 인증코드 session관리 수정 
