@@ -31,22 +31,50 @@ public class ListUserController {
         this.listUserService = listUserService;
     }
 
+//    @GetMapping
+//    public String getList(Model model, HttpServletRequest request) throws Exception {
+//        log.info("isOkGetList");
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication.isAuthenticated()) {
+//            User user = (User) authentication.getPrincipal();
+//            // 인증된 사용자의 처리 로직
+//            List<User> userList = listUserService.userList();
+//            model.addAttribute("users", userList);
+//
+//            // Log the user retrieved from authentication object
+//            log.info("User retrieved from authentication: " + user);
+//
+//            return "ListUser";
+//        } else {
+//            return "redirect:/";
+//        }
+//    }
+
     @GetMapping
     public String getList(Model model, HttpServletRequest request) throws Exception {
         log.info("isOkGetList");
+
+        // 인증 객체 가져오기
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication.isAuthenticated()) {
-            User user = (User) authentication.getPrincipal();
+
+        // 세션 가져오기
+        HttpSession session = request.getSession(false);
+
+        if (authentication.isAuthenticated() && session != null) {
             // 인증된 사용자의 처리 로직
+            User user = (User) authentication.getPrincipal();
             List<User> userList = listUserService.userList();
             model.addAttribute("users", userList);
 
-            // Log the user retrieved from authentication object
-            log.info("User retrieved from authentication: " + user);
+            // 세션 값 확인
+            String authCode = (String) session.getAttribute("authCode");
+            log.info("인증 된 사용자 >>> : " + user);
+            log.info("인증 된 세션 >>>> : " + authCode);
 
             return "ListUser";
         } else {
             return "redirect:/";
         }
     }
+
 }

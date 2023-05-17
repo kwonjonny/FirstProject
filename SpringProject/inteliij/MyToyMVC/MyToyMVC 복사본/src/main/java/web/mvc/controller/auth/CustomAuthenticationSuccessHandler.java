@@ -32,11 +32,19 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         log.info("onAuthenticationSuccessIsOk");
-        User user = (User) authentication.getPrincipal();
 
-        HttpSession session = request.getSession();
+
+        HttpSession session = request.getSession(true);
+        // 세션에 사용자 정보 저장
+        User user = (User) authentication.getPrincipal();
         session.setAttribute("user", user);
-        log.info("User stored in session: " + session.getAttribute("user"));
+        // 세션 정보 조회
+        session = request.getSession(false); // false를 주면, 세션이 존재하지 않을 경우 null을 반환합니다.
+        if (session != null) {
+            log.info("인증된 세션: " + session.getId() + ", User: " + session.getAttribute("user"));
+        } else {
+            log.info("세션이 없음");
+        }
 
         // 패스워드 변경 3개월 지났는지 체크
         boolean isPasswordChangeRequired = false;

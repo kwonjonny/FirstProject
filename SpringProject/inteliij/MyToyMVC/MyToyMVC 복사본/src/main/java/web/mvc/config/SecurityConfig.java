@@ -38,14 +38,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .formLogin()
                 .loginPage("/custom-login") // 커스텀 로그인 페이지 경로
                 .usernameParameter("id")
-                .successHandler(successHandler)
-                .defaultSuccessUrl("/")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/")         // 로그인 성공 후 Main
         .and()
         .logout()
-                .logoutSuccessUrl("/")
-        .and()
-        .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+                .logoutSuccessUrl("/")          // 로그아웃 성공 후 Main
         .and()
         .headers()
                 .cacheControl().disable();

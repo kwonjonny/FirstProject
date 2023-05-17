@@ -32,13 +32,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String id = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        log.info("id: " + id + ", Password: " + password);
+        log.info("프로바이더 메소드  id: " + id + ", Password: " + password);
 
         User user;
         try {
-            log.info("Calling loginService.login");
+            log.info("로그인 SERVICE CALLING SUCCESS");
             user = loginService.login(id, password);
-            log.info("Returned from loginService.login, user: " + user);
+            log.info("로그인 SERVICE RETURN 값 : " + user);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -51,13 +51,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         // 인증 성공 시 사용자에게 부여할 권한을 설정합니다. 별도의 권한 관리 로직을 구현해야 합니다.
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-
+        log.info("권한 부여 --->>>>>>>> " + authorities);
         return new UsernamePasswordAuthenticationToken(user, password, authorities);
     }
 
     @Override
     public boolean supports(Class<?> authentication) {
-        log.info("Creating new UsernamePasswordAuthenticationToken");
+        log.info("CREATE USER AUTHENTICATION TOKEN ");
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }
