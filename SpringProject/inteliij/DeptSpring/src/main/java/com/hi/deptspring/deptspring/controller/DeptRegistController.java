@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Log4j2
 @Controller
 @RequestMapping("/dept/regist")
+@Log4j2
 public class DeptRegistController {
 
     @Autowired
     private DeptRegistService registService;
 
     @GetMapping
-    public String registForm() {
+    public String registForm(){
         log.info("GET /dept/regist");
-
         return "dept/registForm";
     }
 
     @PostMapping
-    public String registPost(DeptRegistRequest registRequest) {
+    public String regist(
+            DeptRegistRequest registRequest
+    ){
         log.info("POST /dept/regist");
-
         log.info(registRequest);
 
         registService.registDept(registRequest);
