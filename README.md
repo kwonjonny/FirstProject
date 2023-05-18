@@ -12,3 +12,6 @@
 
 2023.05.17 : 오늘 수업한것 RESTAPI @RESTCONTROLLER, 동적 SQL 
 2023.05.17 : 오늘 공부한것 -> MyToyPrjectMVC SpringSecurity 인증코드 session관리 수정 
+
+2023.05.18 : 오늘 공부한것 ->MyToyProejct SpringSecurity 쿠키 생성 과 패스워드 분실시 난수로 패스워드 변경후 인증코드 발송
+2023.05.18 : 오늘 수업한것 게시판 RESTAPI CRUD
