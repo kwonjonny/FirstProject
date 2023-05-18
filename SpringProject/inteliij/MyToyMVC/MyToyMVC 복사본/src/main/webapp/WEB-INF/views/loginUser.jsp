@@ -30,6 +30,8 @@
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
     <a href="/forgotPassword">아이디 또는 비밀번호를 잊으셨나요?</a> <!-- 아이디 패스워드를 잊어버렸을 때의 링크 -->
+    <br>
+    <a href="/send-temp-password">아이디 또는 비밀번호를 잊으셨나요? 임시 비밀번호</a> <!-- 아이디 패스워드를 잊어버렷을 때의 임시비밀번호 링크-->
 </div>
 </body>
 </html>

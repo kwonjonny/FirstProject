@@ -10,4 +10,10 @@
         SELECT * FROM USERS WHERE email = #{email}
     </select>
 
+
+    <!-- findByEmailTempPassword -->
+    <update id="findByEmailTempPassword" parameterType="web.mvc.domain.User">
+        UPDATE USERS SET password = #{password} WHERE email = #{email}
+    </update>
+
 </mapper>

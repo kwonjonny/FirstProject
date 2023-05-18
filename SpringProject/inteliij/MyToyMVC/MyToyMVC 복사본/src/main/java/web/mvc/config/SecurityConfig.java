@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import web.mvc.controller.auth.CustomAuthenticationSuccessHandler;
 import web.mvc.service.auth.CustomAuthenticationProvider;
 
@@ -32,14 +31,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .csrf().disable()
         .authorizeRequests()
                 .antMatchers("/", "/custom-login", "/logout", "/CreateUser",
-                 "/forgotPassword", "/waiting", "/create", "/resendCode").permitAll()
+                 "/forgotPassword", "/waiting", "/create", "/resendCode", "/send-temp-password",
+                 "/sendTempPassword").permitAll()
                 .anyRequest().authenticated()
         .and()
-        .formLogin()
+        .formLogin().successHandler(successHandler)
                 .loginPage("/custom-login") // 커스텀 로그인 페이지 경로
                 .usernameParameter("id")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/")         // 로그인 성공 후 Main
+//                .defaultSuccessUrl("/")         // 로그인 성공 후 Main
         .and()
         .logout()
                 .logoutSuccessUrl("/")          // 로그아웃 성공 후 Main

@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="web.mvc.repository.auth.UserLoginRepository">
+<mapper namespace="web.mvc.repository.login.UserLoginRepository">
 
     <!-- Login -->
     <select id="login" parameterType="web.mvc.domain.User" resultType="web.mvc.domain.User">

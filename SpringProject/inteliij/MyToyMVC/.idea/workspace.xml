@@ -5,12 +5,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fcbda02-7a51-42ff-b048-755061a70f3f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/controller/rest/DeptRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/ForgotPasswordTempController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceForgotPasswordTemp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/login/ForgotPasswordTempService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/login/ForgotPasswordTempServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/util/cookie/ManagementCookie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/util/passwordGenerator/PasswordGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/sendTempPassword.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardWriteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/BoardDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/RequestRegBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/BoardMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardListService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardWriteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/spring/servlet-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/tbl_board_Script.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/write.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/test/java/com/hi/board/ConnectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/controller/rest/ExampleRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DeptSpring/src/main/java/com/hi/deptspring/deptspring/controller/rest/ExampleRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/config/MyAppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/config/MyAppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/CustomAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/CustomAuthenticationSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/ForgotPasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/ListUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/ListUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/LogoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/controller/login/LogoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/UserLoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/login/UserLoginRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/auth/UserLoginRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/login/UserLoginRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/email/EmailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/email/EmailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/email/EmailRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/repository/email/EmailRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/CustomAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/CustomAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/login/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/login/LoginServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceForgot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceForgotPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceForgotPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/java/web/mvc/service/email/EmailServiceForgotImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/resources/mapper/EmailMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/resources/mapper/EmailMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/resources/mapper/LoginMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/resources/mapper/LoginMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/loginUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/loginUser.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +96,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -72,6 +130,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/hi/Documents/apache-tomcat-9.0.74-windows-x64/apache-tomcat-9.0.74&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -86,7 +145,25 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="web.mvc.service.email" />
+    </key>
+  </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.748">
+    <configuration name="PasswordGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="web.mvc.util.passwordGenerator.PasswordGenerator" />
+      <module name="mvc.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="web.mvc.util.passwordGenerator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyToyMVC 복사본 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -107,6 +184,30 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="PasswordGeneratorTest.Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/MyToyMVC 복사본" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;PasswordGeneratorTest.Test&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="Tests in 'mvc'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -220,12 +321,16 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.PasswordGenerator" />
+      <item itemvalue="Gradle.PasswordGeneratorTest.Test" />
       <item itemvalue="Gradle.MyToyMVC 복사본 [dependencies]" />
       <item itemvalue="Gradle.Tests in 'mvc'" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.748" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PasswordGeneratorTest.Test" />
+        <item itemvalue="Application.PasswordGenerator" />
         <item itemvalue="Gradle.Tests in 'mvc'" />
         <item itemvalue="Gradle.MyToyMVC 복사본 [dependencies]" />
       </list>
@@ -246,6 +351,8 @@
       <workItem from="1684211967238" duration="14828000" />
       <workItem from="1684283936895" duration="8885000" />
       <workItem from="1684309377438" duration="1822000" />
+      <workItem from="1684370320864" duration="24096000" />
+      <workItem from="1684410411339" duration="3000" />
     </task>
     <servers />
   </component>

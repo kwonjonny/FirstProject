@@ -9,6 +9,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import web.mvc.controller.auth.CustomAuthenticationSuccessHandler;
+import web.mvc.service.auth.PasswordRequiredService;
+import web.mvc.service.login.LoginService;
 
 @Configuration
 @EnableWebMvc
@@ -34,5 +37,10 @@ public class MyAppConfig implements WebMvcConfigurer {
         log.info("addResourceHandlers isReady --------------------------------------------------");
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
         registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+    }
+
+    @Bean
+    public CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler(LoginService loginService, PasswordRequiredService passwordRequiredService) {
+        return new CustomAuthenticationSuccessHandler(loginService, passwordRequiredService);
     }
 }

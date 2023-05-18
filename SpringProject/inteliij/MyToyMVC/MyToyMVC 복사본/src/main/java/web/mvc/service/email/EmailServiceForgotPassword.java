@@ -14,7 +14,7 @@ public class EmailServiceForgotPassword {
     private EmailServiceForgotPassword(){
     }
 
-    // SingletonPatter
+    // SingletonPattern
     private static EmailServiceForgotPassword emailServiceForgotPassword = new EmailServiceForgotPassword();
 
     public static EmailServiceForgotPassword getInstance() {

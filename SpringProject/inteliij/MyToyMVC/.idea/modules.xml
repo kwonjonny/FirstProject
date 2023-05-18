@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MyToyMVC.iml" filepath="$PROJECT_DIR$/.idea/MyToyMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mvc.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mvc.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mvc.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mvc.test.iml" />
     </modules>
   </component>
 </project>

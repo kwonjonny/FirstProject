@@ -11,6 +11,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 import web.mvc.domain.User;
+import web.mvc.service.login.LoginService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String id = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        log.info("프로바이더 메소드  id: " + id + ", Password: " + password);
+        log.info("Authentication 메소드  id: " + id + ", Password: " + password);
 
         User user;
         try {
@@ -44,11 +45,11 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
 
         if (user == null) {
-            log.info("User is null, throwing BadCredentialsException");
-            throw new BadCredentialsException("Invalid username or password");
+            log.info("유저가 없다 BadCredentialsException Calling");
+            throw new BadCredentialsException("유저가 없다");
         }
 
-        // 인증 성공 시 사용자에게 부여할 권한을 설정합니다. 별도의 권한 관리 로직을 구현해야 합니다.
+        // 인증 성공 시 사용자에게 부여할 권한을 설정합니다.
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         log.info("권한 부여 --->>>>>>>> " + authorities);
@@ -57,7 +58,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> authentication) {
-        log.info("CREATE USER AUTHENTICATION TOKEN ");
+        log.info("CREATE USER AUTHENTICATION TOKEN");
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }

@@ -13,31 +13,30 @@ import javax.servlet.http.HttpServletRequest;
 
 @Log4j2
 @Controller
-@RequestMapping("/forgotPassword")
-public class ForgotPasswordController {
+@RequestMapping("/send-temp-password")
+public class ForgotPasswordTempController {
 
     private final EmailServiceForgot emailServiceForgot;
 
     @Autowired
-    public ForgotPasswordController(EmailServiceForgot emailServiceForgot) {
+    public ForgotPasswordTempController(EmailServiceForgot emailServiceForgot) {
         this.emailServiceForgot = emailServiceForgot;
     }
 
     @GetMapping
-    public String getForgotPassword() {
-        log.info("isOkGetForgotPassword");
-        return "ForgotPassword";
+    public String getForgotPasswordTemp() {
+        log.info("getForgotPasswordTempIsOk");
+        return "sendTempPassword";
     }
 
     @PostMapping
-    public String postForgotPassword(HttpServletRequest request) throws Exception {
-        log.info("isOkPostForgotPassword");
+    public String postForgotPasswordTemp(HttpServletRequest request) throws Exception {
+        log.info("postForgotPasswordTempIsOk");
         String email = request.getParameter("email");
-        User user = emailServiceForgot.findByEmail(email);
+        User user = emailServiceForgot.findByEmailTempPassword(email);
         if (user != null) {
             return "loginUser";
         }
         return "redirect:/";
     }
 }
-

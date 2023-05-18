@@ -6,9 +6,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import web.mvc.domain.User;
-import web.mvc.service.auth.LoginService;
+import web.mvc.service.login.LoginService;
 import web.mvc.service.auth.PasswordRequiredService;
 
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +21,6 @@ import java.io.IOException;
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
     private final LoginService loginService;
-
     private final PasswordRequiredService passwordRequiredService;
 
     @Autowired
@@ -32,7 +32,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         log.info("onAuthenticationSuccessIsOk");
-
 
         HttpSession session = request.getSession(true);
         // 세션에 사용자 정보 저장
@@ -58,7 +57,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             log.info("isNotOkPasswordRequired");
             session.setAttribute("warning", "password 변경한지 3개월이 지났습니다 업데이트 바랍니다");
         }
-
         response.sendRedirect("/");
     }
+
 }
