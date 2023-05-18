@@ -1,4 +1,4 @@
-package web.mvc.repository.auth;
+package web.mvc.repository.login;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,6 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
         User user = new User();
         user.setId(id);
         user.setPassword(password);
-        return sqlSession.selectOne("web.mvc.repository.auth.UserLoginRepository.login", user);
+        return sqlSession.selectOne("web.mvc.repository.login.UserLoginRepository.login", user);
     }
 }

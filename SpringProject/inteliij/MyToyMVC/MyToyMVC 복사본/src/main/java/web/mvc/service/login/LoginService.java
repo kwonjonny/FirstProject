@@ -1,4 +1,4 @@
-package web.mvc.service.auth;
+package web.mvc.service.login;
 
 import web.mvc.domain.User;
 

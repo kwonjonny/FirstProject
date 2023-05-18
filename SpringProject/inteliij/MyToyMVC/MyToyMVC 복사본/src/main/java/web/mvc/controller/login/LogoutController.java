@@ -1,4 +1,4 @@
-package web.mvc.controller.auth;
+package web.mvc.controller.login;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.Authentication;

@@ -1,10 +1,10 @@
-package web.mvc.service.auth;
+package web.mvc.service.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.mvc.domain.User;
-import web.mvc.repository.auth.UserLoginRepository;
+import web.mvc.repository.login.UserLoginRepository;
 
 @Service
 public class LoginServiceImpl implements LoginService {

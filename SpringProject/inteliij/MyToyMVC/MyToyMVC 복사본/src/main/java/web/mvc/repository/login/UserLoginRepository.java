@@ -1,4 +1,4 @@
-package web.mvc.repository.auth;
+package web.mvc.repository.login;
 
 import org.apache.ibatis.annotations.Mapper;
 import web.mvc.domain.User;
