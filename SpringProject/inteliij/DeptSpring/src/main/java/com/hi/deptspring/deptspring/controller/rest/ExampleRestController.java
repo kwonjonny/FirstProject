@@ -1,6 +1,5 @@
 package com.hi.deptspring.deptspring.controller.rest;
 
-
 import com.hi.deptspring.deptspring.domain.DeptDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 @RestController
 @RequestMapping("/test")
