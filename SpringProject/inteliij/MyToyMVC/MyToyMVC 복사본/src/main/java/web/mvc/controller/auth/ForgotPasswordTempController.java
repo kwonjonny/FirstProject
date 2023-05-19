@@ -32,9 +32,10 @@ public class ForgotPasswordTempController {
     @PostMapping
     public String postForgotPasswordTemp(HttpServletRequest request) throws Exception {
         log.info("postForgotPasswordTempIsOk");
+
         String email = request.getParameter("email");
         User user = emailServiceForgot.findByEmailTempPassword(email);
-        if (user != null) {
+        if (user != null && user.getStatus().equals("ACTIVE")) {
             return "loginUser";
         }
         return "redirect:/";

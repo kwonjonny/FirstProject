@@ -31,7 +31,7 @@ public class ManagementCookie {
         httpServletResponse.addCookie(rememberMeCookie);
     }
 
-    // 쿠키 삭제 생명중기 0 and 모든 경로에서 쿠키 유효
+    // 쿠키 삭제 생명주기 0 and 모든 경로에서 쿠키 유효
     public void deleteRememberMeCookie(HttpServletResponse httpServletResponse) {
         Cookie rememberMeCookie = new Cookie(REMEMBER_ME_COOKIE_NAME, null);
         rememberMeCookie.setMaxAge(0);

@@ -21,4 +21,5 @@ public class User {
     private Integer passwordChangeInterval; // user passwordChangeInterval
     private Date last_password_change;  // user last_password_change
     private boolean isVerified;         // user email 인증 요소
+    private String status;              // user 활성상태
 }

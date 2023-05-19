@@ -45,6 +45,7 @@ public class VerifyCodeController {
             user.setLast_password_change(Date.valueOf(LocalDate.now()));  // 정상 로직
 //          user.setLast_password_change(Date.valueOf(LocalDate.now().minusMonths(3))); // 테스트 로직 -3개월
             user.setVerified(true);
+            user.setStatus("ACTIVE");
 
             int storedAuthCode = ManagementSession.getSessionAuthCode(request);
             if (inputAuthCode == storedAuthCode) {

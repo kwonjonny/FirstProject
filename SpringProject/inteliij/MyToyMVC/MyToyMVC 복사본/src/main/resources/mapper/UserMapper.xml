@@ -28,9 +28,9 @@
     </update>
 
 
-    <!-- DELETE -->
+    <!-- DELETE TO UPDATE status => INACTIVE -->
     <delete id="deleteUser" parameterType="String">
-        DELETE FROM USERS WHERE id = #{id}
+       UPDATE USERS SET status = "INACTIVE" WHERE id = {id}
     </delete>
 
 

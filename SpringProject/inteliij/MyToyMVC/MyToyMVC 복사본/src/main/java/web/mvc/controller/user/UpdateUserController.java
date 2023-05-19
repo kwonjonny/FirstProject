@@ -60,6 +60,7 @@ public class UpdateUserController {
             user.setPasswordChangeInterval(30);
             user.setLast_password_change(Date.valueOf(LocalDate.now()));
             user.setVerified(true);
+            user.setStatus("ACTIVE");
 
             // updateUserService 호출 값 전달
             updateUserService.updateUser(user);
