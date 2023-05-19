@@ -61,4 +61,11 @@ public class ConnectionTest {
         connection.close();
     }
 
+    @Test
+    public void SelectTest() {
+        BoardDTO board = boardMapper.selectByBno(41);
+        log.info("41 " + board);
+        board = boardMapper.selectByBno(1);
+        log.info("1번 " + board);
+    }
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Log4j2
 @Controller
 @RequestMapping("/board/write")
@@ -27,11 +29,12 @@ public class BoardWriteController {
     }
 
     @PostMapping
-    public String write(RequestRegBoard requestRegBoard) {
+    public String write(RequestRegBoard requestRegBoard, HttpServletRequest request) {
         log.info("POST /board/write");
+
         log.info(requestRegBoard);
 
-        boardWriteService.writeBoard(requestRegBoard);
+        boardWriteService.writeBoard(requestRegBoard, request);
 
         return "redirect:/board/list";
     }

@@ -5,13 +5,42 @@
 
 <mapper namespace="com.hi.board.mapper.BoardMapper">
 
+    <!-- file_name 파일의 이름을 저장하는 문자열 -->
     <insert id="insertBoard" parameterType="com.hi.board.domain.RequestRegBoard">
-        INSERT INTO tbl_board (title, content, writer) VALUES (#{title}, #{content}, #{writer})
+        insert into tbl_board (title, content, writer, file1)
+        values (#{title}, #{content}, #{writer}, #{filename})
     </insert>
+
+    <select id="selectList" resultType="com.hi.board.domain.BoardDTO">
+        select * from tbl_board order by bno desc limit #{param1} , #{param2}
+    </select>
+
+    <select id="selectTotalCount" resultType="int">
+        select count(*) from tbl_board
+    </select>
 
 
     <select id="selectAll" resultType="com.hi.board.domain.BoardDTO">
         SELECT * FROM tbl_board
     </select>
+
+
+    <select id="selectByBno" resultType="com.hi.board.domain.BoardDTO">
+        SELECT * FROM tbl_board where bno = #{bno}
+    </select>
+
+
+    <update id="updateBoard" parameterType="com.hi.board.domain.RequestModifyRequest">
+        UPDATE tbl_board set title=#{title}, content=#{content}, writer=#{writer}
+        , file1#{filename}, updatedate = now()
+
+        where bno = #{bno}
+    </update>
+
+    <delete id="deleteBoard">
+        delete from tbl_board where bno = #{bno}
+    </delete>
+
+
 
 </mapper>
