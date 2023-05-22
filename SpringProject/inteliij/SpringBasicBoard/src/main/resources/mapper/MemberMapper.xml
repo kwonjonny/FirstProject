@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hi.board.mapper.MemberMapper">
+
+
+    <insert id="insertMember" parameterType="com.hi.board.domain.member.MemberRegistRequest">
+        INSERT INTO member (uid,pw,uname,uphoto)
+        VALUES(#{uid}, #{pw}, #{uname}, #{uphoto})
+    </insert>
+
+
+    <select id="selectByUidPw" resultType="com.hi.board.domain.member.MemberDTO">
+        select idx, uid, uname, uphoto from member where uid=#{param1} AND pw=#{param2}
+    </select>
+
+
+
+
+
+</mapper>

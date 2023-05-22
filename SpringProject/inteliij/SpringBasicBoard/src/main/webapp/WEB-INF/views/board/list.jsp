@@ -20,8 +20,11 @@
 </head>
 <body>
 
-
 <h1> 게시판 </h1>
+<hr>
+<div>
+   <a href="/logout">logout</a>
+</div>
 <hr>
 
 <div class="searchArea">
