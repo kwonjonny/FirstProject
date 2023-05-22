@@ -19,3 +19,5 @@
 2023.05.19 오늘 공부한것 ->MyToyProject USERS table 활성상태 추가 -> login delete 로직 수정 
 2023.05.19 오늘 수업한것 게시판 페이징 기술 
 
+2023.05.22 오늘 공부한것->MyToyProject Spring MVC 게시판 CRUD 작성 
+2023.05.22 오늘 수업한것 게시판 페이징 & 로그인 
