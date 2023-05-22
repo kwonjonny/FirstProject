@@ -5,138 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fcbda02-7a51-42ff-b048-755061a70f3f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/BoardSearchOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/PageOption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/._MyToyMVC 복사본" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._.idea" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/._src" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/._8.0.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/._buildOutputCleanup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/._file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/._vcs-1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/._checksums" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/._dependencies-accessors" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/._executionHistory" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/._fileChanges" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/._fileHashes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/._gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/._vcsMetadata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/checksums/._checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/checksums/._md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/checksums/._sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/dependencies-accessors/._dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/dependencies-accessors/._gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/executionHistory/._executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/executionHistory/._executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/fileChanges/._last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/fileHashes/._fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/fileHashes/._fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/8.0.2/fileHashes/._resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/buildOutputCleanup/._buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/buildOutputCleanup/._cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/buildOutputCleanup/._outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.gradle/vcs-1/._gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.idea/._.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.idea/._.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.idea/._compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.idea/._gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.idea/._jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.idea/._modules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.idea/._uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/.idea/._vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/._classes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/._generated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/._libs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/._resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/._tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/classes/._java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/generated/._sources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/generated/sources/._annotationProcessor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/generated/sources/._headers" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/generated/sources/annotationProcessor/._java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/generated/sources/headers/._java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/build/libs/._exploded" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/gradle/._wrapper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/gradle/wrapper/._gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/._main" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/._test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/._java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/._resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/._webapp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/._web" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/._mvc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/._config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/._controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/._domain" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/._repository" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/._service" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/config/._MyAppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/config/._MyBatisConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/config/._MyWebApplicationInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/._auth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/._user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/._LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/auth/._LogoutController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/._CreateUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/._DeleteUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/._ListUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/._MainController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/._UpdateUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/domain/._User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/repository/._auth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/repository/._user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/repository/user/._UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/repository/user/._UserRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/._auth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/._email" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/._user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/user/._CreateUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/user/._CreateUserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/user/._DeleteUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/user/._DeleteUserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/user/._ListUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/user/._ListUserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/user/._UpdateUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/java/web/mvc/service/user/._UpdateUserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/resources/._log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/resources/._mapper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/resources/mapper/._LoginMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/resources/mapper/._UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/._WEB-INF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/._css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/._resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/WEB-INF/._views" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/WEB-INF/._web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/._CreateUser.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/._DeleteUser.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/._ListUser.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/._Main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/._UpdateUser.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/._loginUser.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/test/._java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/__MACOSX/MyToyMVC 복사본/src/test/._resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/BoardListPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/BoardListPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/BoardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/resources/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/tbl_board_Script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/tbl_board_Script.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../sql/Local_Kwon_DB_HR.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../sql/Local_Kwon_DB_HR.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +72,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hi/Documents/GitHub/FirstProject/SpringProject/inteliij/MyToyMVC",
+    "last_opened_file_path": "C:/Users/hi/Documents/GitHub/FirstProject/SpringProject/inteliij/MyToyMVC/MyToyMVC",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -304,8 +173,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.748" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.748" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="Gradle : web : mvc-1.0-SNAPSHOT.war (exploded)">
           <settings>
@@ -428,6 +296,8 @@
       <workItem from="1684716176619" duration="2470000" />
       <workItem from="1684728792599" duration="12000" />
       <workItem from="1684728889429" duration="294000" />
+      <workItem from="1684729193349" duration="137000" />
+      <workItem from="1684729343376" duration="31000" />
     </task>
     <servers />
   </component>

@@ -22,7 +22,7 @@ public class BoardDeleteServiceImpl implements BoardDeleteService {
     // 게시글 삭제 로직 service
     @Override
     @Transactional
-    public void deleteBoard(Map<String, Object> parameters) {
-        boardRepository.deleteBoard(parameters);
+    public void deleteBoard(String user_id, int bno) {
+        boardRepository.deleteBoard(user_id,bno);
     }
 }

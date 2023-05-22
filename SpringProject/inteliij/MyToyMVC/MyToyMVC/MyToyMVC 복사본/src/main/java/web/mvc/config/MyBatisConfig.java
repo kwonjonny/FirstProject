@@ -20,8 +20,8 @@ public class MyBatisConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
         dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-        dataSource.setUsername("system");
-        dataSource.setPassword("oracle");
+        dataSource.setUsername("C##KwonDB2");
+        dataSource.setPassword("tiger");
 
         log.info("DataSource isReady ----------------------------------------------");
 

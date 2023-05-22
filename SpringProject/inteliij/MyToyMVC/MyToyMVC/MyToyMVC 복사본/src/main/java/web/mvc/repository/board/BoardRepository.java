@@ -18,9 +18,9 @@ public interface BoardRepository {
     // 게시글 업데이트 로직
     void updateBoard(TblBoard tblBoard);
 
-    // 게시글 삭제 로직
-    void deleteBoard(Map<String, Object> parameters);
-
     // 게시글 리스트 로직
     List<TblBoard> listBoard();
+
+    // 게시글 삭제 로직
+    void deleteBoard(String user_id, int bno);
 }

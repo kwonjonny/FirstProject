@@ -34,7 +34,7 @@ public class BoardUpdateController {
     public ModelAndView getBoardUpdate(@PathVariable("bno") int bno) {
         ModelAndView modelAndView = new ModelAndView();
         boardListService.listBoard();
-        modelAndView.setViewName("redirect:BoardUpdate");
+        return modelAndView;
     }
 
     // post

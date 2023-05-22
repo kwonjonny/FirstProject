@@ -49,7 +49,7 @@
                 <td>${board.updatedate}</td>
                 <td> <!-- 작업 버튼 추가 -->
                     <button onclick="location.href='/board/update/${board.bno}'" class="btn btn-warning">수정</button>
-                    <button onclick="location.href='/board/delete/${board.bno}'" class="btn btn-danger">삭제</button>
+                    <button onclick="location.href='/boardDelete/${board.bno}'" class="btn btn-danger">삭제</button>
                 </td>
             </tr>
         </c:forEach>

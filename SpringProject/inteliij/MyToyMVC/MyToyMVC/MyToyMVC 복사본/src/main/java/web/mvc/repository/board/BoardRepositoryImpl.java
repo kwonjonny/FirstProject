@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.mvc.domain.TblBoard;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +41,10 @@ public class BoardRepositoryImpl implements BoardRepository {
 
     // 게시글 삭제 로직
     @Override
-    public void deleteBoard(Map<String, Object> parameters) {
+    public void deleteBoard(String user_id , int bno) {
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("user_id", user_id);
+        parameters.put("bno", bno);
         sqlSession.delete("web.mvc.repository.board.BoardRepository.deleteBoard", parameters);
     }
 
