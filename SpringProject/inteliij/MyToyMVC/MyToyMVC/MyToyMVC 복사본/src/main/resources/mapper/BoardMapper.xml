@@ -12,31 +12,57 @@
 
 
     <!-- READ BOARD -->
-    <select id="readBoard" parameterType="map" resultType="web.mvc.domain.TblBoard">
-        SELECT * FROM tbl_board
-        WHERE content LIKE CONCAT('%', #{content}, '%')
-          AND writer LIKE CONCAT('%', #{writer}, '%')
+    <select id="selectList" parameterType="web.mvc.domain.page.PageOption"
+            resultType="web.mvc.domain.TblBoard">
+        select * from tbl_board
+
+        <where>
+            <if test="searchType != null and keyword != null">
+                <!-- 제목 검색 -->
+                <if test="searchType == 'title'">
+                    and title like '%' || #{keyword} || '%'
+                </if>
+
+                <!-- 내용 검색 -->
+                <if test="searchType == 'content'">
+                    and content like '%' || #{keyword} || '%'
+                </if>
+
+                <!-- 작성자 검색 -->
+                <if test="searchType == 'user_id'">
+                    and user_id like '%' || #{keyword} || '%'
+                </if>
+            </if>
+        </where>
+
+        order by bno desc
     </select>
+
+
 
 
     <!-- UPDATE BOARD -->
     <update id="updateBoard" parameterType="web.mvc.domain.TblBoard">
-        UPDATE tbl_board SET title = #{title}, content = #{content},
-                             WHERE bno = #{bno}, user_id =#{user_id}
+        UPDATE tbl_board SET title = #{title}, content = #{content}
+                             WHERE bno = #{bno} AND user_id =#{user_id}
     </update>
 
 
     <!-- DELETE BOARD -->
-    <delete id="deleteBoard" parameterType="int">
-        DELETE tbl_board WHERE bno = #{bno} AND user_id = #{user_id}
+    <delete id="deleteBoard" parameterType="web.mvc.domain.TblBoard">
+        DELETE FROM tbl_board WHERE bno = #{bno} AND user_id = #{user_id}
     </delete>
 
 
     <!-- LIST BOARD   -->
     <select id="listBoard" resultType="web.mvc.domain.TblBoard">
-        SELECT * FROM tbl_board
+        SELECT * FROM tbl_board ORDER BY bno DESC
     </select>
 
+    <!-- LIST UPDATE BOARD -->
+   <select id="updateListBoard" resultType="web.mvc.domain.TblBoard">
+       SELECT * FROM tbl_board WHERE bno = #{bno} AND user_id = #{user_id}
+   </select>
 
 
 </mapper>

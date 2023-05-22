@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.mvc.domain.TblBoard;
+import web.mvc.domain.page.PageOption;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,9 +30,10 @@ public class BoardRepositoryImpl implements BoardRepository {
 
     // 게시글 찾기 로직
     @Override
-    public List<TblBoard> readBoard(Map<String, String> parameters) {
-        return sqlSession.selectList("web.mvc.repository.board.BoardRepository.readBoard", parameters);
+    public List<TblBoard> selectList(PageOption pageOption) {
+        return sqlSession.selectList("web.mvc.repository.board.BoardRepository.selectList", pageOption);
     }
+
 
     // 게시글 업데이트 로직
     @Override
@@ -52,5 +54,14 @@ public class BoardRepositoryImpl implements BoardRepository {
     @Override
     public List<TblBoard> listBoard() {
         return sqlSession.selectList("web.mvc.repository.board.BoardRepository.listBoard");
+    }
+
+    // 게시글 업데이트 리스트 로직
+    @Override
+    public TblBoard updateListBoard(String user_id, int bno) {
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("user_id", user_id);
+        parameters.put("bno", bno);
+        return sqlSession.selectOne("web.mvc.repository.board.BoardRepository.updateListBoard",parameters);
     }
 }

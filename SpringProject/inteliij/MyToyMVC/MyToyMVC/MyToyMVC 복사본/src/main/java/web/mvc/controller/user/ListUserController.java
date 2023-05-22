@@ -38,19 +38,14 @@ public class ListUserController {
         // 인증 객체 가져오기
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        // 세션 가져오기
-        HttpSession session = request.getSession(false);
-
-        if (authentication.isAuthenticated() && session != null) {
+        if (authentication.isAuthenticated()) {
             // 인증된 사용자의 처리 로직
             User user = (User) authentication.getPrincipal();
             List<User> userList = listUserService.userList();
             model.addAttribute("users", userList);
 
-            // 세션 값 확인
-            String authCode = (String) session.getAttribute("authCode");
+
             log.info("인증 된 사용자 >>> : " + user);
-            log.info("인증 된 세션 >>>> : " + authCode);
 
             return "ListUser";
         } else {

@@ -2,11 +2,13 @@ package web.mvc.controller.board;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import web.mvc.domain.User;
 import web.mvc.service.board.BoardDeleteService;
 
 @Log4j2
@@ -23,11 +25,18 @@ public class BoardDeleteController {
         this.boardDeleteService = boardDeleteService;
     }
 
-    // Post
-    @DeleteMapping("/{bno}")
-    public String postBoardDelete(@RequestParam("user_id") String user_id, @RequestParam("bno") int bno) {
-        boardDeleteService.deleteBoard(user_id, bno);
+    // post
+    @PostMapping
+    public String postBoardDelete(Authentication authentication, @RequestParam("bno") int bno) {
+        String userId = ((User) authentication.getPrincipal()).getId();
 
-        return "redirect:/boardList";
+        if (authentication.isAuthenticated()) {
+            log.info("삭제 board - User ID: {}, Board ID: {}", userId, bno);
+            boardDeleteService.deleteBoard(userId, bno);
+
+            return "redirect:/boardList";
+        }
+        return "redirect:/";
     }
+
 }

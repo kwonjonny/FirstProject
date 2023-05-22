@@ -13,7 +13,7 @@
     <h2>Update Board</h2>
     <hr>
 
-    <form action="/boardUpdate" method="post">
+    <form action="/boardUpdate">
         <input type="hidden" name="bno" value="${board.bno}">
         <div class="form-group">
             <label for="title">Title</label>

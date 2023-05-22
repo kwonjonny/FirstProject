@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.mvc.repository.board.BoardRepository;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -23,6 +24,6 @@ public class BoardDeleteServiceImpl implements BoardDeleteService {
     @Override
     @Transactional
     public void deleteBoard(String user_id, int bno) {
-        boardRepository.deleteBoard(user_id,bno);
+        boardRepository.deleteBoard(user_id, bno);
     }
 }

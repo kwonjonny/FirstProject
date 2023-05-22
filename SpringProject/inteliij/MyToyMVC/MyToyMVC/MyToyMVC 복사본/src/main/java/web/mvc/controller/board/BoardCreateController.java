@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import web.mvc.domain.TblBoard;
@@ -39,21 +40,21 @@ public class BoardCreateController {
 
     // post
     @PostMapping
-    public String postCreateBoard(TblBoard tblBoard) {
+    public String postCreateBoard(Authentication authentication,@ModelAttribute TblBoard tblBoard) {
         log.info("isOkPostCreateBoard");
 
         // 인증 토큰 객체 가져오기
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = (User) authentication.getPrincipal();
 
         if (authentication.isAuthenticated()) {
 
             TblBoard newPost = new TblBoard();
-            newPost.setUser_id(currentUser.getId());
+
             newPost.setTitle(tblBoard.getTitle());
             newPost.setContent(tblBoard.getContent());
             newPost.setRegdate(Date.valueOf(LocalDate.now()));
             newPost.setUpdatedate(Date.valueOf(LocalDate.now()));
+            newPost.setUser_id(currentUser.getId());
 
             log.info("newPost 값 : " + newPost);
 

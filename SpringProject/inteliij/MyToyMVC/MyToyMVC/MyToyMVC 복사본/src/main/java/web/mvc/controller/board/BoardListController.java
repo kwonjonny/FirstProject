@@ -28,7 +28,6 @@ public class BoardListController {
 
     @GetMapping
     public String getBoardList(Model model) {
-
         List<TblBoard> boardList =  boardListService.listBoard();
         model.addAttribute("boardList", boardList);
         return "BoardList";

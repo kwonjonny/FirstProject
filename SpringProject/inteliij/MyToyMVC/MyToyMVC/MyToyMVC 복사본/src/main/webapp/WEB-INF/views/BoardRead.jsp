@@ -5,34 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Board List</title>
+    <title>Search Result</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h2>Board List</h2>
-    <hr>
-
-    <!-- 검색 폼 -->
-    <div class="searchArea">
-    <form action="/boardRead" method="post" class="form-inline">
-        <div class="form-group">
-            <select class="form-control" id="searchType" name="searchType">
-                <option value="title">제목</option>
-                <option value="content">내용</option>
-                <option value="writer">작성자</option>
-            </select>
-        </div>
-        <input type="text" name="keyword">
-        <input type="submit" value="검색">
-    </form>
-</div>
-
-
-    <hr>
-
-    <!-- 글작성 버튼 -->
-    <button onclick="location.href='/boardCreate'" class="btn btn-primary">글 작성</button>
+    <h2>Search Result</h2>
     <hr>
 
     <table class="table table-bordered">
@@ -44,11 +22,11 @@
             <th>작  성  자</th>
             <th>등록   날짜</th>
             <th>수정   일시</th>
-            <th>작   업</th> <!-- 추가된 칼럼 -->
+            <th>작   업</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${boardList}" var="board">
+        <c:forEach items="${list}" var="board">
             <tr>
                 <td>${board.bno}</td>
                 <td>${board.title}</td>
@@ -57,19 +35,14 @@
                 <td>${board.regdate}</td>
                 <td>${board.updatedate}</td>
                 <td>
-
-                    <!-- 작업 버튼 추가 -->
                     <form action="/boardUpdate" method="get" style="display: inline;">
                         <input type="hidden" name="bno" value="${board.bno}">
                         <button type="submit" class="btn btn-warning">수정</button>
                     </form>
-
-
                     <form action="/boardDelete" method="post" style="display: inline;">
                         <input type="hidden" name="bno" value="${board.bno}">
                         <button type="submit" class="btn btn-danger">삭제</button>
                     </form>
-
                 </td>
             </tr>
         </c:forEach>
