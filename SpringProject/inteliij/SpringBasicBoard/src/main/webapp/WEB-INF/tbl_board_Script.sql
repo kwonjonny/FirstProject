@@ -33,13 +33,24 @@ ALTER TABLE tbl_reply
 ADD CONSTRAINT fk_reply_board FOREIGN KEY (bno) REFERENCES tbl_board (bno);
 
 
+-- tbl_board 컬럼 추가 
+ALTER TABLE tbl_board
+ADD file_name VARCHAR2(150);
+
+UPDATE tbl_board SET file_name = 'default_value';
+
+ALTER TABLE tbl_board
+MODIFY file_name NOT NULL;
+
+UPDATE tbl_board SET file_name = 'file1';
+ALTER TABLE tbl_board RENAME COLUMN file_name TO file1;
+
 commit;
 
 -- select 
 
 -- insert
 insert into tbl_board (title,content,writer) values('게스글 테스트1', '게시글 쓰기 테스트1', '테스터');
-
 
 
 

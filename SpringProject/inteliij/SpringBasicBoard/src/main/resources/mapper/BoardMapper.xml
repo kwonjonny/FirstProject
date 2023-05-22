@@ -11,12 +11,52 @@
         values (#{title}, #{content}, #{writer}, #{filename})
     </insert>
 
-    <select id="selectList" resultType="com.hi.board.domain.BoardDTO">
-        select * from tbl_board order by bno desc limit #{param1} , #{param2}
+    <select id="selectList" parameterType="com.hi.board.domain.PageOption"
+            resultType="com.hi.board.domain.BoardDTO">
+
+        select * from tbl_board
+        <where>
+            <if test="searchOption.searchType != null and keyword != null">
+                <!-- 제목 검색 -->
+                <if test="searchOption.searchType == 'title'">
+                    title like concat('%', #{searchOption.keyword} , '%')
+                </if>
+
+                <!-- 내용 검색 -->
+                <if test="searchOption.searchType == 'content'">
+                    content like concat('%', #{searchOption.content} , '%')
+                </if>
+
+                <!-- 작성자 검색 -->
+                <if test="searchOption.searchType == 'writer'">
+                    writer like concat('%', #{searchOption.writer} , '%')
+                </if>
+
+            </if>
+        </where>
+        order by bno desc limit #{startNum} , #{count}
     </select>
 
-    <select id="selectTotalCount" resultType="int">
+    <select id="selectTotalCount" parameterType="com.hi.board.domain.BoardSearchOption" resultType="int">
         select count(*) from tbl_board
+
+        <where>
+            <if test="searchType != null AND keyword != null">
+                <if test="searchType == 'title'">
+                    title like concat('%' #{keyword} '%')
+                </if>
+
+                <if test="searchType == 'content'">
+                    content like concat('%' #{keyword} '%')
+                </if>
+
+                <if test="searchType == 'writer'">
+                    writer like concat('%' #{keyword} '%')
+                </if>
+
+            </if>
+        </where>
+
     </select>
 
 
@@ -37,9 +77,12 @@
         where bno = #{bno}
     </update>
 
+
     <delete id="deleteBoard">
         delete from tbl_board where bno = #{bno}
     </delete>
+
+
 
 
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="web.mvc.repository.board.BoardRepository">
+
+    <!-- CREATE BOARD -->
+    <insert id="createBoard" parameterType="web.mvc.domain.TblBoard">
+       INSERT INTO tbl_board (title, content, user_id) VALUES (#{title}, #{content}, #{user_id})
+    </insert>
+
+
+    <!-- READ BOARD -->
+    <select id="readBoard" parameterType="map" resultType="web.mvc.domain.TblBoard">
+        SELECT * FROM tbl_board
+        WHERE content LIKE CONCAT('%', #{content}, '%')
+          AND writer LIKE CONCAT('%', #{writer}, '%')
+    </select>
+
+
+    <!-- UPDATE BOARD -->
+    <update id="updateBoard" parameterType="web.mvc.domain.TblBoard">
+        UPDATE tbl_board SET title = #{title}, content = #{content},
+                             WHERE bno = #{bno}, user_id =#{user_id}
+    </update>
+
+
+    <!-- DELETE BOARD -->
+    <delete id="deleteBoard" parameterType="int">
+        DELETE tbl_board WHERE bno = #{bno} AND user_id = #{user_id}
+    </delete>
+
+
+    <!-- LIST BOARD   -->
+    <select id="listBoard" resultType="web.mvc.domain.TblBoard">
+        SELECT * FROM tbl_board
+    </select>
+
+
+
+</mapper>

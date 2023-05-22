@@ -1,14 +1,14 @@
 package com.hi.board.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
 
+@Getter
+@Setter
+@ToString
 public class BoardListPage {
 
     // 페이지 당 출력할 게시물의 개수
@@ -63,8 +63,5 @@ public class BoardListPage {
         // 다음 유무 : 현재 구간의 마지막 번호 < realNum 보다 작으면
         this.next = this.endNum < realEndNum;
 
-
     }
-
-
 }
