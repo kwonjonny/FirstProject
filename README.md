@@ -15,3 +15,7 @@
 
 2023.05.18 : 오늘 공부한것 ->MyToyProejct SpringSecurity 쿠키 생성 과 패스워드 분실시 난수로 패스워드 변경후 인증코드 발송
 2023.05.18 : 오늘 수업한것 게시판 RESTAPI CRUD
+
+2023.05.19 오늘 공부한것 ->MyToyProject USERS table 활성상태 추가 -> login delete 로직 수정 
+2023.05.19 오늘 수업한것 게시판 페이징 기술 
+
