@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.mvc.domain.TblBoard;
+import web.mvc.domain.TblBoardUpdateBoardDTO;
 import web.mvc.repository.board.BoardRepository;
 
 @Service
@@ -21,7 +22,7 @@ public class BoardUpdateServiceImpl implements BoardUpdateService {
     // 게시글 업데이트 로직 service
     @Override
     @Transactional
-    public void updateBoard(TblBoard tblBoard) {
-        boardRepository.updateBoard(tblBoard);
+    public void updateBoard(TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO) {
+        boardRepository.updateBoard(tblBoardUpdateBoardDTO);
     }
 }

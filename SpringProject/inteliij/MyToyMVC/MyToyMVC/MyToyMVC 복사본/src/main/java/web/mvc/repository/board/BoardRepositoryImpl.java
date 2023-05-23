@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.mvc.domain.TblBoard;
+import web.mvc.domain.TblBoardUpdateBoardDTO;
 import web.mvc.domain.page.PageOption;
 
 import java.util.HashMap;
@@ -37,8 +38,8 @@ public class BoardRepositoryImpl implements BoardRepository {
 
     // 게시글 업데이트 로직
     @Override
-    public void updateBoard(TblBoard tblBoard) {
-        sqlSession.update("web.mvc.repository.board.BoardRepository.updateBoard", tblBoard);
+    public void updateBoard(TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO) {
+        sqlSession.update("web.mvc.repository.board.BoardRepository.updateBoard", tblBoardUpdateBoardDTO);
     }
 
     // 게시글 삭제 로직

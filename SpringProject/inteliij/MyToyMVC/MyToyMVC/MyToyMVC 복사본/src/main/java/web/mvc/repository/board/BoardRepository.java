@@ -2,6 +2,7 @@ package web.mvc.repository.board;
 
 import org.apache.ibatis.annotations.Mapper;
 import web.mvc.domain.TblBoard;
+import web.mvc.domain.TblBoardUpdateBoardDTO;
 import web.mvc.domain.page.PageOption;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public interface BoardRepository {
     List<TblBoard> selectList(PageOption pageOption);
 
     // 게시글 업데이트 로직
-    void updateBoard(TblBoard tblBoard);
+    void updateBoard(TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO);
 
     // 게시글 리스트 로직
     List<TblBoard> listBoard();

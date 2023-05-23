@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.mvc.domain.TblBoard;
+import web.mvc.domain.TblBoardUpdateBoardDTO;
 import web.mvc.domain.User;
 import web.mvc.service.board.BoardListService;
 import web.mvc.service.board.BoardUpdateListBoardService;
@@ -50,19 +51,17 @@ public class BoardUpdateController {
 
     // post
     @PostMapping
-    public String PostBoardUpdate(Authentication authentication,@ModelAttribute TblBoard tblBoard) {
+    public String PostBoardUpdate(Authentication authentication, @ModelAttribute TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO) {
         log.info("isOkPostBoardUpdate");
 
         // 인증 토큰 객체 가져오기
         User currentUser = (User) authentication.getPrincipal();
 
         if(authentication.isAuthenticated()) {
-            TblBoard newPost = new TblBoard();
+            TblBoardUpdateBoardDTO newPost = new TblBoardUpdateBoardDTO();
             newPost.setUser_id(currentUser.getId());
-            newPost.setTitle(tblBoard.getTitle());
-            newPost.setContent(tblBoard.getContent());
-            newPost.setRegdate(Date.valueOf(LocalDate.now()));
-            newPost.setUpdatedate(Date.valueOf(LocalDate.now()));
+            newPost.setTitle(tblBoardUpdateBoardDTO.getTitle());
+            newPost.setContent(tblBoardUpdateBoardDTO.getContent());
 
             log.info("newPost 값 : " + newPost);
 
