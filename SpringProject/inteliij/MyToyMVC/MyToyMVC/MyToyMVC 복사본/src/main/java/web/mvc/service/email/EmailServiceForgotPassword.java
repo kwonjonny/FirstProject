@@ -26,7 +26,7 @@ public class EmailServiceForgotPassword {
         if (user != null) {
             String from = "thistrik@naver.com";
             // 개인정보 보호
-            String password = "lucy342206!";
+            String password = "";
             String to = user.getEmail();
             String subject = "Account informaiton";
 

@@ -26,7 +26,7 @@ public class EmailServiceCreateUser {
         if (user != null) {
             String from = "thistrik@naver.com";
             // 개인정보 보호
-            String password = "lucy342206!";
+            String password = "";
             String to = user.getEmail();
             String subject = "Welcome Our Member " + user.getUsername();
             String message = "Welcome to our Member, " + user.getUsername() + "님, 회원가입을 축하합니다.\n\n" + "아래는 회원 정보입니다:\n" + "이름: "

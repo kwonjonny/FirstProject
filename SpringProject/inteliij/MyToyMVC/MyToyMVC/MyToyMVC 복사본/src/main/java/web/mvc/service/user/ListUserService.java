@@ -6,6 +6,6 @@ import java.util.List;
 public interface ListUserService {
 
    // 회원 리스트 service
-   public List<User> userList() throws Exception;
+   public List<User> userList(String id) throws Exception;
 
 }

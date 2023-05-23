@@ -23,7 +23,7 @@ public class ListUserServiceImpl implements ListUserService {
     // ListUser service 로직
     @Override
     @Transactional
-    public List<User> userList() throws Exception {
-        return userRepository.listUser();
+    public List<User> userList(String id) throws Exception {
+        return userRepository.listUser(id);
     }
 }

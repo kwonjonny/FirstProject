@@ -45,7 +45,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     // 회원 리스트 로직
     @Override
-    public List<User> listUser() throws Exception {
-        return sqlSession.selectList("web.mvc.repository.user.UserRepository.ListUser");
+    public List<User> listUser(String id) throws Exception {
+        return sqlSession.selectList("web.mvc.repository.user.UserRepository.ListUser", id);
     }
 }

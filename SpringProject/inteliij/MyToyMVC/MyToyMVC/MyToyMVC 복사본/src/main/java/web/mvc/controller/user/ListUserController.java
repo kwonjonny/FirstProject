@@ -41,10 +41,10 @@ public class ListUserController {
         if (authentication.isAuthenticated()) {
             // 인증된 사용자의 처리 로직
             User user = (User) authentication.getPrincipal();
-            List<User> userList = listUserService.userList();
+            List<User> userList = listUserService.userList(user.getId());
             model.addAttribute("users", userList);
 
-
+            log.info("인증 된 사용자 id >>> " + user.getId());
             log.info("인증 된 사용자 >>> : " + user);
 
             return "ListUser";
@@ -52,5 +52,4 @@ public class ListUserController {
             return "redirect:/";
         }
     }
-
 }

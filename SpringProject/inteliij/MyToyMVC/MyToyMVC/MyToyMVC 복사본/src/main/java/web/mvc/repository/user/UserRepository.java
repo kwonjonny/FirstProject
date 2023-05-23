@@ -21,5 +21,5 @@ public interface UserRepository {
     void deleteUser(String id) throws Exception;
 
     // 회원 리스트
-    List<User> listUser() throws Exception;
+    List<User> listUser(String id) throws Exception;
 }

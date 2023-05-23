@@ -36,7 +36,7 @@
 
     <!-- LIST -->
     <select id="ListUser" resultType="web.mvc.domain.User">
-        SELECT * FROM USERS
+        SELECT * FROM USERS WHERE id = #{id}
     </select>
 
 
