@@ -1,6 +1,5 @@
 package com.hi.board.controller;
 
-
 import com.hi.board.domain.BoardListPage;
 import com.hi.board.domain.BoardSearchOption;
 import com.hi.board.service.BoardListService;
@@ -8,42 +7,43 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Log4j2
 @Controller
-@RequestMapping("/board/list")
+@Log4j2
 public class BoardListController {
 
-    private final BoardListService boardListService;
-
     @Autowired
-    public BoardListController(BoardListService boardListService) {
-        this.boardListService = boardListService;
-    }
+    private BoardListService listService;
 
-    @GetMapping
-    public void boardList(@RequestParam(value = "p", defaultValue = "1") int pageNum, Model model
-    , @RequestParam(value="searchType", defaultValue = "") String searchType,
-                          @RequestParam(value = "keyword", defaultValue = "") String keyword,
-                          BoardSearchOption searchOption) {
+    @RequestMapping("/board/list")
+    public void boardList(
+            @RequestParam(value = "p", defaultValue = "1") int pageNum,
+            /*BoardSearchOption searchOption,*/
+            @RequestParam(value = "searchType", defaultValue = "") String searchType,
+            @RequestParam(value = "keyword", defaultValue = "") String keyword,
+            Model model
+    ){
 
-        log.info("/board/list");
+        // http://localhost:8080/board/list?p=1
+        // http://localhost:8080/board/list
 
-        BoardListPage page = boardListService.getPage(pageNum, searchOption);
+        log.info("/board/list ...");
 
-        searchOption = BoardSearchOption.builder().searchType(keyword.trim().length()<1?null : searchType)
-                .keyword(keyword.trim().length()<1?null : keyword).build();
+        BoardSearchOption searchOption = BoardSearchOption
+                .builder()
+                .searchType(keyword.trim().length()<1 ? null : searchType)
+                .keyword(keyword.trim().length()<1 ? null : keyword)
+                .build();
+
+        log.info(">>>>> searchOption : " + searchOption);
+
+        BoardListPage page = listService.getPage(pageNum, searchOption);
 
         log.info(page);
 
-        model.addAttribute("list", boardListService.getBoardList());
+        //model.addAttribute("list", listService.getBoadList());
         model.addAttribute("page", page);
-        boardListService.getBoardList();
-
-
-
     }
 }

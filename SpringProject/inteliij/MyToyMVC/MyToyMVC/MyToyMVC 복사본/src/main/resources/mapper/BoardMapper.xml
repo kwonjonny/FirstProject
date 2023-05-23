@@ -39,10 +39,8 @@
     </select>
 
 
-
-
     <!-- UPDATE BOARD -->
-    <update id="updateBoard" parameterType="web.mvc.domain.TblBoard">
+    <update id="updateBoard" parameterType="web.mvc.domain.TblBoardUpdateBoardDTO">
         UPDATE tbl_board SET title = #{title}, content = #{content}
                              WHERE bno = #{bno} AND user_id =#{user_id}
     </update>
@@ -58,6 +56,7 @@
     <select id="listBoard" resultType="web.mvc.domain.TblBoard">
         SELECT * FROM tbl_board ORDER BY bno DESC
     </select>
+
 
     <!-- LIST UPDATE BOARD -->
    <select id="updateListBoard" resultType="web.mvc.domain.TblBoard">

@@ -1,89 +1,119 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
 <mapper namespace="com.hi.board.mapper.BoardMapper">
 
-    <!-- file_name 파일의 이름을 저장하는 문자열 -->
-    <insert id="insertBoard" parameterType="com.hi.board.domain.RequestRegBoard">
-        insert into tbl_board (title, content, writer, file1)
-        values (#{title}, #{content}, #{writer}, #{filename})
-    </insert>
+    <select id="selectList"
+            parameterType="com.hi.board.domain.PageOption"
+            resultType="com.hi.board.domain.BoardDTO"
+    >
+        select
 
-    <select id="selectList" parameterType="com.hi.board.domain.PageOption"
-            resultType="com.hi.board.domain.BoardDTO">
+        bno, title, content, file, uname as writer, memidx, regdate, updatedate
 
-        select * from tbl_board
+        from tbl_board b, member m
+
         <where>
-            <if test="searchOption.searchType != null and keyword != null">
-                <!-- 제목 검색 -->
-                <if test="searchOption.searchType == 'title'">
-                    title like concat('%', #{searchOption.keyword} , '%')
+
+            <if test="searchOption.searchType !=null and searchOption.keyword != null">
+                <!-- 제목 -->
+                <if test="searchOption.searchType == 'title' ">
+                    title like concat('%', #{searchOption.keyword} ,'%')
                 </if>
 
-                <!-- 내용 검색 -->
-                <if test="searchOption.searchType == 'content'">
-                    content like concat('%', #{searchOption.content} , '%')
+                <!-- 내용 -->
+                <if test="searchOption.searchType == 'content' ">
+                    content like concat('%', #{searchOption.keyword} ,'%')
                 </if>
 
-                <!-- 작성자 검색 -->
-                <if test="searchOption.searchType == 'writer'">
-                    writer like concat('%', #{searchOption.writer} , '%')
+                <!-- 작성자 -->
+                <if test="searchOption.searchType == 'writer' ">
+                    writer like concat('%', #{searchOption.keyword} ,'%')
                 </if>
-
             </if>
+
+            and b.memidx=m.idx
+
         </where>
-        order by bno desc limit #{startNum} , #{count}
+
+        order by bno desc
+        limit #{startNum}, #{count}
     </select>
 
-    <select id="selectTotalCount" parameterType="com.hi.board.domain.BoardSearchOption" resultType="int">
+    <select id="selectTotalCount"
+            parameterType="com.hi.board.domain.BoardSearchOption"
+            resultType="int">
+
         select count(*) from tbl_board
 
         <where>
-            <if test="searchType != null AND keyword != null">
+
+            <if test="searchType != null and keyword != null">
+
                 <if test="searchType == 'title'">
-                    title like concat('%' #{keyword} '%')
+                    title like concat('%', #{keyword} ,'%')
                 </if>
 
                 <if test="searchType == 'content'">
-                    content like concat('%' #{keyword} '%')
+                    content like concat('%', #{keyword} ,'%')
                 </if>
 
                 <if test="searchType == 'writer'">
-                    writer like concat('%' #{keyword} '%')
+                    writer like concat('%', #{keyword} ,'%')
                 </if>
 
             </if>
+
+
         </where>
 
     </select>
 
 
-    <select id="selectAll" resultType="com.hi.board.domain.BoardDTO">
-        SELECT * FROM tbl_board
+    <select id="selectAll"
+            resultType="com.hi.board.domain.BoardDTO"
+    >
+        select * from tbl_board
+    </select>
+
+    <select id="selectByBno"
+            resultType="com.hi.board.domain.BoardDTO"
+    >
+        select
+        bno, title, content, file, uname as writer, memidx, regdate, updatedate
+        from tbl_board b, member m
+        where bno=#{bno} and b.memidx=m.idx
     </select>
 
 
-    <select id="selectByBno" resultType="com.hi.board.domain.BoardDTO">
-        SELECT * FROM tbl_board where bno = #{bno}
-    </select>
+    <insert id="insertBoard"
+            parameterType="com.hi.board.domain.RequestRegBoard">
+
+        <!-- file : 파일의 이름을 저장하는 문자열 -->
+        <!-- writer -> memidx 변경 -->
+        insert into tbl_board (title, content, memidx, file)
+
+        values (#{title}, #{content}, #{memidx}, #{filename})
+
+    </insert>
 
 
-    <update id="updateBoard" parameterType="com.hi.board.domain.RequestModifyRequest">
-        UPDATE tbl_board set title=#{title}, content=#{content}, writer=#{writer}
-        , file1#{filename}, updatedate = now()
+    <update id="updateBoard"
+            parameterType="com.hi.board.domain.RequestModifyRequest">
 
-        where bno = #{bno}
+        update tbl_board
+
+        set title=#{title},
+        content=#{content},
+        file=#{filename},
+        updatedate=now()
+
+        where bno=#{bno}
+
     </update>
 
-
     <delete id="deleteBoard">
-        delete from tbl_board where bno = #{bno}
+        delete from tbl_board where bno=#{no}
     </delete>
-
-
-
-
 
 </mapper>

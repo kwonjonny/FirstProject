@@ -15,33 +15,36 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@Log4j2
 @RequestMapping("/board/modify")
+@Log4j2
 public class BoardModifyController {
 
     @Autowired
-    private BoardReadService boardReadService;
+    private BoardReadService readService;
 
     @Autowired
     private BoardModifyService modifyService;
 
     @GetMapping
-    public void modifyForm(@RequestParam("bno") int bno, Model model) {
-
-        // bno 전달 받고 view로 boardDTO 객체 전달
-        model.addAttribute("board", boardReadService.getBoardDTO(bno));
+    public void modifyForm(
+            @RequestParam("bno") int bno,
+            Model model
+    ){
+        // bno 전달 받고 View 로 BoardDTO 객체 전달
+        model.addAttribute("board", readService.getBoardDTO(bno));
     }
 
     @PostMapping
-    public String modify(RequestModifyRequest modifyRequest, HttpServletRequest request) {
+    public String modify(
+            RequestModifyRequest modifyRequest,
+            HttpServletRequest request
+    ){
+
         log.info(modifyRequest);
 
         modifyService.modifyBoardDTO(modifyRequest, request);
 
-        // 사용자 입력한 boardDto serivce 전달 -> update
-
+        // 사용자 입력한 BoardDTO Service 전달 -> update
         return "redirect:/board/list";
-
     }
-
 }

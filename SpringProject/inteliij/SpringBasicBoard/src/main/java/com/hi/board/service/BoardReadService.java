@@ -11,8 +11,8 @@ public class BoardReadService {
     @Autowired
     private BoardMapper boardMapper;
 
-    public BoardDTO getBoardDTO(int bno) {
-
+    public BoardDTO getBoardDTO(int bno){
         return boardMapper.selectByBno(bno);
     }
+
 }

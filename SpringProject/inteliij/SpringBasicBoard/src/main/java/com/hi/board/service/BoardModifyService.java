@@ -18,44 +18,41 @@ public class BoardModifyService {
     @Autowired
     private BoardMapper boardMapper;
 
-    public int modifyBoardDTO(RequestModifyRequest modifyRequest
-        , HttpServletRequest request) {
+    public int modifyBoardDTO(
+            RequestModifyRequest modifyRequest,
+            HttpServletRequest request
+    ){
 
         // 파일 저장 : 파일이 존재하면 저장
-        if (modifyRequest.getFile1() != null && modifyRequest.getFile1().getSize() > 0) {
+        if(modifyRequest.getFile() != null
+                && modifyRequest.getFile().getSize()>0 ){
 
             // 웹 경로
             String uri = "/uploadfile/board";
-
             // 실제경로
             String realPath = request.getSession().getServletContext().getRealPath(uri);
-
-            // 새로운 파일 이름 생성
-            String newFilename = UUID.randomUUID().toString()+modifyRequest.getFile1().getOriginalFilename();
-
+            // 새로운 파일 이름
+            String newFilename = UUID.randomUUID().toString()+modifyRequest.getFile().getOriginalFilename();
             // 저장
             File newFile = new File(realPath, newFilename);
-
-            // filename 속성에 새로운 파일 이름을 저장
             try {
-                modifyRequest.getFile1().transferTo(newFile);
-
+                modifyRequest.getFile().transferTo(newFile);
+                // filename 속성에 새로운 파일 이름을 저장
                 modifyRequest.setFilename(newFilename);
             } catch (IOException e) {
-                // throw new RuntimeException(e);
-                // filename oldfile이 가지고있는 파일 이름 설정
+                //throw new RuntimeException(e);
+                // filename oldfile이 가지고 있는 파일 이름 설정
                 modifyRequest.setFilename(modifyRequest.getOldfile());
-                throw new RuntimeException(e);
             }
-
         } else {
-            // filename 속성에 이전 업로드 되어있는 파일 이름 저장
+            // filename 속성에 이전 업로드된 파일 이름을 저장
             modifyRequest.setFilename(modifyRequest.getOldfile());
         }
-        // mapper.update
+
         log.info(modifyRequest);
 
-    return  boardMapper.updateBoard(modifyRequest);
+        // BoaerMapper update 요청
+        return boardMapper.updateBoard(modifyRequest);
     }
 
 }

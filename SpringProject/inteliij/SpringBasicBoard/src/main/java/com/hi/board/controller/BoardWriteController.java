@@ -11,31 +11,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
-@Log4j2
 @Controller
 @RequestMapping("/board/write")
+@Log4j2
 public class BoardWriteController {
 
-    private final BoardWriteService boardWriteService;
-
     @Autowired
-    public BoardWriteController(BoardWriteService boardWriteService) {
-        this.boardWriteService = boardWriteService;
-    }
+    private BoardWriteService writeService;
 
     @GetMapping
-    public void getBoardWrite() {
-        log.info("GET /board/write");
+    public void getWriteForm(){
+        log.info("GET   /board/write");
     }
 
     @PostMapping
-    public String write(RequestRegBoard requestRegBoard, HttpServletRequest request) {
-        log.info("POST /board/write");
+    public String write(
+            RequestRegBoard board,
+            HttpServletRequest request
+    ){
+        log.info("POST   /board/write");
+        log.info(board);
 
-        log.info(requestRegBoard);
-
-        boardWriteService.writeBoard(requestRegBoard, request);
+        writeService.writeBoard(board, request);
 
         return "redirect:/board/list";
+
     }
+
 }

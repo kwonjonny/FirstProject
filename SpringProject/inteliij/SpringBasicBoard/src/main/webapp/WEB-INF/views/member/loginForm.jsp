@@ -12,25 +12,23 @@
 </head>
 <body>
 
-
 <h1>로그인</h1>
 <hr>
 <form method="post">
-<tr>
-    <td>아이디</td>
-    <td><input type="text" name="uid"> </td>
-</tr>
-
-    <tr>
-        <td>비밀번호</td>
-        <td><input type="password" name="pw" ></td>
-    </tr>
-
-    <tr>
-        <td></td>
-        <td><input type="submit"></td>
-    </tr>
-
+    <table>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="uid"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="password" name="pw"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="로그인"></td>
+        </tr>
+    </table>
 
 </form>
 

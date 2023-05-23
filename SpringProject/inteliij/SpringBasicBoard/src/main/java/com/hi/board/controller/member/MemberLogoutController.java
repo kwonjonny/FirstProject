@@ -6,20 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
-@Log4j2
 @Controller
+@Log4j2
 public class MemberLogoutController {
 
     @RequestMapping("/logout")
-    public String  logout(HttpSession session) {
-
-        session.invalidate();
+    public String logout(
+            HttpSession session
+    ){
 
         log.info("/logout ...");
-        
+        session.invalidate();
+
         return "redirect:/login";
     }
-
-
-
 }

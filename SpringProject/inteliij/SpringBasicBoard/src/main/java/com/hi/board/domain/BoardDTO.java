@@ -4,8 +4,8 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Data
+@ToString
 @Builder
 public class BoardDTO {
 
@@ -13,10 +13,11 @@ public class BoardDTO {
     private String title;
     private String content;
     private String writer;
-
     // 업로드한 파일의 이름
+    private String file;
     private String regdate;
     private String updatedate;
 
-    private String file1;
+    // 작성자의 idx
+    private int memidx;
 }

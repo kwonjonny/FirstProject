@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BoardReadController {
 
     @Autowired
-    private BoardReadService boardReadService;
-
-
+    private BoardReadService readService;
 
     @RequestMapping("/board/read")
-    public void read(@RequestParam("bno") int bno, Model model) {
+    public void read(
+            @RequestParam("bno") int bno,
+            Model model
+    ){
         log.info("/board/read");
-        model.addAttribute("article", boardReadService.getBoardDTO(bno));
+
+        model.addAttribute("article", readService.getBoardDTO(bno));
+
     }
 }

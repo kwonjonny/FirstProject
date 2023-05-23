@@ -9,23 +9,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
-@Log4j2
 @Controller
-@RequestMapping
+@Log4j2
 public class BoardDeleteController {
 
     @Autowired
     private BoardDeleteService deleteService;
 
-
     @RequestMapping("/board/delete")
-    public String deleteBoard(@RequestParam("bno") int bno, HttpServletRequest request) {
-
-
+    public String deleteBoard(
+            @RequestParam("bno") int bno,
+            HttpServletRequest request
+    ){
         log.info("/board/delete : " + bno);
+
         deleteService.deleteBoard(bno, request);
 
         return "redirect:/board/list";
     }
-
 }

@@ -7,49 +7,49 @@ import com.hi.board.domain.PageOption;
 import com.hi.board.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 public class BoardListService {
 
-    public final BoardMapper boardMapper;
-
-    // page 개수 제한
-    private final int countPerPage = 5;
-
     @Autowired
-    public BoardListService(BoardMapper boardMapper) {
-        this.boardMapper = boardMapper;
-    }
+    private BoardMapper boardMapper;
 
-    @Transactional
-    public List<BoardDTO> getBoardList() {
+    private final int countPerPage = 5; // 한 페이지에 담을 게시물의 개수
+
+
+    public List<BoardDTO> getBoadList(){
         return boardMapper.selectAll();
     }
 
-    public BoardListPage getPage(int pageNum, BoardSearchOption searchOption) {
-        //  현재 요청 페이지
+    public BoardListPage getPage(int pageNum, BoardSearchOption searchOption){
+        // 현재 요청 페이지
         int requestPageNum = pageNum;
 
-        PageOption pageOption = PageOption.builder().boardSearchOption(searchOption).startNum((requestPageNum -1)*countPerPage)
-                        .count(countPerPage).build();
+        PageOption pageOption = PageOption.builder()
+                .searchOption(searchOption)
+                .startNum((requestPageNum-1)*countPerPage)
+                .count(countPerPage)
+                .build();
 
         // 요청 페이지의 리스트 항목 : List<BoardDTO>
+        //List<BoardDTO> list = boardMapper.selectList((requestPageNum-1)*countPerPage, countPerPage);
         List<BoardDTO> list = boardMapper.selectList(pageOption);
-        boardMapper.selectList((requestPageNum -1)*countPerPage, countPerPage);
-        int totalCount = boardMapper.selectTotalCount();
+        int totalCount = boardMapper.selectTotalCount(searchOption);
+        // 전체 게시글 개수 -> 전체 페이지의 개수
 
         BoardListPage page = new BoardListPage(
-                countPerPage, requestPageNum, list, totalCount);
+                countPerPage,
+                requestPageNum,
+                list,
+                totalCount
+        );
 
         return page;
+
     }
+
+
+
 }
-
-
-
-
-
-
