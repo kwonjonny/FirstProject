@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="seucrity" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,14 +52,15 @@
         <c:forEach items="${boardList}" var="board">
             <tr>
                 <td>${board.bno}</td>
-                <td>${board.title}</td>
+                <td><a href="/boardContact?bno=${board.bno}">${board.title}${board.content}</a></td>
                 <td>${board.content}</td>
                 <td>${board.user_id}</td>
                 <td>${board.regdate}</td>
                 <td>${board.updatedate}</td>
                 <td>
 
-                    <!-- 작업 버튼 추가 -->
+                    <!-- 수정, 삭제 작업버튼 ROLE_USER 에게만 보여준다 -->
+                    <seucrity:authorize access="hasRole('ROLE_USER')">
                     <form action="/boardUpdate" method="get" style="display: inline;">
                         <input type="hidden" name="bno" value="${board.bno}">
                         <button type="submit" class="btn btn-warning">수정</button>
@@ -69,6 +71,8 @@
                         <input type="hidden" name="bno" value="${board.bno}">
                         <button type="submit" class="btn btn-danger">삭제</button>
                     </form>
+                    </seucrity:authorize>
+
 
                 </td>
             </tr>

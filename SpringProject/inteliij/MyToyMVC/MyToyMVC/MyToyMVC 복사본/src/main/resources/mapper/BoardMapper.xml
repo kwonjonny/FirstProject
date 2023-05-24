@@ -63,5 +63,9 @@
        SELECT * FROM tbl_board WHERE bno = #{bno} AND user_id = #{user_id}
    </select>
 
+    <!-- List Read board Content -->
+    <select id="boardContent" resultType="web.mvc.domain.TblBoard">
+        SELECT * FROM tbl_Board WHERE bno = #{bno}
+    </select>
 
 </mapper>

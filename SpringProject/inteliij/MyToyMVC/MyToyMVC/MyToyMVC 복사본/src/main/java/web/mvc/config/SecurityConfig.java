@@ -32,7 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
                 .antMatchers("/", "/custom-login", "/logout", "/CreateUser",
                  "/forgotPassword", "/waiting", "/create", "/resendCode", "/send-temp-password",
-                 "/sendTempPassword", "/boardList", "BoardList", "/BoardRead", "/boardRead").permitAll()
+                 "/sendTempPassword", "/boardList", "BoardList", "/BoardRead", "/boardRead",
+                 "/boardContact", "/BoardContent").permitAll()
                 .anyRequest().authenticated()
         .and()
         .formLogin().successHandler(successHandler)

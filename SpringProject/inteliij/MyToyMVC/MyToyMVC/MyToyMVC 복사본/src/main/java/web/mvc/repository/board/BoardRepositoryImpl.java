@@ -1,6 +1,7 @@
 package web.mvc.repository.board;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.mvc.domain.TblBoard;
@@ -64,5 +65,11 @@ public class BoardRepositoryImpl implements BoardRepository {
         parameters.put("user_id", user_id);
         parameters.put("bno", bno);
         return sqlSession.selectOne("web.mvc.repository.board.BoardRepository.updateListBoard",parameters);
+    }
+
+    // 게시물 보기 로직
+    @Override
+    public TblBoard boardContent(int bno) {
+        return sqlSession.selectOne("web.mvc.repository.board.BoardRepository.boardContent", bno);
     }
 }

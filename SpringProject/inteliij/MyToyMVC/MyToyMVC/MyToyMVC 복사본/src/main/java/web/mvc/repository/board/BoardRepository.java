@@ -28,4 +28,7 @@ public interface BoardRepository {
 
     // 게시글 업데이트 리스트 로직
     TblBoard updateListBoard(String user_id, int bno);
+
+    // 게시물 보기 로직
+    TblBoard boardContent(int bno);
 }

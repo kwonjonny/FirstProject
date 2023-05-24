@@ -66,6 +66,7 @@ dependencies {
     // Spring Security
     implementation group: 'org.springframework.security', name: 'spring-security-config', version: '5.6.1'
     implementation group: 'org.springframework.security', name: 'spring-security-web', version: '5.6.1'
+    implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.6.1'
 
 }
 
