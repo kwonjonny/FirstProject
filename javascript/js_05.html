@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        function callTenTimes(callBack) {
+            // 매개변수로 함수를 전달 받을 수 있다 
+            // 전달 받은 함수 => 콜백 함수 
+            // 함수 내부에서 필요한 시점에 콜백 함수 호출 
+
+            let sum = 0
+
+            for(let i=0; i<10; i++) {
+                console.log(i)
+                callBack(i)
+                sum = sum + i
+            }
+            
+            callBack(sum)
+
+        }
+
+        let fn = function(result) {
+            console.log('작업이 끝나고 호출할 함수', result)
+        }
+
+        function fn1(result) {
+            console.log(result)
+        }
+
+        // callTenTimes(fn)
+
+        callTenTimes (function (num)  {
+            console.log('num', num)
+        })
+
+        let arr1 = [10,20,30,40]
+        
+        // arr1.forEach(function(value, index, originArr) {
+        //     console.log(value, index, originArr)
+        // });
+
+        //  for(let i=0; i<arr1.length; i++) {
+        // /    callbacfn(arr[0], i, arr1)
+        //  }
+
+
+        // arr1.forEach (function(value) {
+        //     console.log('배열의 내부 요소 값', value)
+        // })
+
+
+        // arr1.forEach (function(value, index) {
+        //     console.log(index, value)
+        // })
+
+        // for(let i=0; i<arr1.length; i++) {
+        //     callBackfn(arr[i], 1, arr1)
+        // }
+
+        // Array.map(callbackfn)
+        // => 콜백 함수에서 반환하는 값으로 새로운 배열을 생성해서 반환 
+
+        let arr2 = arr1.map(function() {
+            // 10, 20, 30, 40
+            return num*10  // => [100*0, 200*1, 300*2, 400*3]
+            // [0, 200, 600, 1200]
+            
+        })
+
+        console.log('map() =>', arr2)
+        // Array.filter(callbackfn)
+        // 콜백 함수의 반환 값을 논리값
+        // 반환된 논리값이 true인 배열의 요소값들을 모아서 새로운 배열을 생성 
+
+        let arr3 = arr1.filter(function(va1, index) {
+            // 30보다 작은 값들만 모아서 생성 조건 
+            // return val<30 
+            return index%2 == 1
+        })
+
+        console.log(' filter() => ' , arr3)
+
+        // 배열의 체이닝 처리 
+        // arr1.filter().map().forEach()
+
+        // 특정 시간이 지나고 실행하는 함수
+        // setTimeout(fn,ms)
+        setTimeout(function(){
+            console.log('3초 후에 실행된 ')
+        },3000)
+
+
+        // 지정된 시간간격을 두고 간격이 지나면 반복 실행되는 함수 
+        let id = setInterval(function() {
+            console.log('2초 간격으로 실행되는 함수')
+        }, 2000)
+
+
+       setTimeout(function() {
+        clearInterval(id)
+       },10000)
+
+       
+       // 화살표 함수 : 익명함수를 간단하게 처리 
+       let fn11 = function(num) {
+        return num*num
+       }
+
+       let fn12 = (num) => num * num
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
