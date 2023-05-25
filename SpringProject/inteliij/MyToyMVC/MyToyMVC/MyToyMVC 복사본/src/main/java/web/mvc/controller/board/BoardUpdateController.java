@@ -6,17 +6,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import web.mvc.domain.TblBoard;
 import web.mvc.domain.TblBoardUpdateBoardDTO;
 import web.mvc.domain.User;
-import web.mvc.service.board.BoardListService;
 import web.mvc.service.board.BoardUpdateListBoardService;
 import web.mvc.service.board.BoardUpdateService;
-
-import java.sql.Date;
-import java.time.LocalDate;
-import java.util.List;
 
 @Log4j2
 @Controller
@@ -60,6 +53,7 @@ public class BoardUpdateController {
         if(authentication.isAuthenticated()) {
             TblBoardUpdateBoardDTO newPost = new TblBoardUpdateBoardDTO();
             newPost.setUser_id(currentUser.getId());
+            newPost.setBno((tblBoardUpdateBoardDTO.getBno()));
             newPost.setTitle(tblBoardUpdateBoardDTO.getTitle());
             newPost.setContent(tblBoardUpdateBoardDTO.getContent());
 

@@ -18,6 +18,7 @@ public class BoardUpdateListBoardServiceImpl implements BoardUpdateListBoardServ
         this.boardRepository = boardRepository;
     }
 
+    // Board update 로직 service
     @Override
     @Transactional
     public TblBoard updateListBoard(String user_id, int bno) {

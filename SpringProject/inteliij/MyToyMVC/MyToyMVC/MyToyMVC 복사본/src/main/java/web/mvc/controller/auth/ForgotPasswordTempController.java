@@ -35,9 +35,18 @@ public class ForgotPasswordTempController {
 
         String email = request.getParameter("email");
         User user = emailServiceForgot.findByEmailTempPassword(email);
-        if (user != null && user.getStatus().equals("ACTIVE")) {
-            return "loginUser";
-        }
-        return "redirect:/";
+        if (user == null) {
+            log.info("User 정보가 없음");
+            // 유저 정보가 없는 경우에 대한 처리
+            return "redirect:/";
+        } else if (user.getStatus() == null) {
+            log.info("User의 Status가 null");
+            // 유저의 status가 null인 경우에 대한 처리
+            return "redirect:/";
+        } else if (user.getStatus().trim().equals("ACTIVE")) {
+            log.info("Status = 활성화 유저");
+            log.info(user.getStatus());
+            // 활성화 된 유저에 대한 처리
+        } return "loginUser";
     }
 }

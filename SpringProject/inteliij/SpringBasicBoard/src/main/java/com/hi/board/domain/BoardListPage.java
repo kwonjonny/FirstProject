@@ -56,13 +56,11 @@ public class BoardListPage {
         // endNum
         this.endNum = realEndNum < this.endNum ? realEndNum : this.endNum;
 
-
         // 이전 유무
         this.prev = this.startNum > 1;
 
         // 다음 유무 : 현재 구간의 마지막 번호  < realEndNum
         this.next = this.endNum < realEndNum;
+        
     }
-
-
 }

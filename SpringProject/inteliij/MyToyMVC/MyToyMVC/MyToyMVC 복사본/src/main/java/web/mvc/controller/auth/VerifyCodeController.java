@@ -50,8 +50,8 @@ public class VerifyCodeController {
             int storedAuthCode = ManagementSession.getSessionAuthCode(request);
             if (inputAuthCode == storedAuthCode) {
                 createUserService.createUser(user);
-                ManagementSession.setSession(request, user);
-                ManagementSession.removeAuthCode(request);
+                ManagementSession.setSessionUser(request, user);
+                ManagementSession.removeSessionAuthCode(request);
                 return "redirect:/";
             }
         }

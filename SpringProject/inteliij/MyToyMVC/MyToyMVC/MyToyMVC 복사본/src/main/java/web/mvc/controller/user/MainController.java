@@ -14,5 +14,4 @@ public class MainController {
         log.info("isOkGetMain");
         return "Main";
     }
-
 }

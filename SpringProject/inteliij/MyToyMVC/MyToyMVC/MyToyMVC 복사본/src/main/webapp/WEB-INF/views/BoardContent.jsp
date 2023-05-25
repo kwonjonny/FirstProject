@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +20,7 @@
             <th>제     목</th>
             <th>내     용</th>
             <th>작  성  자</th>
-            <th>작   업</th>
+            <th><security:authorize access="hasRole('ROLE_USER')">작 업</security:authorize> </th>
         </tr>
         </thead>
         <tbody>
@@ -31,8 +30,10 @@
             <td>${content.user_id}</td>
             <td>
 
+
                 <!-- 수정, 삭제 작업버튼 ROLE_USER 에게만 보여준다 -->
                 <security:authorize access="hasRole('ROLE_USER')">
+                    <c:if test="${content.user_id eq currentUserId}">
                 <form action="/boardUpdate" method="get" style="display: inline;">
                     <input type="hidden" name="bno" value="${content.bno}">
                     <button type="submit" class="btn btn-warning">수정</button>
@@ -41,6 +42,7 @@
                     <input type="hidden" name="bno" value="${content.bno}">
                     <button type="submit" class="btn btn-danger">삭제</button>
                 </form>
+                    </c:if>
                 </security:authorize>
 
 

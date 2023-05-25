@@ -36,7 +36,6 @@ public class BoardRepositoryImpl implements BoardRepository {
         return sqlSession.selectList("web.mvc.repository.board.BoardRepository.selectList", pageOption);
     }
 
-
     // 게시글 업데이트 로직
     @Override
     public void updateBoard(TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO) {

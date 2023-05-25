@@ -23,7 +23,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     // LoginService interface 인스턴스 변수 정의
     private final LoginService loginService;
-    private  UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
 
     // LoginService interface 인스턴스 변수 초기화 매개변수로 받는 생성자 정의
@@ -40,6 +40,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         // 아이디와 패스워드 가져온다
         String id = authentication.getName();
         String password = authentication.getCredentials().toString();
+
 
         // 아이디와 패스워드 로그 찍기
         log.info("Authentication 메소드  id: " + id + ", Password: " + password);
@@ -63,11 +64,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
 
         // User 가 활성화일때 비활성화일때
-        if(user.getStatus().equals("INACTIVE")) {
-            log.info(user.getStatus().equals("INACTIVE"));
-            throw new BadCredentialsException("비활성화 된 유저이다");
+        if(user.getStatus().trim().equals("ACTIVE")) {
+            log.info("Status = 활성화 된 유저이다");
+            log.info(user.getStatus());
         } else {
-            log.info("활성화 된 유저이다");
+            log.info("Status = 비활성화 된 유저이다");
+            log.info(user.getStatus());
+            throw new BadCredentialsException("비활성화 된 유저이다");
         }
 
         // 인증 성공 시 사용자에게 부여할 권한을 설정

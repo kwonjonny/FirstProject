@@ -38,5 +38,4 @@ public class BoardDeleteController {
         }
         return "redirect:/";
     }
-
 }

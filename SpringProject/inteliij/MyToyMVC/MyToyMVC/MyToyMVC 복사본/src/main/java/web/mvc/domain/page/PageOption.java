@@ -8,6 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PageOption {
+
     private String searchType;
     private String keyword;
+
 }

@@ -15,9 +15,7 @@ public class TblBoard {
     private int bno;
     private String title;
     private String content;
-
     private Date regdate;
     private Date updatedate;
-
     private String user_id;
 }

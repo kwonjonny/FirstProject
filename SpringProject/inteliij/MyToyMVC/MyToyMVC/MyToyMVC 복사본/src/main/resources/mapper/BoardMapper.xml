@@ -5,6 +5,7 @@
 
 <mapper namespace="web.mvc.repository.board.BoardRepository">
 
+
     <!-- CREATE BOARD -->
     <insert id="createBoard" parameterType="web.mvc.domain.TblBoard">
        INSERT INTO tbl_board (title, content, user_id) VALUES (#{title}, #{content}, #{user_id})
@@ -35,14 +36,15 @@
             </if>
         </where>
 
-        order by bno desc
+        ORDER BY bno DESC
     </select>
 
 
     <!-- UPDATE BOARD -->
     <update id="updateBoard" parameterType="web.mvc.domain.TblBoardUpdateBoardDTO">
-        UPDATE tbl_board SET title = #{title}, content = #{content}
-                             WHERE bno = #{bno} AND user_id =#{user_id}
+        UPDATE tbl_board
+        SET title = #{title}, content = #{content}, updatedate = SYSDATE
+        WHERE bno = #{bno} AND user_id = #{user_id}
     </update>
 
 
@@ -63,9 +65,11 @@
        SELECT * FROM tbl_board WHERE bno = #{bno} AND user_id = #{user_id}
    </select>
 
-    <!-- List Read board Content -->
+
+    <!-- LIST READ BOARD CONTENT -->
     <select id="boardContent" resultType="web.mvc.domain.TblBoard">
         SELECT * FROM tbl_Board WHERE bno = #{bno}
     </select>
+
 
 </mapper>

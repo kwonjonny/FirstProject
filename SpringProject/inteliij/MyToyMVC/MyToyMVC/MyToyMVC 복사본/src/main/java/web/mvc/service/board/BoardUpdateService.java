@@ -1,6 +1,5 @@
 package web.mvc.service.board;
 
-import web.mvc.domain.TblBoard;
 import web.mvc.domain.TblBoardUpdateBoardDTO;
 
 public interface BoardUpdateService {

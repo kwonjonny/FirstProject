@@ -2,13 +2,12 @@ package web.mvc.controller.board;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.security.core.Authentication;
 import web.mvc.domain.TblBoard;
 import web.mvc.domain.User;
 import web.mvc.service.board.BoardCreateService;
@@ -40,7 +39,7 @@ public class BoardCreateController {
 
     // post
     @PostMapping
-    public String postCreateBoard(Authentication authentication,@ModelAttribute TblBoard tblBoard) {
+    public String postCreateBoard(Authentication authentication, @ModelAttribute TblBoard tblBoard) {
         log.info("isOkPostCreateBoard");
 
         // 인증 토큰 객체 가져오기

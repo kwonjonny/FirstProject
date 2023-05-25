@@ -16,7 +16,7 @@ public class EmailSender {
         props.put("mail.smtp.starttls.enable", "true"); // TLS 보안 연결 사용
         props.put("mail.smtp.host", "smtp.naver.com"); // naver SMTP 서버 주소
         props.put("mail.smtp.port", "587"); // naver SMTP 서버 포트번호
-        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2"); // Eclipse 에서는 TLsv1.2 설정 안해줘도 됬지만 Intellij 에서는 설정 해줘야한다
 
 
         // SMTP 서버 인증을 위한 Authenticator 객체 생성

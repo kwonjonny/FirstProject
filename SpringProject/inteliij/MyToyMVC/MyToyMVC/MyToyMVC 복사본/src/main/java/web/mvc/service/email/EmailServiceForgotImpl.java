@@ -25,7 +25,7 @@ public class EmailServiceForgotImpl implements EmailServiceForgot {
     @Transactional
     public User findByEmail(String email) throws Exception {
         User user = emailRepository.findByEmail(email);
-        if(user != null && user.getStatus().equals("ACTIVE")) {
+        if(user != null && user.getStatus() != null && user.getStatus().trim().equals("ACTIVE")) {
             EmailServiceForgotPassword.getInstance().sendEmailForgotPassword(user);
         }
         return user;
@@ -37,7 +37,7 @@ public class EmailServiceForgotImpl implements EmailServiceForgot {
     @Transactional
     public User findByEmailTempPassword(String email) throws Exception {
        User user = emailRepository.findByEmail(email);
-       if (user != null && user.getStatus().equals("ACTIVE")) {
+       if (user != null && user.getStatus() != null && user.getStatus().trim().equals("ACTIVE")) {
            // user 패스워드 난수 업데이트
            String newPassword = PasswordGenerator.getInstance().generateTempPassword();
            user.setPassword(newPassword);

@@ -39,11 +39,4 @@ public class PasswordGenerator {
 
         return tempPassword;
     }
-
-    // 난수 생성 확인 Main
-    public static void main(String [] args) {
-        PasswordGenerator passwordGenerator1 = PasswordGenerator.getInstance();
-        String tempPassword = passwordGenerator1.generateTempPassword().toString();
-        log.info("난수 password : " + tempPassword);
-    }
 }

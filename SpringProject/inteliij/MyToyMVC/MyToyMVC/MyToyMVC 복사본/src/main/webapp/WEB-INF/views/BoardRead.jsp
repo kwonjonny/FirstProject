@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-    <h2>Search Result</h2>
+    <h2>Board Read</h2>
     <hr>
 
     <table class="table table-bordered">
@@ -22,7 +23,7 @@
             <th>작  성  자</th>
             <th>등록   날짜</th>
             <th>수정   일시</th>
-            <th>작   업</th>
+            <th><security:authorize access="hasRole('ROLE_USER')">작 업</security:authorize> </th>
         </tr>
         </thead>
         <tbody>
@@ -35,14 +36,24 @@
                 <td>${board.regdate}</td>
                 <td>${board.updatedate}</td>
                 <td>
+
+
+                    <!-- 수정, 삭제 작업버튼 ROLE_USER 에게만 보여준다 -->
+                    <security:authorize access="hasRole('ROLE_USER')">
+                        <c:if test="${board.user_id eq currentUserId}">
                     <form action="/boardUpdate" method="get" style="display: inline;">
                         <input type="hidden" name="bno" value="${board.bno}">
                         <button type="submit" class="btn btn-warning">수정</button>
                     </form>
+
                     <form action="/boardDelete" method="post" style="display: inline;">
                         <input type="hidden" name="bno" value="${board.bno}">
                         <button type="submit" class="btn btn-danger">삭제</button>
                     </form>
+                        </c:if>
+                    </security:authorize>
+
+
                 </td>
             </tr>
         </c:forEach>

@@ -50,7 +50,7 @@ public class CreateUserController {
         user.setVerified(false);
         int authCode = emailServiceVerifyCode.sendEmailVerifyCode(user);
         // session 인증 코드와 USER 정보 저장 - > waiting.jsp로 전달
-        ManagementSession.setSession(request, user);
+        ManagementSession.setSessionUser(request, user);
         ManagementSession.setSessionAuthCode(request, authCode);
 
         // redirect waiting.jsp

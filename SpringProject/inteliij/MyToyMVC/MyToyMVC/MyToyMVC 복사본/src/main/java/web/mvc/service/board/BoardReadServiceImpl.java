@@ -22,7 +22,6 @@ public class BoardReadServiceImpl implements BoardReadService {
         this.boardRepository = boardRepository;
     }
 
-
     // 게시글 찾기 로직 service
     @Override
     @Transactional

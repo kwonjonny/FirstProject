@@ -29,6 +29,33 @@
         .warning-message {
             color: red;
         }
+
+        /* 다크 모드 스타일 */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .container.dark-mode {
+            color: #fff;
+        }
+
+        .btn.dark-mode {
+            background-color: #333;
+            border-color: #333;
+            color: #fff;
+        }
+
+        .btn.dark-mode:hover {
+            background-color: #555;
+            border-color: #555;
+        }
+
+        .alert.dark-mode {
+            background-color: #444;
+            border-color: #333;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -59,6 +86,8 @@
             <button type="submit" class="btn btn-primary">게시판</button>
         </form>
 
+        <!-- 다크 모드 토글 버튼 -->
+        <button id="darkModeToggle" class="btn btn-dark-mode">다크 모드</button>
     </div>
 </div>
 
@@ -72,7 +101,12 @@
             warningMessage.style.display = 'block';
         }
     }
-</script>
 
-</body>
-</html>
+    // 다크 모드 토글 기능
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    darkModeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+    });
+</script>
