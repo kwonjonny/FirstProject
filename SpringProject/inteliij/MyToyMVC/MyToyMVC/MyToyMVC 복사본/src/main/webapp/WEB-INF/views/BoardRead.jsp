@@ -37,7 +37,6 @@
                 <td>${board.updatedate}</td>
                 <td>
 
-
                     <!-- 수정, 삭제 작업버튼 ROLE_USER 에게만 보여준다 -->
                     <security:authorize access="hasRole('ROLE_USER')">
                         <c:if test="${board.user_id eq currentUserId}">

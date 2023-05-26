@@ -31,7 +31,7 @@
 
                 <!-- 작성자 검색 -->
                 <if test="searchType == 'user_id'">
-                    and user_id like '%' || #{keyword} || '%'
+                    and user_id = #{keyword}
                 </if>
             </if>
         </where>
@@ -56,7 +56,9 @@
 
     <!-- LIST BOARD   -->
     <select id="listBoard" resultType="web.mvc.domain.TblBoard">
-        SELECT * FROM tbl_board ORDER BY bno DESC
+        SELECT *
+        FROM tbl_board
+        ORDER BY bno DESC
     </select>
 
 
@@ -71,5 +73,10 @@
         SELECT * FROM tbl_Board WHERE bno = #{bno}
     </select>
 
+
+    <!-- GET TOTAL COUNT -->
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*) FROM tbl_board
+    </select>
 
 </mapper>

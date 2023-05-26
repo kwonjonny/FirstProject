@@ -1,6 +1,8 @@
 package web.mvc.service.board;
 
 import org.apache.ibatis.annotations.Mapper;
+import web.mvc.domain.BoardListPage;
+import web.mvc.domain.PageOptions;
 import web.mvc.domain.TblBoard;
 
 import java.util.List;

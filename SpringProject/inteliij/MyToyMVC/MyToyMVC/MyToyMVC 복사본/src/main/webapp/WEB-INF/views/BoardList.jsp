@@ -21,7 +21,7 @@
             <select class="form-control" id="searchType" name="searchType">
                 <option value="title">제목</option>
                 <option value="content">내용</option>
-                <option value="writer">작성자</option>
+                <option value="user_id">작성자</option>
             </select>
         </div>
         <input type="text" name="keyword">
@@ -81,6 +81,21 @@
         </c:forEach>
         </tbody>
     </table>
+    <!-- Pagination -->
+    <div>
+        Page: ${boardListPage.currentPage} / ${boardListPage.totalPages}
+        <c:forEach begin="1" end="${boardListPage.totalPages}" var="page">
+            <c:choose>
+                <c:when test="${page == boardListPage.currentPage}">
+                    ${page} <!-- 현재 페이지는 링크를 생성하지 않습니다 -->
+                </c:when>
+                <c:otherwise>
+                    <a href="/boardList?page=${page}&size=${boardListPage.size}">${page}</a>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+    </div>
+
 </div>
 </body>
 </html>

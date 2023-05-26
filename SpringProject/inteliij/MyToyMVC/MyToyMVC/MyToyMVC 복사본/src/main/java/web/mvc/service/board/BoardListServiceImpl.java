@@ -3,7 +3,10 @@ package web.mvc.service.board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import web.mvc.domain.BoardListPage;
+import web.mvc.domain.PageOptions;
 import web.mvc.domain.TblBoard;
+import web.mvc.domain.page.PageOption;
 import web.mvc.repository.board.BoardRepository;
 
 import java.util.List;
@@ -22,8 +25,8 @@ public class BoardListServiceImpl implements BoardListService {
 
     // 게시글 리스트 로직 service
     @Override
-    @Transactional
     public List<TblBoard> listBoard() {
         return boardRepository.listBoard();
     }
+
 }

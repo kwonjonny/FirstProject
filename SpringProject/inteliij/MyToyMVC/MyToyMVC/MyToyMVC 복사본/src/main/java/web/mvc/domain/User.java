@@ -14,12 +14,12 @@ public class User {
 
     // instance 변수 정의
     // USERS table
-    private String username;     // user name
-    private String email;        // user email
-    private String id;           // user id
-    private String password;     // user password
+    private String username;                // user name
+    private String email;                   // user email
+    private String id;                      // user id
+    private String password;                // user password
     private Integer passwordChangeInterval; // user passwordChangeInterval
-    private Date last_password_change;  // user last_password_change
-    private boolean isVerified;         // user email 인증 요소
-    private String status;              // user 활성상태
+    private Date last_password_change;      // user last_password_change
+    private boolean isVerified;             // user email 인증 요소
+    private String status;                  // user 활성상태
 }

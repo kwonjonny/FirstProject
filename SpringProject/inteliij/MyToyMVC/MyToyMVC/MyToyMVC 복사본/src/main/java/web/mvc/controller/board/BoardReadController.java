@@ -37,8 +37,12 @@ public class BoardReadController {
         log.info("isOkPostBoardRead");
 
         authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
-        String currentUserId = user.getId();
+        Object principal = authentication.getPrincipal();
+        if (principal instanceof User) {
+            User user = (User) principal;
+            String currentUserId = user.getId();
+            model.addAttribute("currentUserId", currentUserId);
+        }
 
         PageOption searchOption = PageOption.builder()
                 .searchType(keyword.trim().length() < 1 ? null : searchType)
@@ -48,7 +52,6 @@ public class BoardReadController {
         List<TblBoard> boardList = boardReadService.getBoardList(searchOption);
 
         model.addAttribute("list", boardList);
-        model.addAttribute("currentUserId", currentUserId);
         return "BoardRead";
     }
 }

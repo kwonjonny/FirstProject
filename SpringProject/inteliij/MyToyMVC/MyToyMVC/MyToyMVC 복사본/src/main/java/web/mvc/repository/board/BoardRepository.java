@@ -6,7 +6,6 @@ import web.mvc.domain.TblBoardUpdateBoardDTO;
 import web.mvc.domain.page.PageOption;
 
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 public interface BoardRepository {

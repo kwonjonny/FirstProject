@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import web.mvc.domain.PageOptions;
 import web.mvc.domain.TblBoard;
 import web.mvc.domain.User;
 import web.mvc.service.board.BoardListService;
@@ -30,9 +31,9 @@ public class BoardListController {
 
     // get
     @GetMapping
-    public String getBoardList(Model model, Authentication authentication) {
+    public String getBoardList(Model model, Authentication authentication,
+                               PageOptions pageOptions) {
         log.info("isOkGetBoardList");
-
 
         authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();

@@ -3,6 +3,7 @@ package web.mvc.controller.board;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,16 +30,16 @@ public class BoardContentController {
 
     @GetMapping
     public String getBoardContact(Model model, @RequestParam("bno") int bno,
-                                  Authentication authentication) {
+                                  @AuthenticationPrincipal User currentUser) {
         log.info("isOkGetBoardContent");
 
-        authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
-        String currentUserId = user.getId();
+        if (currentUser != null) {
+            String currentUserId = currentUser.getId();
+            model.addAttribute("currentUserId", currentUserId);
+        }
 
         TblBoard content = boardContentService.boardContent(bno);
         model.addAttribute("content", content);
-        model.addAttribute("currentUserId", currentUserId);
         return "BoardContent";
     }
 }

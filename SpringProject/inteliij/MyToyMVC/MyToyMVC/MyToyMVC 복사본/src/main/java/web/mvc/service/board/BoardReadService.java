@@ -10,4 +10,5 @@ public interface BoardReadService {
 
     // 게시글 찾기 로직 service
     List<TblBoard> getBoardList(PageOption pageOption);
+
 }
