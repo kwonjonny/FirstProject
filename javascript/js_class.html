@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 클래스의 정의 : 이름, 국어, 영어, 수학
+        class Student {
+
+            // 생성자 정의 
+            constructor(name, kor, eng, math){
+                this.name = name;
+                this.kor = kor;
+                this.eng = eng;
+                this.math = math;
+            }
+            // 기능 정의 : 함수 생성 
+            // 총점을 구해서 반환하는 메소드 
+            getSum(){
+                return this.kor + this.eng + this.math
+            }
+
+            // 메소드 : 평균점수 반환 해주는 
+            getAvg(){
+                return this.getSum()/3
+            }
+
+            toString(){
+                return `${this.name}, ${this.kor}, ${this.eng}, ${this.math}, ${this.getSum()}, ${this.getAvg()}`
+            }
+        }
+
+        let s1 = new Student('KING', 100, 90, 80)
+    
+        let jsonStr1 = JSON.stringify(s1)
+        console.log('jsonStr1 ', jsonStr1)
+
+        console.log('s1', s1.toString(), typeof s1)
+
+
+        const students = []
+        students.push(s1)
+        students.push(new Student('SCOTT', 100, 50, 30))
+        console.log(students)
+
+        students.forEach( (student) => {
+            console.log(student.toString())
+        }) 
+
+        let jsonStr2 = JSON.stringify(students)
+        console.log('students', jsonStr2)
+
+        class Rectangle {
+
+            // 생성자 정의 : 폭, 높이 
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+            }
+
+            getPrimeter() {
+                return (this.width + this.height)*2
+            }
+
+            getArea() {
+                return this.width * this.height
+            }
+        }
+
+        // 정사각형 : 가로 == 세로 
+        class Sqaure extends Rectangle {
+
+            constructor(length) {
+                super(length, length)
+            }
+
+        }
+
+        let square1 = new Sqaure(20) 
+        console.log(' 사각형의 둘레 ' , square1.getPrimeter())
+        console.log(' 사각형의 너비', square1.getArea())
+        console.log(square1)
+
+        let square2 = new Sqaure(10)
+        console.log(' 사각형의 둘레 ', square2.getPrimeter())
+        console.log(' 사각형의 너비 ', square2.getArea())
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
