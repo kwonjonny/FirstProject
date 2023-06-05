@@ -10,4 +10,9 @@
         SELECT * FROM USERS WHERE id = #{id} AND password = #{password}
     </select>
 
+    <!-- Spring Security => loadUserByUsername -->
+    <select id="loadUserByUsername" parameterType="java.lang.String" resultType="web.mvc.domain.User">
+        SELECT * FROM USERS WHERE id = #{value}
+    </select>
+
 </mapper>

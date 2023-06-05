@@ -3,9 +3,10 @@ package web.mvc.repository.board;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import web.mvc.domain.PageOption;
 import web.mvc.domain.TblBoard;
 import web.mvc.domain.TblBoardUpdateBoardDTO;
-import web.mvc.domain.page.PageOption;
+import web.mvc.domain.page.BoardSearchOption;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,49 +26,44 @@ public class BoardRepositoryImpl implements BoardRepository {
 
     // 게시글 생성 로직
     @Override
-    public void createBoard(TblBoard tblBoard) {
+    public void createBoard(TblBoard tblBoard) throws Exception {
         sqlSession.insert("web.mvc.repository.board.BoardRepository.createBoard", tblBoard);
     }
 
     // 게시글 찾기 로직
     @Override
-    public List<TblBoard> selectList(PageOption pageOption) {
+    public List<TblBoard> selectList(PageOption pageOption) throws Exception {
         return sqlSession.selectList("web.mvc.repository.board.BoardRepository.selectList", pageOption);
+    }
+
+    @Override
+    public int selectTotalCount(BoardSearchOption searchOption) throws Exception {
+        return sqlSession.selectOne("web.mvc.repository.board.BoardRepository.selectTotalCount", searchOption);
+    }
+
+    @Override
+    public List<TblBoard> selectAll() throws Exception {
+        return sqlSession.selectList("web.mvc.repository.board.BoardRepository.selectAll");
+    }
+
+    @Override
+    public TblBoard selectByBno(int bno) throws Exception {
+        return sqlSession.selectOne("web.mvc.repository.board.BoardRepository.selectByBno", bno);
     }
 
     // 게시글 업데이트 로직
     @Override
-    public void updateBoard(TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO) {
+    public void updateBoard(TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO) throws Exception {
         sqlSession.update("web.mvc.repository.board.BoardRepository.updateBoard", tblBoardUpdateBoardDTO);
     }
 
     // 게시글 삭제 로직
     @Override
-    public void deleteBoard(String user_id , int bno) {
+    public void deleteBoard(String user_id , int bno) throws Exception {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("user_id", user_id);
         parameters.put("bno", bno);
         sqlSession.delete("web.mvc.repository.board.BoardRepository.deleteBoard", parameters);
     }
 
-    // 게시글 리스트 로직
-    @Override
-    public List<TblBoard> listBoard() {
-        return sqlSession.selectList("web.mvc.repository.board.BoardRepository.listBoard");
-    }
-
-    // 게시글 업데이트 리스트 로직
-    @Override
-    public TblBoard updateListBoard(String user_id, int bno) {
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("user_id", user_id);
-        parameters.put("bno", bno);
-        return sqlSession.selectOne("web.mvc.repository.board.BoardRepository.updateListBoard",parameters);
-    }
-
-    // 게시물 보기 로직
-    @Override
-    public TblBoard boardContent(int bno) {
-        return sqlSession.selectOne("web.mvc.repository.board.BoardRepository.boardContent", bno);
-    }
 }

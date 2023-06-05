@@ -8,4 +8,7 @@ public interface UserLoginRepository {
 
     // 유저 로그인
     User login(String id, String password) throws Exception;
+
+    // Spring Security => loadUserByUsername
+    User loadUserByUsername(String id) throws Exception;
 }

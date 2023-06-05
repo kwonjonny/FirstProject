@@ -1,10 +1,7 @@
 package web.mvc.service.board;
 
-import java.util.Map;
-
 public interface BoardDeleteService {
 
-    // 게시글 삭제 로직 service
-    void deleteBoard(String user_id, int bno);
-
+    // BoardDelete service
+    void deleteBoard(String user_id, int bno) throws Exception;
 }

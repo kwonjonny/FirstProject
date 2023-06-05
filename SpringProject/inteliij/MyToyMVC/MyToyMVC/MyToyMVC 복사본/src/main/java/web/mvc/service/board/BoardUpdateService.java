@@ -4,7 +4,6 @@ import web.mvc.domain.TblBoardUpdateBoardDTO;
 
 public interface BoardUpdateService {
 
-    // 게시글 업데이트 로직 service
-    void updateBoard(TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO);
-
+    // BoardUpdate service
+    void updateBoard(TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO) throws Exception;
 }

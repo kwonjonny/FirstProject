@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let option = localStorage.getItem('option')
+
+        console.log(option, JSON.parse(option))
+
+        let optionOjb = JSON.parse(option)
+
+        console.log('type', optionOjb.type)
+        console.log('count', optionOjb.count)
+        console.log('check', optionOjb.check)
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

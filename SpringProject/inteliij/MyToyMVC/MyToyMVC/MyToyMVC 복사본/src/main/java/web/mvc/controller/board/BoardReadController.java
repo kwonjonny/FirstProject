@@ -6,22 +6,18 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import web.mvc.domain.TblBoard;
 import web.mvc.domain.User;
-import web.mvc.domain.page.PageOption;
 import web.mvc.service.board.BoardReadService;
-
-import java.util.List;
 
 @Log4j2
 @Controller
 @RequestMapping("/boardRead")
 public class BoardReadController {
 
-    // BoardRaedService interface 인스턴스 변수 정의
+    // BoardReadService interface 인스턴스 변수 정의
     private final BoardReadService boardReadService;
 
     // BoardReadService interface 인스턴스 변수 초기화 매개변수로 받는 생성자
@@ -30,28 +26,24 @@ public class BoardReadController {
         this.boardReadService = boardReadService;
     }
 
-    @PostMapping
-    public String postBoardRead(Model model, @RequestParam(value = "searchType", defaultValue = "") String searchType,
-                  @RequestParam(value = "keyword", defaultValue = "") String keyword,
-                  Authentication authentication) {
-        log.info("isOkPostBoardRead");
+    // get
+    @GetMapping
+    public String getBoardRead(@RequestParam("bno") int bno, Model model, Authentication authentication) throws Exception {
+        // 로그 출력
+        log.info("isOkGetBoardRead");
 
+        // model 객체에 "article" 으로 jsp 에 전달하고 boardReadService 호출 값 전달
+        model.addAttribute("article", boardReadService.selectByBno(bno));
+
+        // 유저의 인증 객체 가져온다
+        // 만약 유저가 로그인 했을시에 user 의 인증 토큰 객체를 model 에 currentUserId 로 저장하여 jsp 에 전달 
         authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
-        if (principal instanceof User) {
+        if(principal instanceof User) {
             User user = (User) principal;
             String currentUserId = user.getId();
             model.addAttribute("currentUserId", currentUserId);
         }
-
-        PageOption searchOption = PageOption.builder()
-                .searchType(keyword.trim().length() < 1 ? null : searchType)
-                .keyword(keyword.trim().length() < 1 ? null : keyword)
-                .build();
-
-        List<TblBoard> boardList = boardReadService.getBoardList(searchOption);
-
-        model.addAttribute("list", boardList);
-        return "BoardRead";
+        return "BoardReadPage";
     }
 }

@@ -8,12 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import web.mvc.domain.PageOptions;
-import web.mvc.domain.TblBoard;
+import org.springframework.web.bind.annotation.RequestParam;
+import web.mvc.domain.BoardListPage;
 import web.mvc.domain.User;
+import web.mvc.domain.page.BoardSearchOption;
 import web.mvc.service.board.BoardListService;
 
-import java.util.List;
 
 @Log4j2
 @Controller
@@ -31,21 +31,37 @@ public class BoardListController {
 
     // get
     @GetMapping
-    public String getBoardList(Model model, Authentication authentication,
-                               PageOptions pageOptions) {
+    public String getBoardList(@RequestParam(value = "p", defaultValue = "1") int pageNum,
+                               @RequestParam(value = "searchType", defaultValue = "") String searchType,
+                               @RequestParam(value = "keyword", defaultValue = "") String keyword,
+                               Model model, Authentication authentication) throws Exception {
+        // 로그 출력
         log.info("isOkGetBoardList");
 
+        // user 의 인증 토큰 객체 가져온다
         authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
+        // principal 객체가 user 클래스의 인스턴스인지 확인 하고
+        // user 의 id 를 가져온다 있는 경우 모델 객체에 currentUserId 저장
         if(principal instanceof User) {
             User user = (User) principal;
             String currentUserId = user.getId();
             model.addAttribute("currentUserId", currentUserId);
         }
 
-        List<TblBoard> boardList =  boardListService.listBoard();
-        model.addAttribute("boardList", boardList);
+        // builder() 를 사용하여 searchType 과 keyword 값 지정 없는 경우 null
+        BoardSearchOption searchOption = BoardSearchOption
+                .builder()
+                .searchType(keyword.trim().length() <1 ? null : searchType)
+                .keyword(keyword.trim().length() <1 ? null : keyword)
+                .build();
 
-        return "BoardList";
+        // boardListService 호출 값 전달
+        BoardListPage page = boardListService.getPage(pageNum, searchOption);
+
+        // model 객체에 page 저장
+        model.addAttribute("page", page);
+
+        return "BoardListPage";
     }
 }

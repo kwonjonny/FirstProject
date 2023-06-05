@@ -1,16 +1,16 @@
 package web.mvc.domain;
 
 import lombok.*;
-import web.mvc.domain.page.PageOption;
+import web.mvc.domain.page.BoardSearchOption;
 
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageOptions {
+public class PageOption {
 
-    private PageOption pageOption;
+    private BoardSearchOption boardSearchOption;
     private int startNumber;
     private int count;
 

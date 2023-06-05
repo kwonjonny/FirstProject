@@ -2,6 +2,7 @@ package web.mvc.repository.login;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 import web.mvc.domain.User;
 
@@ -24,5 +25,11 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
         user.setId(id);
         user.setPassword(password);
         return sqlSession.selectOne("web.mvc.repository.login.UserLoginRepository.login", user);
+    }
+
+    // Spring Security => loadUserByUsername
+    @Override
+    public User loadUserByUsername(String id) throws Exception {
+        return sqlSession.selectOne("web.mvc.repository.login.UserLoginRepository.loadUserByUsername", id);
     }
 }

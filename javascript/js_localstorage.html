@@ -9,8 +9,23 @@
 <script>
 
     let userName = 'cool'
+
+    let option = {
+        type : 'AAAA',
+        count : 1,
+        check : false 
+    }
+   
     localStorage.setItem('userName', 'hot')
     let userId = localStorage.getItem('userId')
+    console.log(userId)
+
+    localStorage.removeItem('userName')
+
+    localStorage.clear()
+
+    localStorage.setItem('option', JSON.stringify(option))
+
 
 </script>
 

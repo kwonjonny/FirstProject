@@ -7,7 +7,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageOption {
+public class BoardSearchOption {
 
     private String searchType;
     private String keyword;

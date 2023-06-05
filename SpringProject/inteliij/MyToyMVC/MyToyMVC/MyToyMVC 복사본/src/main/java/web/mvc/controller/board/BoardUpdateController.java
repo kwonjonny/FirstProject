@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import web.mvc.domain.TblBoardUpdateBoardDTO;
 import web.mvc.domain.User;
-import web.mvc.service.board.BoardUpdateListBoardService;
+import web.mvc.service.board.BoardReadService;
 import web.mvc.service.board.BoardUpdateService;
 
 @Log4j2
@@ -16,49 +16,52 @@ import web.mvc.service.board.BoardUpdateService;
 @RequestMapping("/boardUpdate")
 public class BoardUpdateController {
 
-    // BoardListService interface 인스턴스 변수 정의
+    // BoardReadService interface 인스턴스 변수 정의
+    // BoardUpdateService interface 인스턴스 변수 정의
+    private final BoardReadService boardReadService;
     private final BoardUpdateService boardUpdateService;
-    // BoardUpdateListService interface 인스턴스 변수 정의
-    private final BoardUpdateListBoardService boardUpdateListBoardService;
 
-    // BoardListService, BoardUpdateService interface 인스턴스 변수 초기화 매개변수로 받는 생성자
+    // BoardReadService interface 인스턴스 변수 초기화 매개변수로 받는 생성자
+    // BoardUpdateService interface 인스턴스 변수 초기화 매개변수로 받는 생성자
     @Autowired
-    public BoardUpdateController(BoardUpdateService boardUpdateService, BoardUpdateListBoardService boardUpdateListBoardService) {
+    public BoardUpdateController(BoardReadService boardReadService, BoardUpdateService boardUpdateService) {
         this.boardUpdateService = boardUpdateService;
-        this.boardUpdateListBoardService = boardUpdateListBoardService;
+        this.boardReadService = boardReadService;
     }
 
     // get
     @GetMapping
-    public String getBoardUpdate(Authentication authentication, @RequestParam("bno") int bno, Model model) {
+    public String getBoardUpdate(@RequestParam("bno") int bno, Model model) throws Exception {
+        // 로그 출력
         log.info("isOkGetBoardUpdate");
-        String userId = ((User) authentication.getPrincipal()).getId();
-
-        if(authentication.isAuthenticated()) {
-           model.addAttribute("board", boardUpdateListBoardService.updateListBoard(userId, bno));
-
-            return "BoardUpdate";
-        }
-        return "BoardList";
+        // model 객체에 "boardUpdate" 으로 jsp 에 전달하고 boardReadService 호출 값 전달
+        model.addAttribute("boardUpdate", boardReadService.selectByBno(bno));
+        return "BoardUpdatePage";
     }
 
     // post
     @PostMapping
-    public String PostBoardUpdate(Authentication authentication, @ModelAttribute TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO) {
+    public String postBoardUpdate(@ModelAttribute TblBoardUpdateBoardDTO tblBoardUpdateBoardDTO,
+                                  Authentication authentication) throws Exception {
+        // 로그 출력
         log.info("isOkPostBoardUpdate");
 
         // 인증 토큰 객체 가져오기
         User currentUser = (User) authentication.getPrincipal();
 
+        // 만약 인증이 되었을시에는 user 의 id를 가져와 값을 넣어준다
         if(authentication.isAuthenticated()) {
             TblBoardUpdateBoardDTO newPost = new TblBoardUpdateBoardDTO();
+
             newPost.setUser_id(currentUser.getId());
             newPost.setBno((tblBoardUpdateBoardDTO.getBno()));
             newPost.setTitle(tblBoardUpdateBoardDTO.getTitle());
             newPost.setContent(tblBoardUpdateBoardDTO.getContent());
 
-            log.info("newPost 값 : " + newPost);
+            // 로그 출력
+            log.info("newPost 값 " + newPost);
 
+            // boardUpdateService 호출 값 전달
             boardUpdateService.updateBoard(newPost);
         }
         return "redirect:/boardList";

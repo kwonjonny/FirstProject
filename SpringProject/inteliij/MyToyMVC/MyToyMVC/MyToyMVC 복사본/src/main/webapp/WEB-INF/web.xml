@@ -6,6 +6,7 @@
 
 
 
+    <!-- session time out 30 min -->
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

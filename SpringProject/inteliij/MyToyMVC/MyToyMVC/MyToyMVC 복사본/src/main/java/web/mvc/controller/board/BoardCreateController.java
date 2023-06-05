@@ -2,12 +2,10 @@ package web.mvc.controller.board;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import web.mvc.domain.TblBoard;
 import web.mvc.domain.User;
 import web.mvc.service.board.BoardCreateService;
@@ -19,7 +17,6 @@ import java.time.LocalDate;
 @Controller
 @RequestMapping("/boardCreate")
 public class BoardCreateController {
-    // boardList.jsp 에서는 /board/create 로 지정
 
     // BoardCreateService interface 인스턴스 변수 정의
     private final BoardCreateService boardCreateService;
@@ -32,32 +29,34 @@ public class BoardCreateController {
 
     // get
     @GetMapping
-    public String getCreateBoard() {
-        log.info("isOkCreateBoard");
-        return "BoardCreate";
+    public String getBoardCreate() {
+        log.info("isOkGetBoardCreate");
+        return "BoardCreatePage";
     }
 
     // post
     @PostMapping
-    public String postCreateBoard(Authentication authentication, @ModelAttribute TblBoard tblBoard) {
-        log.info("isOkPostCreateBoard");
+    public String postBoardCreate(@ModelAttribute TblBoard tblBoard,
+                                  Authentication authentication) throws Exception {
+        // 로그 출력
+        log.info("isOkPostBoardCreate");
 
         // 인증 토큰 객체 가져오기
         User currentUser = (User) authentication.getPrincipal();
 
-        if (authentication.isAuthenticated()) {
-
+        // 만약 인증이 되었을시에는 user 의 id를 가져와 값을 넣어준다
+        if(authentication.isAuthenticated()) {
             TblBoard newPost = new TblBoard();
-
             newPost.setTitle(tblBoard.getTitle());
             newPost.setContent(tblBoard.getContent());
-            newPost.setRegdate(Date.valueOf(LocalDate.now()));
-            newPost.setUpdatedate(Date.valueOf(LocalDate.now()));
             newPost.setUser_id(currentUser.getId());
 
+            // 로그 출력
             log.info("newPost 값 : " + newPost);
 
+            // boardCreateService 호출 값 전달
             boardCreateService.createBoard(newPost);
+
         }
         return "redirect:/boardList";
     }

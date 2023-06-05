@@ -32,7 +32,8 @@ public class ListUserController {
     }
 
     @GetMapping
-    public String getList(Model model, HttpServletRequest request) throws Exception {
+    public String getList(Model model) throws Exception {
+        // 로그 출력
         log.info("isOkGetList");
 
         // 인증 객체 가져오기
@@ -41,11 +42,13 @@ public class ListUserController {
         if (authentication.isAuthenticated()) {
             // 인증된 사용자의 처리 로직
             User user = (User) authentication.getPrincipal();
+            // service 호출 값 전달
             List<User> userList = listUserService.userList(user.getId());
+            // model 객체에 'users' 저장
             model.addAttribute("users", userList);
 
+            // 로그 출력
             log.info("인증 된 사용자 id >>> " + user.getId());
-            log.info("인증 된 사용자 >>> : " + user);
 
             return "ListUser";
         } else {

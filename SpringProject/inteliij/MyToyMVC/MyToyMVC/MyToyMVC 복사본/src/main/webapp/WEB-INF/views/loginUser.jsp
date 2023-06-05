@@ -23,8 +23,8 @@
         </div>
 
         <div class="form-group">
-            <input type="checkbox" id="rememberMe" name="rememberMe" value="true">
-            <label for="rememberMe">Remember Me</label>
+            <input type="checkbox" id="remember-me" name="remember-me" value="true">
+            <label for="remember-me">Remember Me</label>
         </div>
 
         <button type="submit" class="btn btn-primary">Login</button>

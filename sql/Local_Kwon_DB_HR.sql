@@ -1,4 +1,14 @@
 
+CREATE TABLE STUDENT ( 
+id varchar2(255) not null,
+password varchar(255) not null
+);
+
+select * from  student;
+drop table student;
+commit;
+
+
 select * from USERS;
 
 -- 회원 테이블 
@@ -59,6 +69,11 @@ END;
 
 ALTER TABLE tbl_board
 MODIFY (regdate DATE DEFAULT SYSDATE, updatedate DATE DEFAULT SYSDATE);
+
+ALTER TABLE tbl_board ADD filename VARCHAR(255);
+ALTER TABLE tbl_board DROP COLUMN filename;
+commit;
+
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

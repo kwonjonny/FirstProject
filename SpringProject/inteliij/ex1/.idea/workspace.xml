@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="71e87bdc-26d9-442c-a571-3f478c32a555" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/ReplyRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/member/IdCheckController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/ReplyDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/ReplyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/ReplyInsertService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/ReplyReadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/member/MemberIdCheckService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ClientEx1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ClientEx2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ServerEx1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ServerEx2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardContentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardCreateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardDeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardDeleteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardReadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardReadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/board/BoardUpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/ListUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/ListUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/controller/user/UpdateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/domain/PageOptions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/domain/TblBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/domain/TblBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/domain/TblBoardUpdateBoardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/domain/TblBoardUpdateBoardDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/domain/page/PageOption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/repository/board/BoardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/repository/board/BoardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/repository/board/BoardRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/repository/board/BoardRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/repository/login/UserLoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/repository/login/UserLoginRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/repository/login/UserLoginRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/repository/login/UserLoginRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/CustomAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/auth/CustomAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardContentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardContentServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardCreateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardCreateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardCreateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardCreateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardDeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardDeleteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardDeleteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardDeleteServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardListServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardListServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardReadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardReadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardReadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardReadServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardUpdateListBoardService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardUpdateListBoardServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardUpdateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardUpdateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardUpdateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/java/web/mvc/service/board/BoardUpdateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/resources/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/resources/mapper/LoginMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/resources/mapper/LoginMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/BoardContent.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/BoardCreate.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/BoardList.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/BoardRead.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/BoardUpdate.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/loginUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/views/loginUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyToyMVC/MyToyMVC/MyToyMVC 복사본/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/BoardMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/MemberMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/member/regist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/member/regist.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../javascript/js_event2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../javascript/js_event2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../javascript/js_localstorage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../javascript/js_localstorage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jspProject/MVC2/src/main/java/controller/auth/VerifyCodeControllerUrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../jspProject/MVC2/src/main/java/controller/auth/VerifyCodeControllerUrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sql/Local_Kwon_DB_HR.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../sql/Local_Kwon_DB_HR.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2QlT20lFMyuuoxCo7wrvIar79B9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "C:/Users/hi/Documents/GitHub/FirstProject/SpringProject/inteliij/ex1/src/Main.java",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.ClientEx2">
+    <configuration name="ClientEx1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientEx1" />
+      <module name="ex1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientEx2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientEx2" />
+      <module name="ex1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ex1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerEx1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerEx1" />
+      <module name="ex1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerEx2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerEx2" />
+      <module name="ex1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ClientEx2" />
+        <item itemvalue="Application.ServerEx2" />
+        <item itemvalue="Application.ServerEx1" />
+        <item itemvalue="Application.ClientEx1" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="71e87bdc-26d9-442c-a571-3f478c32a555" name="Changes" comment="" />
+      <created>1685926959410</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685926959410</updated>
+      <workItem from="1685926960135" duration="8732000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -5,38 +5,38 @@
 
 <mapper namespace="web.mvc.repository.board.BoardRepository">
 
-
     <!-- CREATE BOARD -->
     <insert id="createBoard" parameterType="web.mvc.domain.TblBoard">
        INSERT INTO tbl_board (title, content, user_id) VALUES (#{title}, #{content}, #{user_id})
     </insert>
 
 
-    <!-- READ BOARD -->
-    <select id="selectList" parameterType="web.mvc.domain.page.PageOption"
+    <select id="selectList" parameterType="web.mvc.domain.PageOption"
             resultType="web.mvc.domain.TblBoard">
-        select * from tbl_board
-
+        <bind name="limit" value="startNumber + count" />
+        WITH numbered_rows AS (
+        SELECT t.*, ROW_NUMBER() OVER (ORDER BY bno DESC) AS row_num
+        FROM tbl_board t
         <where>
-            <if test="searchType != null and keyword != null">
+            <if test="boardSearchOption.searchType != null and boardSearchOption.keyword != null">
                 <!-- 제목 검색 -->
-                <if test="searchType == 'title'">
-                    and title like '%' || #{keyword} || '%'
+                <if test="boardSearchOption.searchType == 'title'">
+                    AND title LIKE '%' || #{boardSearchOption.keyword} || '%'
                 </if>
 
                 <!-- 내용 검색 -->
-                <if test="searchType == 'content'">
-                    and content like '%' || #{keyword} || '%'
+                <if test="boardSearchOption.searchType == 'content'">
+                    AND content LIKE '%' || #{boardSearchOption.keyword} || '%'
                 </if>
 
                 <!-- 작성자 검색 -->
-                <if test="searchType == 'user_id'">
-                    and user_id = #{keyword}
+                <if test="boardSearchOption.searchType == 'user_id'">
+                    AND user_id = #{boardSearchOption.keyword}
                 </if>
             </if>
         </where>
-
-        ORDER BY bno DESC
+        )
+        SELECT * FROM numbered_rows WHERE row_num BETWEEN #{startNumber} AND #{limit}
     </select>
 
 
@@ -54,29 +54,25 @@
     </delete>
 
 
-    <!-- LIST BOARD   -->
-    <select id="listBoard" resultType="web.mvc.domain.TblBoard">
-        SELECT *
-        FROM tbl_board
+    <!-- SELECT BY BNO  -->
+    <select id="selectByBno" resultType="web.mvc.domain.TblBoard">
+        SELECT * FROM tbl_board
+        WHERE bno = #{bno}
+    </select>
+
+
+    <!-- SELECT ALL  -->
+    <select id="selectAll" resultType="web.mvc.domain.TblBoard">
+        SELECT * FROM tbl_board
         ORDER BY bno DESC
     </select>
 
 
-    <!-- LIST UPDATE BOARD -->
-   <select id="updateListBoard" resultType="web.mvc.domain.TblBoard">
-       SELECT * FROM tbl_board WHERE bno = #{bno} AND user_id = #{user_id}
-   </select>
-
-
-    <!-- LIST READ BOARD CONTENT -->
-    <select id="boardContent" resultType="web.mvc.domain.TblBoard">
-        SELECT * FROM tbl_Board WHERE bno = #{bno}
+    <!-- SELECT TOTAL COUNT -->
+    <select id="selectTotalCount" resultType="int" parameterType="web.mvc.domain.page.BoardSearchOption">
+        SELECT COUNT(*)
+        FROM tbl_board
     </select>
 
-
-    <!-- GET TOTAL COUNT -->
-    <select id="getTotalCount" resultType="int">
-        SELECT COUNT(*) FROM tbl_board
-    </select>
 
 </mapper>

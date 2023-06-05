@@ -23,14 +23,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     // LoginService interface 인스턴스 변수 정의
     private final LoginService loginService;
-    private UserDetailsService userDetailsService;
-
 
     // LoginService interface 인스턴스 변수 초기화 매개변수로 받는 생성자 정의
     @Autowired
     public CustomAuthenticationProvider(LoginService loginService) {
         this.loginService = loginService;
     }
+
 
     // 인증 메소드
     @Override

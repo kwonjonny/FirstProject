@@ -37,7 +37,7 @@ public class UpdateUserController {
 
     // get
     @GetMapping
-    public String getUpdate(HttpServletRequest request, Model model) {
+    public String getUpdate(Model model) {
         log.info("isOkGetUpdate");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.isAuthenticated()) {

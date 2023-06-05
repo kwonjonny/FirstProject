@@ -3,6 +3,7 @@ package com.hi.board.mapper;
 import com.hi.board.domain.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -27,5 +28,6 @@ public interface BoardMapper {
     int updateBoard(RequestModifyRequest modifyRequest);
 
     int deleteBoard(int bno);
+
 
 }
